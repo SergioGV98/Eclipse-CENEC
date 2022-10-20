@@ -19,7 +19,7 @@ public class OperacionesLogicas {
 		int tallaPie;
 		int numero;
 		
-		//Parte 1
+		//Parte 1 - 1
 		System.out.println("Introduce un numero");
 		n1 = Integer.parseInt(sc.nextLine());
 		n1Original = n1;
