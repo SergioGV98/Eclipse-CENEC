@@ -11,13 +11,15 @@ public class ControlFlujo {
 
 		//Variables
 		//boolean genero;
-		char genero;
+		char genero = ' ';
 		byte opcion;
 		
-		System.out.println("Escribeme H si eres hombre o " +
-		"M si eres mujer o N si eres género neutro");
+		while(genero != 'h' && genero != 'H' && genero != 'm' && genero != 'M' && genero != 'n' && genero != 'N') {
+			System.out.println("Escribeme H si eres hombre o " +
+			"M si eres mujer o N si eres género neutro");
+			genero=sc.nextLine().charAt(0);
+		}
 		
-		genero=sc.nextLine().charAt(0);
 		
 		switch (genero) {
 		
