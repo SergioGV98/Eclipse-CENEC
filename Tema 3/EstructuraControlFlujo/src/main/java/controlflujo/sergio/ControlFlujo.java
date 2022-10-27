@@ -10,25 +10,56 @@ public class ControlFlujo {
 		Scanner sc = new Scanner(System.in);
 
 		//Variables
-		boolean genero;
+		//boolean genero;
+		char genero;
 		byte opcion;
 		
 		System.out.println("Escribeme H si eres hombre o " +
-		"M si eres mujer");
+		"M si eres mujer o N si eres género neutro");
+		
+		genero=sc.nextLine().charAt(0);
+		
+		switch (genero) {
+		
+			case 'h':
+				System.out.println("Bienvenido al programa");
+				break;
+			case 'm':
+				System.out.println("Bienvenida al programa");
+				break;
+			case 'n':
+				System.out.println("Bienvenide al programa");
+				break;
+			case 'H':
+				System.out.println("Bienvenido al programa");
+				break;
+			case 'M':
+				System.out.println("Bienvenida al programa");
+				break;
+			case 'N':
+				System.out.println("Bienvenide al programa");
+				break;
+			default:
+				System.out.println("Debiste poner h o H | m o M | n o N");
+				break;
+		}
+		
+		
 		
 		//boolean genero = (sc.nextLine().equals("H")?true:false);
 		
+		/*
 		if(sc.nextLine().equals("H")) {
 			System.out.println("Eres hombre.");
 			genero=true;
 		} else {
 			System.out.println("Eres mujer.");
 			genero=false;
-		}
+		}*/
 		
 		//Programa
-		System.out.println("Escribeme una palabra que no sea \"Cermuzo\"");
-		String palabra = sc.nextLine();
+		/*System.out.println("Escribeme una palabra que no sea \"Cermuzo\"");
+		String palabra = sc.nextLine();*/
 		
 		/*if(palabra.length() > 8) {
 			System.out.println("No me gustan las palabras tan largas.");
@@ -38,7 +69,7 @@ public class ControlFlujo {
 			System.out.println("Bonita palabra.");
 		} */
 		
-		System.out.println("Bienvenid" + (genero?"o":"a") +", " + "Has puesto la palabra: " +palabra + 
+		/*System.out.println("Bienvenid" + (genero?"o":"a") +", " + "Has puesto la palabra: " +palabra + 
 				", ¿Que quieres hacer"  +  " con ella?" 
 				+ "\n\t1 - Invertir la palabra"
 				+ "\n\t2 - Codificar la palabra");
@@ -59,9 +90,7 @@ public class ControlFlujo {
 			default:
 				System.out.println("Debiste elegir 1 o 2");
 				break;
-		}
-		
-		
+		}*/	
 		
 		}	
 	}
