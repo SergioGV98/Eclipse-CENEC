@@ -21,22 +21,13 @@ public class ControlFlujo {
 		
 		switch (genero) {
 		
-			case 'h':
+			case 'h', 'H':
 				System.out.println("Bienvenido al programa");
 				break;
-			case 'm':
+			case 'm', 'M':
 				System.out.println("Bienvenida al programa");
 				break;
-			case 'n':
-				System.out.println("Bienvenide al programa");
-				break;
-			case 'H':
-				System.out.println("Bienvenido al programa");
-				break;
-			case 'M':
-				System.out.println("Bienvenida al programa");
-				break;
-			case 'N':
+			case 'n', 'N':
 				System.out.println("Bienvenide al programa");
 				break;
 			default:
