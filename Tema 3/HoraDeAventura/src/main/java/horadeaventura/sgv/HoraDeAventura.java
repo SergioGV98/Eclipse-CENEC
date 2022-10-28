@@ -17,13 +17,13 @@ public class HoraDeAventura {
 		// Empieza la aventura
 		System.out.println("Estamos en CENEC un pacifico dia en clase." + "\n Y de repente, cae del tragaluz"
 				+ "una jirafa con gafas de sol y manos, \n"
-				+ "Una botella de vodka en una mano y una bandurria en la otra mano" + "\n ¿Como reaccionas?" +
-				// Eleccion 01
-				"\n\t1 - Decirle: ¡Vamonos de fiesta!" + "\n\t2 - Intentar robarle el vozkza"
+				+ "Una botella de vodka en una mano y una bandurria en la otra mano" + "\n ¿Como reaccionas?" 
+				+"\n\t1 - Decirle: ¡Vamonos de fiesta!" 
+				+ "\n\t2 - Intentar robarle el vozkza"
 				+ "\n\t3 - Pegarle con la bandurria en la cabeza");
 
 		while (opcionElegida != 1 && opcionElegida != 2 && opcionElegida != 3) {
-			// Opcion elegida
+			// Opcion elegida [1-3]
 			System.out.println("Elige una opcion del [1-3]");
 			opcionElegida = Byte.parseByte(sc.nextLine());
 		}
@@ -36,7 +36,8 @@ public class HoraDeAventura {
 					+ "pero nadie pregunta cómo está la jirafa después de caerse.");
 
 			// Opcion elegida 1 Eleccion 1 y 2
-			System.out.println("¿Qué haces?" + "\n\t1 - Jirafa tia, lo siento, ¿Estás bien?"
+			System.out.println("¿Qué haces?" 
+					+ "\n\t1 - Jirafa tia, lo siento, ¿Estás bien?"
 					+ "\n\t2 - ¿Y tu me has preguntado como estoy yo?");
 
 			while (subElegida != 1 && subElegida != 2) {
@@ -62,7 +63,9 @@ public class HoraDeAventura {
 			System.out.println("Jirafa: " + "Es mi vodka, mequetrefe.\n" + "*La girafa te da un cabezado*");
 
 			// Opcion elegida 2 Eleccion 1 y 2
-			System.out.println("¿Qué haces?" + "\n\t1 - Le hago un RKO" + "\n\t2 - Salgo corriendo.");
+			System.out.println("¿Qué haces?" 
+				+ "\n\t1 - Le hago un RKO" 
+				+ "\n\t2 - Salgo corriendo.");
 
 			subElegida2 = Byte.parseByte(sc.nextLine());
 
