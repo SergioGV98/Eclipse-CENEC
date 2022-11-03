@@ -16,8 +16,8 @@ public class OperacionesLogicas {
 		short añoNacimiento;
 		
 		//Variables Parte 3
-		int tallaPie;
-		int numero;
+		byte tallaPie;
+		short resultado;
 		
 		//Parte 1 - 1
 		System.out.println("Introduce un numero");
@@ -34,10 +34,11 @@ public class OperacionesLogicas {
 		
 		//Parte 3 
 		System.out.println("Introduce tu tallade pie");
-		tallaPie = Integer.parseInt(sc.nextLine());
-		System.out.println("Resultado: " + (numero=((tallaPie*5+50)*20+1022)-añoNacimiento));
+		tallaPie = Byte.parseByte(sc.nextLine());
+		resultado=(short)((tallaPie*5+50)*20+1022-añoNacimiento);
+		System.out.println("Resultado: " + resultado);
 		System.out.println("Expresión booleana grande, que devolverá true o false");
-		System.out.println((numero/1000>1 && numero/10000<1) && (numero/100==tallaPie) && (numero%100==(2022-añoNacimiento)));
+		System.out.println((resultado/1000>1 && resultado/10000<1) && (resultado/100==tallaPie) && (resultado%100==(2022-añoNacimiento)));
 		
 	}
 
