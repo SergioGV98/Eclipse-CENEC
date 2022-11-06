@@ -31,14 +31,14 @@ public class PracticaExamen {
 		peso = Float.parseFloat(sc.nextLine());
 		
 		//Cuentas de mi peso en los planetas
-		mercurio=(float) (peso*0.377);
-		venus=(float) (peso*0.904);
-		marte=(float) (peso*0.378);
-		jupiter=(float) (peso*2.527);
-		saturno=(float) (peso*1.064);
-		urano=(float) (peso*0.886);
-		neptuno=(float) (peso*1.136);
-		pluto=(float) (peso*0.063);
+		mercurio=(peso*0.377f);
+		venus=(peso*0.904f);
+		marte=(peso*0.378f);
+		jupiter=(peso*2.527f);
+		saturno=(peso*1.064f);
+		urano=(peso*0.886f);
+		neptuno=(peso*1.136f);
+		pluto=(peso*0.063f);
 		
 		//Imprimir
 		System.out.println("¡Hola " + nombre + "!");
