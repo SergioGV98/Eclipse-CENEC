@@ -56,7 +56,7 @@ public class Tema1Y2 {
 		System.out.println("El resto es " + resto);
 		
 		System.out.println("¿El resto es 0 (==)? " + (resto==0));
-		System.out.println("¿El resto es 0 (!=)? " + (resto!=0));
+		System.out.println("¿El resto es no distinto de 0 (!=)? " + (resto!=0));
 		
 		/* Ejercicio 4
 		 *  Programa que le introduzcas dos numeros no mayores de 32.000 y te los compare si es mayor o menor.
