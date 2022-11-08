@@ -45,7 +45,7 @@ public class ExamenMejorado {
 		
 		System.out.println("Media suscriptroes: " + suscriptoresTotales / nCanalesIntroducidos);
 		System.out.println("Media de horas: " + horasTotales);
-		System.out.println(horasComprobador && suscriptoresComprobador);
+		System.out.println("Comprobador (True o False) " + (horasComprobador && suscriptoresComprobador));
 		
 	}
 }
