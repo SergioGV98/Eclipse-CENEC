@@ -2,6 +2,12 @@ package tamagotchi;
 
 import java.util.Scanner;
 
+
+/*
+ * Sergio García Vico
+ */
+
+
 public class Tamagotchi {
 
 	public static void main(String[] args) {
