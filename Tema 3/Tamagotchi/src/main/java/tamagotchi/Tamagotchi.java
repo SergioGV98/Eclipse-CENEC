@@ -73,11 +73,31 @@ public class Tamagotchi {
 				if (razaElegida == 1) {
 					System.out.println(nombre + " el Perro");
 					System.out.println("------------------------------");
-					System.out.println("Hambre: " + hambre);
-					System.out.println("Sueño: " + sueño);
-					System.out.println("Higiene: " + higiene);
-					System.out.println("Diversion: " + diversion);
-					System.out.println("Paseo: " + paseo);
+					if(hambre >= 100) {
+						System.out.println("Hambre: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Hambre: " + hambre);
+					}
+					if(sueño >= 100) {
+						System.out.println("Sueño: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Sueño: " + sueño);
+					}
+					if(higiene >= 100) {
+						System.out.println("Higiene: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Higiene: " + higiene);
+					}
+					if(diversion >= 100) {
+						System.out.println("Diversion: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Diversion: " + diversion);
+					}
+					if(paseo >= 100) {
+						System.out.println("Paseo: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Paseo: " + paseo);
+					}
 				}
 
 				System.out.println("Elige una de las siguientes acciones: " + "\n\t1 - Alimentar" + "\n\t2 - Dormir"
@@ -174,10 +194,26 @@ public class Tamagotchi {
 				if (razaElegida == 2) {
 					System.out.println(nombre + " el Gato");
 					System.out.println("------------------------------");
-					System.out.println("Hambre: " + hambre);
-					System.out.println("Sueño: " + sueño);
-					System.out.println("Higiene: " + higiene);
-					System.out.println("Diversion: " + diversion);
+					if(hambre >= 100) {
+						System.out.println("Hambre: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Hambre: " + hambre);
+					}
+					if(sueño >= 100) {
+						System.out.println("Sueño: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Sueño: " + sueño);
+					}
+					if(higiene >= 100) {
+						System.out.println("Higiene: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Higiene: " + higiene);
+					}
+					if(diversion >= 100) {
+						System.out.println("Diversion: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Diversion: " + diversion);
+					}
 				}
 
 				System.out.println("Elige una de las siguientes acciones: " + "\n\t1 - Alimentar" + "\n\t2 - Dormir"
@@ -259,10 +295,26 @@ public class Tamagotchi {
 				if (razaElegida == 3) {
 					System.out.println(nombre + " el Hipopótamo");
 					System.out.println("------------------------------");
-					System.out.println("Hambre: " + hambre);
-					System.out.println("Sueño: " + sueño);
-					System.out.println("Higiene: " + higiene);
-					System.out.println("Diversion: " + diversion);
+					if(hambre >= 100) {
+						System.out.println("Hambre: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Hambre: " + hambre);
+					}
+					if(sueño >= 100) {
+						System.out.println("Sueño: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Sueño: " + sueño);
+					}
+					if(higiene >= 100) {
+						System.out.println("Higiene: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Higiene: " + higiene);
+					}
+					if(diversion >= 100) {
+						System.out.println("Diversion: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Diversion: " + diversion);
+					}
 				}
 
 				System.out.println("Elige una de las siguientes acciones: " + "\n\t1 - Alimentar" + "\n\t2 - Dormir"
@@ -346,11 +398,31 @@ public class Tamagotchi {
 				if (razaElegida == 4) {
 					System.out.println(nombre + " el Carpincho");
 					System.out.println("------------------------------");
-					System.out.println("Hambre: " + hambre);
-					System.out.println("Sueño: " + sueño);
-					System.out.println("Higiene: " + higiene);
-					System.out.println("Diversion: " + diversion);
-					System.out.println("Mate: " + mate);
+					if(hambre >= 100) {
+						System.out.println("Hambre: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Hambre: " + hambre);
+					}
+					if(sueño >= 100) {
+						System.out.println("Sueño: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Sueño: " + sueño);
+					}
+					if(higiene >= 100) {
+						System.out.println("Higiene: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Higiene: " + higiene);
+					}
+					if(diversion >= 100) {
+						System.out.println("Diversion: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Diversion: " + diversion);
+					}
+					if(mate >= 100) {
+						System.out.println("Mate: 100 (Ha llegado al maximo)");
+					} else {
+						System.out.println("Mate: " + mate);
+					}
 				}
 
 				System.out.println("Elige una de las siguientes acciones: " + "\n\t1 - Alimentar" + "\n\t2 - Dormir"
