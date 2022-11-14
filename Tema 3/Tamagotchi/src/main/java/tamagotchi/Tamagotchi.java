@@ -23,7 +23,7 @@ public class Tamagotchi {
 		// Bucle para conseguir la raza
 		do {
 
-			System.out.println("Elige una de las siguientes razas" + "\n\t1 - Perro" + "\n\t2 - Gato"
+			System.out.println("Elige una de las siguientes razas seleccionando su numero" + "\n\t1 - Perro" + "\n\t2 - Gato"
 					+ "\n\t3 - Hipopótamo" + "\n\t4 - Carpincho");
 
 			razaElegida = Byte.parseByte(sc.nextLine());
