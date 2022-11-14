@@ -11,9 +11,9 @@ public class ExamenMejorado {
 
 		// Variables
 		int suscriptores;
-		int horas;
-		int horasTotales = 0;
-		boolean horasComprobador = false;
+		int minutos;
+		int minutosTotales = 0;
+		boolean minutosComprobador = false;
 		long suscriptoresTotales = 0;
 		boolean suscriptoresComprobador = false;
 		byte nCanalesIntroducidos = 0;
@@ -30,11 +30,11 @@ public class ExamenMejorado {
 			}
 			
 			System.out.println("Introduceme la duracion media de los videos");
-			horas = Integer.parseInt(sc.nextLine());
-			horasTotales += horas;
+			minutos = Integer.parseInt(sc.nextLine());
+			minutosTotales += minutos;
 			
-			if(horasTotales > 1000) {
-				horasComprobador = true;
+			if(minutos > 1000) {
+				minutosComprobador = true;
 			}
 			
 			nCanalesIntroducidos++;
@@ -44,8 +44,8 @@ public class ExamenMejorado {
 		} while (otroCanal == true);
 		
 		System.out.println("Media suscriptroes: " + suscriptoresTotales / nCanalesIntroducidos);
-		System.out.println("Media de horas: " + horasTotales);
-		System.out.println("Comprobador (True o False) " + (horasComprobador && suscriptoresComprobador));
+		System.out.println("Media de horas totales: " + (minutosTotales/60f) / nCanalesIntroducidos);
+		System.out.println("Comprobador (True o False) " + (minutosComprobador && suscriptoresComprobador));
 		
 	}
 }
