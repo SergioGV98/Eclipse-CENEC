@@ -10,13 +10,13 @@ public class Experimento {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Escribeme un texto, y le hacemos transformaciones " + "en el programa");
-
 		String codificado="";
 		String original;
 		String mimificado="";
-		String mimificadoOriginal = "";
-		String texto = sc.nextLine();
+		String mimificado2="";
 		byte opcion;
+		
+		String texto = sc.nextLine();
 		
 		/*
 		 * Ejercicio 5 a partir de la cadena mimificado usar un bucle para obtener la cadena original
@@ -60,11 +60,12 @@ public class Experimento {
 				}
 				System.out.println(mimificado);
 				
-				
-				for (short i = 0; i < mimificado.length(); i++) {
-					mimificado = mimificado.replaceAll("mi", "");
+				for (short i = 0; i < texto.length(); i++) {
+					mimificado2+=texto.charAt(i);
+					
+					//mimificado = mimificado.replaceAll("mi", "");
 				}
-				System.out.println(mimificado);
+				System.out.println(mimificado2);
 				
 				break;
 			case 6:
@@ -82,8 +83,16 @@ public class Experimento {
 				System.out.println(original);
 				break;
 			case 8:
-
-				break;
+				codificado = "";
+				Random rnd = new Random();
+				char randomChar = (char) (rnd.nextInt(47,50));
+				for (short i = 0; i < texto.length(); i++) {
+					codificado+=(char)(texto.charAt(i)+8);
+					for(short j = 0; j < 1; j++) {
+						codificado += randomChar;
+					}
+				}
+				System.out.println(codificado);
 			case 9:
 				Random aleatorio = new Random();
 				int numeroElegido = aleatorio.nextInt(1,11);
