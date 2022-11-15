@@ -18,7 +18,7 @@ public class RueDelPercebe {
 
 		System.out.println("Dime el numero de casa que tiene tu piso");
 		cp = Byte.parseByte(sc.nextLine());
-		
+
 		System.out.print("|----------------------------|\r\n" + "| 13 Rue del Percebe |\r\n"
 				+ "|----------------------------|\r\n" + "");
 		for (byte i = 0; i < np; i++) {
@@ -26,12 +26,14 @@ public class RueDelPercebe {
 				System.out.print("|----|");
 			}
 			System.out.println();
-			for (byte p = np; p > 0 + 1; p--) {
-				for (byte j = 0; j < np; j++) {
-					System.out.print("|    |");
-				}
-				System.out.println();
+			for (byte j = 0; j < np; j++) {
+				System.out.print("|    |");
 			}
+			System.out.println();
+			for (byte j = 0; j < np; j++) {
+				System.out.print("|    |");
+			}
+			System.out.println();
 		}
 	}
 }
