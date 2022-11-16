@@ -60,8 +60,9 @@ public class Experimento {
 					mimificado += texto.charAt(i) + "mi";
 				}
 				System.out.println(mimificado);
+				
 
-				for (short i = 0; i < texto.length(); i++) {
+				for (short i = 0; i < mimificado.length(); i+=3) {
 					mimificado2 += texto.charAt(i);
 
 					// mimificado = mimificado.replaceAll("mi", "");
