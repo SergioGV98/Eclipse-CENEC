@@ -18,12 +18,6 @@ public class Experimento {
 
 		String texto = sc.nextLine();
 
-		/*
-		 * Ejercicio 5 a partir de la cadena mimificado usar un bucle para obtener la
-		 * cadena original Hacer el caso 8 | copypaste del caso 6 y entre letra y letra
-		 * colocar una letra aleatoria entra a y z.
-		 */
-
 		do {
 			System.out.println("Elige una opcion: " + "\n\t0 - Salir" + "\n\t1 - Invertir la cadena"
 					+ "\n\t2 - Poner todo en mayusculas" + "\n\t3 - Poner todo en minusculas"
@@ -63,7 +57,7 @@ public class Experimento {
 				
 
 				for (short i = 0; i < mimificado.length(); i+=3) {
-					mimificado2 += texto.charAt(i);
+					mimificado2 += mimificado.charAt(i);
 
 					// mimificado = mimificado.replaceAll("mi", "");
 				}
@@ -93,6 +87,7 @@ public class Experimento {
 					codificado += randomChar;
 				}
 				System.out.println(codificado);
+				break;
 			case 9:
 				Random aleatorio = new Random();
 				int numeroElegido = aleatorio.nextInt(1, 11);
