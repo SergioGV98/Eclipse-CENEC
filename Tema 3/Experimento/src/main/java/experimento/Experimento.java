@@ -87,11 +87,9 @@ public class Experimento {
 				codificado = "";
 				Random letrasRandom = new Random();
 				for (short i = 0; i < texto.length(); i++) {
+					char randomChar = (char) (letrasRandom.nextInt(65, 91));
 					codificado += (char) (texto.charAt(i) + 8);
-					for (short j = 0; j < 1; j++) {
-						char randomChar = (char) (letrasRandom.nextInt(65, 91));
-						codificado += randomChar;
-					}
+					codificado += randomChar;
 				}
 				System.out.println(codificado);
 			case 9:
