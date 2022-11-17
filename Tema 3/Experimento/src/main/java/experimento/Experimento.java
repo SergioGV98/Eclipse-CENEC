@@ -55,13 +55,8 @@ public class Experimento {
 				}
 				System.out.println(mimificado);
 				
-				//Desmimificado
+				mimificado2 = mimificado.replaceAll("mi", "");
 				
-				for (short i = 0; i < mimificado.length(); i+=3) {
-					mimificado2 += mimificado.charAt(i);
-
-					// mimificado = mimificado.replaceAll("mi", "");
-				}
 				System.out.println(mimificado2);
 				break;
 			case 6:

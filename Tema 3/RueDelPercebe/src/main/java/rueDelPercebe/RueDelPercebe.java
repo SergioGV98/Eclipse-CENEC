@@ -26,11 +26,11 @@ public class RueDelPercebe {
 				System.out.print("|----|");
 			}
 			System.out.println();
-			for (byte j = 0; j < np; j++) {
+			for (byte j = 0; j < cp; j++) {
 				System.out.print("|    |");
 			}
 			System.out.println();
-			for (byte j = 0; j < np; j++) {
+			for (byte j = 0; j < cp; j++) {
 				System.out.print("|    |");
 			}
 			System.out.println();
