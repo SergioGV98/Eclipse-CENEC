@@ -55,6 +55,11 @@ public class Experimento {
 				}
 				System.out.println(mimificado);
 				
+			/*	for (short i = 0; i < mimificado.length(); i+=3) {
+					mimificado += mimificado2.charAt(i) + "mi";
+				}
+				System.out.println(mimificado2); */
+				
 				mimificado2 = mimificado.replaceAll("mi", "");
 				
 				System.out.println(mimificado2);
@@ -78,8 +83,7 @@ public class Experimento {
 				Random letrasRandom = new Random();
 				for (short i = 0; i < texto.length(); i++) {
 					char randomChar = (char) (letrasRandom.nextInt(65, 91));
-					codificado += (char) (texto.charAt(i) + 8);
-					codificado += randomChar;
+					codificado += "" + (char) (texto.charAt(i) + 8) + randomChar;
 				}
 				System.out.println(codificado);
 				break;
