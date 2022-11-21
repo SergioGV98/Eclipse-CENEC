@@ -17,14 +17,13 @@ public class Tamagotchi {
 		byte razaElegida = 0;
 		String nombre = " ";
 		short hambre = 50, sueño = 50, higiene = 50, diversion = 50, paseo = 50, mate = 50;
-		byte turnos = 30;
+		byte turnos = 0;
 		byte accion = 0;
 
 		// Bucle para conseguir la raza
 		do {
 
-			System.out.println("Elige una de las siguientes razas seleccionando su numero" + "\n\t1 - Perro" + "\n\t2 - Gato"
-					+ "\n\t3 - Hipopótamo" + "\n\t4 - Carpincho");
+			System.out.println(imprimeMenu.menu());
 
 			razaElegida = Byte.parseByte(sc.nextLine());
 
@@ -64,36 +63,36 @@ public class Tamagotchi {
 		// Perro
 		if (razaElegida == 1) {
 			while (razaElegida == 1 && hambre != 0 && sueño != 0 && higiene != 0 && diversion != 0 && paseo != 0
-					&& turnos >= 0) {
+					&& turnos < 30) {
 				System.out.println("El turno actual es " + turnos);
-				turnos--;
+				turnos++;
 
 				System.out.println("Las estadisticas de tu tamagotchi son: ");
 
 				if (razaElegida == 1) {
 					System.out.println(nombre + " el Perro");
 					System.out.println("------------------------------");
-					if(hambre >= 100) {
+					if (hambre >= 100) {
 						System.out.println("Hambre: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Hambre: " + hambre);
 					}
-					if(sueño >= 100) {
+					if (sueño >= 100) {
 						System.out.println("Sueño: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Sueño: " + sueño);
 					}
-					if(higiene >= 100) {
+					if (higiene >= 100) {
 						System.out.println("Higiene: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Higiene: " + higiene);
 					}
-					if(diversion >= 100) {
+					if (diversion >= 100) {
 						System.out.println("Diversion: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Diversion: " + diversion);
 					}
-					if(paseo >= 100) {
+					if (paseo >= 100) {
 						System.out.println("Paseo: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Paseo: " + paseo);
@@ -158,7 +157,7 @@ public class Tamagotchi {
 					break;
 				}
 
-				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || paseo <= 0 || turnos == 0) {
+				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || paseo <= 0 || turnos > 30) {
 					System.out.println("Tu tamagotchi ha muerto");
 					if (hambre <= 0) {
 						System.out.println("Tu tamagotchi ha muerto de hambre");
@@ -175,7 +174,7 @@ public class Tamagotchi {
 					if (paseo <= 0) {
 						System.out.println("Tu tamagotchi ha muerto porque no lo has sacado de paseo");
 					}
-					if (turnos == 0) {
+					if (turnos > 30) {
 						System.out.println("Tu tamagotchi ha muerto de viejo");
 					}
 				}
@@ -185,31 +184,31 @@ public class Tamagotchi {
 
 		// Gato
 		if (razaElegida == 2) {
-			while (razaElegida == 2 && hambre != 0 && sueño != 0 && higiene != 0 && diversion != 0 && turnos >= 0) {
+			while (razaElegida == 2 && hambre != 0 && sueño != 0 && higiene != 0 && diversion != 0 && turnos < 30) {
 				System.out.println("El turno actual es " + turnos);
-				turnos--;
+				turnos++;
 
 				System.out.println("Las estadisticas de tu tamagotchi son: ");
 
 				if (razaElegida == 2) {
 					System.out.println(nombre + " el Gato");
 					System.out.println("------------------------------");
-					if(hambre >= 100) {
+					if (hambre >= 100) {
 						System.out.println("Hambre: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Hambre: " + hambre);
 					}
-					if(sueño >= 100) {
+					if (sueño >= 100) {
 						System.out.println("Sueño: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Sueño: " + sueño);
 					}
-					if(higiene >= 100) {
+					if (higiene >= 100) {
 						System.out.println("Higiene: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Higiene: " + higiene);
 					}
-					if(diversion >= 100) {
+					if (diversion >= 100) {
 						System.out.println("Diversion: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Diversion: " + diversion);
@@ -261,7 +260,7 @@ public class Tamagotchi {
 					break;
 				}
 
-				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || turnos == 0) {
+				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || turnos > 30) {
 					System.out.println("Tu tamagotchi ha muerto");
 					if (hambre <= 0) {
 						System.out.println("Tu tamagotchi ha muerto de hambre");
@@ -275,7 +274,7 @@ public class Tamagotchi {
 					if (diversion <= 0) {
 						System.out.println("Tu tamagotchi ha muerto por falta de diversion");
 					}
-					if (turnos == 0) {
+					if (turnos > 30) {
 						System.out.println("Tu tamagotchi ha muerto de viejo");
 					}
 				}
@@ -285,32 +284,32 @@ public class Tamagotchi {
 		}
 
 		// Hipopótamo
-		if(razaElegida == 3) {
-			while (razaElegida == 3 && hambre != 0 && sueño != 0 && higiene != 0 && diversion != 0 && turnos >= 0) {
+		if (razaElegida == 3) {
+			while (razaElegida == 3 && hambre != 0 && sueño != 0 && higiene != 0 && diversion != 0 && turnos < 30) {
 				System.out.println("El turno actual es " + turnos);
-				turnos--;
+				turnos++;
 
 				System.out.println("Las estadisticas de tu tamagotchi son: ");
 
 				if (razaElegida == 3) {
 					System.out.println(nombre + " el Hipopótamo");
 					System.out.println("------------------------------");
-					if(hambre >= 100) {
+					if (hambre >= 100) {
 						System.out.println("Hambre: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Hambre: " + hambre);
 					}
-					if(sueño >= 100) {
+					if (sueño >= 100) {
 						System.out.println("Sueño: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Sueño: " + sueño);
 					}
-					if(higiene >= 100) {
+					if (higiene >= 100) {
 						System.out.println("Higiene: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Higiene: " + higiene);
 					}
-					if(diversion >= 100) {
+					if (diversion >= 100) {
 						System.out.println("Diversion: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Diversion: " + diversion);
@@ -362,7 +361,7 @@ public class Tamagotchi {
 					break;
 				}
 
-				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || turnos == 0) {
+				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || turnos > 30) {
 					System.out.println("Tu tamagotchi ha muerto");
 					if (hambre <= 0) {
 						System.out.println("Tu tamagotchi ha muerto de hambre");
@@ -376,7 +375,7 @@ public class Tamagotchi {
 					if (diversion <= 0) {
 						System.out.println("Tu tamagotchi ha muerto por falta de diversion");
 					}
-					if (turnos == 0) {
+					if (turnos > 30) {
 						System.out.println("Tu tamagotchi ha muerto de viejo");
 					}
 				}
@@ -384,41 +383,40 @@ public class Tamagotchi {
 			}
 		}
 
-
 		// Carpincho
 		if (razaElegida == 4) {
 
 			while (razaElegida == 4 && hambre != 0 && sueño != 0 && higiene != 0 && diversion != 0 && paseo != 0
-					&& turnos >= 0) {
+					&& turnos < 30) {
 				System.out.println("El turno actual es " + turnos);
-				turnos--;
+				turnos++;
 
 				System.out.println("Las estadisticas de tu tamagotchi son: ");
 
 				if (razaElegida == 4) {
 					System.out.println(nombre + " el Carpincho");
 					System.out.println("------------------------------");
-					if(hambre >= 100) {
+					if (hambre >= 100) {
 						System.out.println("Hambre: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Hambre: " + hambre);
 					}
-					if(sueño >= 100) {
+					if (sueño >= 100) {
 						System.out.println("Sueño: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Sueño: " + sueño);
 					}
-					if(higiene >= 100) {
+					if (higiene >= 100) {
 						System.out.println("Higiene: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Higiene: " + higiene);
 					}
-					if(diversion >= 100) {
+					if (diversion >= 100) {
 						System.out.println("Diversion: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Diversion: " + diversion);
 					}
-					if(mate >= 100) {
+					if (mate >= 100) {
 						System.out.println("Mate: 100 (Ha llegado al maximo)");
 					} else {
 						System.out.println("Mate: " + mate);
@@ -483,7 +481,7 @@ public class Tamagotchi {
 					break;
 				}
 
-				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || mate <= 0 || turnos == 0) {
+				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || mate <= 0 || turnos > 30) {
 					System.out.println("Tu tamagotchi ha muerto");
 					if (hambre <= 0) {
 						System.out.println("Tu tamagotchi ha muerto de hambre");
@@ -500,13 +498,16 @@ public class Tamagotchi {
 					if (mate <= 0) {
 						System.out.println("Tu tamagotchi ha muerto porque no le has dado mate");
 					}
-					if (turnos == 0) {
+					if (turnos > 30) {
 						System.out.println("Tu tamagotchi ha muerto de viejo");
 					}
 				}
 
 			}
 		}
+
+		Muerte.muerte(razaElegida, turnos, nombre);
+
 	}
 
 }
