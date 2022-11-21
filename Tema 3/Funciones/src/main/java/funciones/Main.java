@@ -20,7 +20,7 @@ public class Main {
 		byte nCaras = Byte.parseByte(sc.nextLine());
 
 		System.out.println(Funciones.imprimeTrozo(" /'''\\ ", nCaras));
-		System.out.println(Funciones.imprimeTrozo("( o o )", nCaras) + Funciones.sustituir("( o o )", '@'));
+		System.out.println(Funciones.sustituir("( o o )", '@', nCaras));
 		System.out.println(Funciones.imprimeTrozo(" \\ - / ", nCaras));
 		System.out.println(Funciones.imprimeTrozo("/-----\\", nCaras));
 	}
