@@ -27,7 +27,7 @@ public class Funciones {
 		return ret;
 	}
 	
-	public static String sustituir(String trozo, char sustituto,  byte nVeces) {
+	public static String sustituir(String trozo, char sustituto, byte nVeces) {
 		String trozoNew = "";
 		for(byte i=0; i<nVeces; i++) {
 			trozoNew +=trozo.replaceAll("o", "@");
