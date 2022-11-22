@@ -27,7 +27,7 @@ public class Muerte {
 		}
 		
 		if(numero == 1) {
-			System.out.println("| |  " + "Se ha morido" + "         |");
+			System.out.println("| |    " + "Se ha morido" + "         |");
 		}
 		if(numero == 2) {
 			System.out.println("| |  " + "Dimitió de existir" + "    |");

@@ -21,22 +21,10 @@ public class RueDelPercebe {
 
 		System.out.print("|----------------------------|\r\n" + "| 13 Rue del Percebe |\r\n"
 				+ "|----------------------------|\r\n" + "");
-		/*for (byte i = 0; i < np; i++) {
-			for (byte j = 0; j < cp; j++) {
-				System.out.print("|----|");
-			}
-			System.out.println();
-			for (byte j = 0; j < cp; j++) {
-				System.out.print("|    |");
-			}
-			System.out.println();
-			for (byte j = 0; j < cp; j++) {
-				System.out.print("|    |");
-			}
-			System.out.println(); 
-		}*/
-		
-		System.out.println(Funciones.pintarAltura("|----|", cp));
-		System.out.println(Funciones.pintarAltura("|    |", np));
+		for (byte i = 0; i < np; i++) {
+			System.out.println(Funciones.pintarAltura("|----|", cp));
+			System.out.println(Funciones.pintarAltura("|    |", cp));
+			System.out.println(Funciones.pintarAltura("|    |", cp));
+		}
 	}
 }

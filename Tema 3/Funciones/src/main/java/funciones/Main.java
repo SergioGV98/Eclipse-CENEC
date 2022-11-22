@@ -18,11 +18,22 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("¿Cuantas caras quieres?");
 		byte nCaras = Byte.parseByte(sc.nextLine());
-
-		System.out.println(Funciones.imprimeTrozo(" /'''\\ ", nCaras));
-		System.out.println(Funciones.sustituir("( o o )", '@', nCaras));
-		System.out.println(Funciones.imprimeTrozo(" \\ - / ", nCaras));
+		
+		System.out.println("Dime el caracter para tus ojos");
+		char ojos = sc.nextLine().charAt(0);
+		
+		System.out.println("Dime el caracter que quieres para la boca");
+		char boca = sc.nextLine().charAt(0);
+		
+		System.out.println(Funciones.imprimeTrozo("pelo", nCaras));
+		System.out.println(Funciones.imprimeTrozo(Funciones.sustituir("( o o )", 'o', ojos), nCaras)); //Lo mismo pero en una unica linea
+		//String trozosOjos = Funciones.imprimeTrozo("( o o )", nCaras);
+		//trozosOjos = Funciones.sustituir(trozosOjos, ojos);
+		//System.out.println(trozosOjos);
+		System.out.println(Funciones.imprimeTrozo(Funciones.sustituir(" \\ - / ", '-', boca), nCaras));
 		System.out.println(Funciones.imprimeTrozo("/-----\\", nCaras));
+		
+		//Imprimir tambien cada boca aleatoria y luego imprimira cada cara aleatoria
 	}
 
 }
