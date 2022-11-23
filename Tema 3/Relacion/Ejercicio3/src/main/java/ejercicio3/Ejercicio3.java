@@ -23,7 +23,7 @@ public class Ejercicio3 {
 
 			System.out.println("Dime el numero 2");
 			n2 = Byte.parseByte(sc.nextLine());
-		} while ((n1 <= 1 || n1 >= 10) && (n2 <= 1 || n2 >= 10));
+		} while ((n1 < 1 || n1 > 10) || (n2 < 1 || n2 > 10));
 
 		System.out.println("La media es: " + Funciones.media(n1, n2));
 
