@@ -505,10 +505,10 @@ public class Tamagotchi {
 
 			}
 		}
-
-		Muerte.muerte(razaElegida, turnos, nombre);
 		
-
+		System.out.println("Dime el tamaño de tu tumba");
+		Byte tamaño = Byte.parseByte(sc.nextLine());
+		System.out.println(Muerte.imprimeLapida(tamaño, nombre, razaElegida, turnos));
 	}
 
 }
