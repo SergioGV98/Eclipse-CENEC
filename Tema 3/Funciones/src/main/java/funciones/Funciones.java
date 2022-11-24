@@ -98,4 +98,14 @@ public class Funciones {
 		}
 		return boca;
 	}
+	
+	
+	public static boolean esPrimo(long numero) {
+		for(long i=2; i<numero/2; i++) {
+			if(numero%i==0) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

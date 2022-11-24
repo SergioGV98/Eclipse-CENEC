@@ -9,6 +9,7 @@ public class Main {
 		// Variables
 		int numero0y30 = Funciones.numeroAleatorio(0, 31);
 		int numero50y80 = Funciones.numeroAleatorio(50, 81);
+		long numero;
 
 		// funcionVoid(); // Llamada desde la misma clase
 		Funciones.funcionVoid(); // Si la quisiera llamar desde otra clase
@@ -31,7 +32,10 @@ public class Main {
 		System.out.println(Funciones.imprimeTrozo("boca", nCaras));
 		System.out.println(Funciones.imprimeTrozo("/-----\\", nCaras));
 		
-		//Imprimir tambien cada boca aleatoria y luego imprimira cada cara aleatoria
+		System.out.println("Dime un numero y te dire si es primo");
+		numero = Long.parseLong(sc.nextLine());
+		System.out.println(Funciones.esPrimo(numero));
+		
 	}
 
 }

@@ -2,7 +2,22 @@ package rueDelPercebe;
 
 import java.util.Scanner;
 
+/**
+ * Clase principal que contiene el main
+ * 
+ * @author Sergio García Vico
+ *
+ */
+
 public class RueDelPercebe {
+
+	/**
+	 * Main que nos pide el numero de casas y pisos que queremos en la capacidad
+	 * maxima de un byte y nos imprime el edifico llamando a la funcion de
+	 * pintarAltura para dibujarlo tantas veces.
+	 * 
+	 * @param args sin uso
+	 */
 
 	public static void main(String[] args) {
 
@@ -26,5 +41,7 @@ public class RueDelPercebe {
 			System.out.println(Funciones.pintarAltura("|    |", cp));
 			System.out.println(Funciones.pintarAltura("|    |", cp));
 		}
+
 	}
+
 }
