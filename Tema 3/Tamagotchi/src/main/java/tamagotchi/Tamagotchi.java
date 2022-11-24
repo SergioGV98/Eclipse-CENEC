@@ -507,6 +507,7 @@ public class Tamagotchi {
 		}
 
 		Muerte.muerte(razaElegida, turnos, nombre);
+		
 
 	}
 

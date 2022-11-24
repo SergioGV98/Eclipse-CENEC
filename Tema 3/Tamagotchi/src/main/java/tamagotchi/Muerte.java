@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Muerte {
 
+	//Hacerlo con un String
 	public static void muerte(byte razaElegida, byte turnos, String nombre) {
 		
 		Random aleatorio = new Random();
@@ -43,4 +44,31 @@ public class Muerte {
 		System.out.println("| |                        |");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
+	
+	//Esto para mejorar la lapida y quede casi centrada
+	public static String imprimeLapida(byte anchuraMaxima) {
+		
+		//Lo del if de la longitudPar solo se le hace a uno del final o del inicio
+		
+		String ret = "|";
+		boolean longitudPar=anchuraMaxima%2==0;
+		for(byte i=0; i<anchuraMaxima/2-("DEP".length()/2+(longitudPar?1:0)); i++) {
+			ret+=" ";
+		}
+		ret+="DEP";
+		for(byte i=0; i<anchuraMaxima/2-"DEP".length()/2; i++) {
+			ret+=" ";
+		}
+		ret+="|";
+		
+		//Parte final
+		ret+="\n";
+		for(byte i=0; i<anchuraMaxima; i++) {
+			ret+="-";
+		}
+		ret+=">\n";
+		
+		return ret;
+	}
+	
 }
