@@ -2,11 +2,21 @@ package tamagotchi;
 
 import java.util.Scanner;
 
-/*
- * Sergio García Vico
+/**
+ * Clase principal que contiene el main
+ * @author Sergio Garcia Vico
+ *
  */
 
 public class Tamagotchi {
+	
+	/**
+	 * Main que nos pedira a que eligamos la raza de nuestro animal (1-4) y el nombre de nuestro animal que no podra
+	 * ni contener numeros y debera tener una longitud de 1 a 12 caracteres y luego nos dara la
+	 * opcion repetidas veces para interactuar con el animal (comida, pasear, etc) hasta que pasemos de 30 turnos o el animal
+	 * se muera.
+	 * @param args sin uso
+	 */
 
 	public static void main(String[] args) {
 
@@ -23,7 +33,7 @@ public class Tamagotchi {
 		// Bucle para conseguir la raza
 		do {
 
-			System.out.println(imprimeMenu.menu());
+			System.out.println(Funciones.menu());
 
 			razaElegida = Byte.parseByte(sc.nextLine());
 
@@ -55,8 +65,8 @@ public class Tamagotchi {
 		// Nombre sin numeros
 		while (nombre.contains("0") || nombre.contains("1") || nombre.contains("2") || nombre.contains("3")
 				|| nombre.contains("4") || nombre.contains("5") || nombre.contains("6") || nombre.contains("7")
-				|| nombre.contains("8") || nombre.contains("9") || nombre.contains(" ")) {
-			System.out.println("Dime un nombre para tu Tamagotchi");
+				|| nombre.contains("8") || nombre.contains("9") || nombre.contains(" ") || nombre.length() > 12 || nombre.length() < 1)  {
+			System.out.println("Dime un nombre para tu Tamagotchi (Comprendido entre 1 y 12 caracteres)");
 			nombre = sc.nextLine();
 		}
 
@@ -506,9 +516,8 @@ public class Tamagotchi {
 			}
 		}
 		
-		System.out.println("Dime el tamaño de tu tumba");
-		Byte tamaño = Byte.parseByte(sc.nextLine());
-		System.out.println(Muerte.imprimeLapida(tamaño, nombre, razaElegida, turnos));
+		System.out.println("El tamaño fijo de la tumba sera 25\n");
+		System.out.println(Funciones.imprimeLapida(nombre, razaElegida, turnos));
 	}
 
 }
