@@ -166,7 +166,16 @@ public class Tamagotchi {
 					paseo += 20;
 					break;
 				}
-
+				/*Y en los casos solamente poner, queda mas corto
+				 * variable +=30
+				 * y en el caso perro y carpincho poner un if para tardar menos.
+				 * 
+				 * hambre -= 10;
+					sueño -= 10;
+					higiene -= 10;
+					diversion -= 10;
+				 */
+				
 				if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || paseo <= 0 || turnos > 30) {
 					System.out.println("Tu tamagotchi ha muerto");
 					if (hambre <= 0) {
