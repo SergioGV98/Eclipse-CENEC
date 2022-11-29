@@ -21,7 +21,7 @@ public class Ejercicio7 {
 			System.out.println("Dime un numero para la posicion Final");
 			posicionFinal = Byte.parseByte(sc.nextLine());
 			
-			while ((posicionInicial > posicionFinal)) {
+			while ((posicionInicial < posicionFinal)) {
 
 				System.out.println("Dime un numero para la posicion Inicial");
 				posicionInicial = Byte.parseByte(sc.nextLine());
