@@ -13,6 +13,9 @@ public class Ejercicio6 {
 		float maximo = 0;
 		boolean igualar = true;
 		
+		//float maximo = Float.MIN_NORMAL; Otra forma de hacer mi if de igualar
+		//float minimo = Float.MAX_VALUE;
+		
 		System.out.println("Dime un numero entre 1 y 10");
 		
 		do {
@@ -21,8 +24,8 @@ public class Ejercicio6 {
 			
 		}while(veces < 1 || veces > 10);
 
-		for(byte i = 0; i < veces; i++) {
-			System.out.println("Introduce un numero");
+		for(byte i = 1; i <= veces; i++) {
+			System.out.println("Introduce un numero ("+i+"/"+veces+")");
 			float numero = Float.parseFloat(sc.nextLine());
 			
 			if(igualar == true) {

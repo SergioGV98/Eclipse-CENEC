@@ -31,11 +31,9 @@ public class Ejercicio7 {
 
 		} while (((posicionInicial > texto.length()) || (posicionFinal > texto.length())));
 
-		
-		String cadena = texto.substring(posicionInicial,posicionFinal+1);
-		
-		System.out.println(cadena);
-
+		System.out.println(texto.substring(posicionInicial,posicionFinal));
+		System.out.println(texto.substring(posicionInicial)); //Te da desde la posicion inicial adelante
+		System.out.println(texto.substring(posicionFinal)); //Te da desde la posicion final adelante
 	}
 
 }

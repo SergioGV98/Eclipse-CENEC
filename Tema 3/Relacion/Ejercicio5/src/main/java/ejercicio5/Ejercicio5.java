@@ -10,7 +10,7 @@ public class Ejercicio5 {
 		String textoIntroducido = "";
 		
 		System.out.println("Escriebeme un texto y te renplazare ciertas palabras por numeros");
-		textoIntroducido = sc.nextLine();
+		textoIntroducido = " " + sc.nextLine() + " ";
 			
 		System.out.println(Funciones.remplazarTexto(textoIntroducido));
 		
