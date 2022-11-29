@@ -8,27 +8,28 @@ public class Ejercicio6 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		byte numero = 0;
 		byte veces;
-		byte minimo;
-		byte maximo;
+		float minimo = 0;
+		float maximo = 0;
+		boolean igualar = true;
 		
 		System.out.println("Dime un numero entre 1 y 10");
 		
 		do {
 			
-			numero = Byte.parseByte(sc.nextLine());
+			veces = Byte.parseByte(sc.nextLine());
 			
-		}while(numero < 1 || numero > 10);
-		
-		veces = numero;
-		
-		minimo = numero;
-		maximo = minimo;
-		
+		}while(veces < 1 || veces > 10);
+
 		for(byte i = 0; i < veces; i++) {
 			System.out.println("Introduce un numero");
-			numero = Byte.parseByte(sc.nextLine());
+			float numero = Float.parseFloat(sc.nextLine());
+			
+			if(igualar == true) {
+				minimo = numero;
+				maximo = minimo;
+				igualar = false;
+			}
 			
 			if(numero < minimo) {
 				minimo = numero;
