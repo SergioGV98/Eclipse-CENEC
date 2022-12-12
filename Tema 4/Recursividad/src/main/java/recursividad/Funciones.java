@@ -55,8 +55,8 @@ public class Funciones {
 		
 		if(i<numero/2) {
 			if(numero%i == 0) {
-				ret += Funciones.ejercicio(i, numero);
-				ret+= " ";
+				ret+= i+" ";
+				ret += Funciones.ejercicio((byte)(i+1), numero);
 			}
 		}else {
 			

@@ -21,7 +21,7 @@ public class Recursividad {
 		 * }
 		 * }
 		 */
-		System.out.println(Funciones.ejercicio((byte)(2), (long)(numero)));
+		System.out.println(Funciones.ejercicio((byte)(2), numero));
 	}
 
 }
