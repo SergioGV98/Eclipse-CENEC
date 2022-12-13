@@ -50,14 +50,35 @@ public class Funciones {
 		return ret;
 	}
 	
-	public static String ejercicio(byte i, long numero) {
+	/**
+	 * Prueba de deprecated, funcion como la de arriba pero menos eficiente.
+	 * @param i
+	 * @param numero
+	 * @return
+	 * @deprecated
+	 */
+	public static String ejercicio(long i, long numero) {
 		String ret = "";
 		
-		if(i<=numero) { //Caso recursivo
+		if(i<=numero) { //Caso recursivo no necesita caso base, si no va a contener nada
 			if(numero%i == 0) {
 				ret+= i+" ";
 			}
 			ret += Funciones.ejercicio((byte)(i+1), numero);
+		}
+		return ret;
+	}
+	
+	public static String ejercicio(byte i, long numero) {
+		String ret = "";
+		
+		if(i<=numero/2) { //Caso recursivo no necesita caso base, si no va a contener nada
+			if(numero%i == 0) {
+				ret+= i+" ";
+			}
+			ret += Funciones.ejercicio((byte)(i+1), numero);
+		} else {
+			ret+=numero+" ";
 		}
 		return ret;
 	}

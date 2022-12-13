@@ -21,6 +21,7 @@ public class Recursividad {
 		 * }
 		 * }
 		 */
+		System.out.println(Funciones.ejercicio((long)(1), numero)); //Funcion depecrated
 		System.out.println(Funciones.ejercicio((byte)(1), numero));
 	}
 
