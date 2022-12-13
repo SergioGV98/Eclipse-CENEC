@@ -53,12 +53,12 @@ public class Funciones {
 	public static String ejercicio(byte i, long numero) {
 		String ret = "";
 		
-		if(i<numero/2) {
+		if(i<numero/2) { //Caso recursivo
 			if(numero%i == 0) {
 				ret+= i+" ";
 				ret += Funciones.ejercicio((byte)(i+1), numero);
 			}
-		}else {
+		}else { //Caso base
 			
 		}
 		return ret;
