@@ -6,15 +6,8 @@ public class Funciones {
 
 	public static String patadizarRefran(String refran) {
 		
-		byte contador = 0;
 
-		for (short i = 0; i < refran.length(); i++) {		
-			if (refran.charAt(i) == ',') {
-				contador++;
-			}
-		}
-
-		if (contador == 0 || contador > 1) {
+		if () {
 			return null;
 		}
 

@@ -9,7 +9,7 @@ public class Funciones {
 		
 		if(original.contains(subString)) {
 			
-			for(short numero = (short) ((short) original.lastIndexOf(subString)+subString.length()); numero < original.length(); numero++) {
+			for(short numero = (short) (original.lastIndexOf(subString)+subString.length()); numero < original.length(); numero++) {
 				contador++;
 			}
 			
