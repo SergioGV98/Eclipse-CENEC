@@ -7,12 +7,15 @@ public class Funciones {
 		
 		
 		for (byte i = 1; i < 127; i++) {
+			String descodificado = "";
 			
-			//OTro for dentro que te calcula como seria la cadena si a todos los
-			//numeros le restas i, si esa cadenacontiene quiero, entonces return i.
-			//Si sales de este bucleque itera en i, sin haber hecho return,
-			//devuelve -1
+			for(byte j = 0; j < texto.length(); j++) {
+				descodificado += (char) (texto.charAt(j) - i);
+			}
 			
+			if(descodificado.contains("Quiero")) {
+				return i;
+			}
 			
 		}
 

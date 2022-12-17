@@ -11,7 +11,7 @@ public class Ejercicio5 {
 		System.out.println("Escribeme un refran");
 		String refran = sc.nextLine();
 		
-		System.out.println(Funciones.patadizarRefran(refran));
+		System.out.println(Funciones.patadizarRefrán(Funciones.refranAzar()));
 		
 		
 
