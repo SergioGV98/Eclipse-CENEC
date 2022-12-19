@@ -6,7 +6,7 @@ public class Ejercicio14 {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		
 		char[] array = new char[10];
 		String vocales = "";
@@ -19,8 +19,8 @@ public class Ejercicio14 {
 			}
 		}
 		
-		//System.out.println("Array: " + array); Preguntar a miguel
-		System.out.println("Vocales del Array: " + vocales);
+		System.out.println("Vocales del Array: " + vocales);*/
+		System.out.println(Funciones.imprimeArray(Funciones.generoAleatorio((byte) 20)));
 
 	}
 }

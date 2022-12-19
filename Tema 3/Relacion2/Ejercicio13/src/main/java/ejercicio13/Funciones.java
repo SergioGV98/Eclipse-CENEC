@@ -19,6 +19,15 @@ public class Funciones {
 		return Funciones.recursiva();
 	}
 	
+	//Explicacion de como hacerlo sin el sysout en la recursiva, una funcion que se
+	//usaria simplemente para consola y no entornos
+	public static float pideFloat(String msg) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println(msg);
+		return Float.parseFloat(sc.nextLine());
+		
+		
+	}
 	
 	
 }
