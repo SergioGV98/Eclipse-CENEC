@@ -1,5 +1,7 @@
 package arrayRepasoNuevas;
 
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -7,20 +9,49 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
 		
 		char [] palabra = {'p','e','l','o','t','a'};
+		char [] original = Funciones.copiarArray(palabra);
+		//char [] original = Arrays.copyOf(palabra, palabra.length);
 		
-		//palabra = Funciones.intercambiar(palabra[], pos1, pos2);
-		Funciones.intercambiar(palabra, (byte) 2, (byte) 4);
+		//Esta echo en una funcion
+		/*char [] original = new char[palabra.length];
+		
+		for (byte i = 0; i < palabra.length; i++) {
+			original [i] += palabra[i];
+		}*/
+		
+		/*Funciones.intercambiar(palabra, (byte) 2, (byte) 4);
 		for(byte i = 0; i<palabra.length; i++) {
 			System.out.print(palabra[i]);
+		}	
+		
+		System.out.println();*/
+		System.out.println("¿Cuantos cambios aleatorios quieres que se hagan?");
+		short nCambios = Short.parseShort(sc.nextLine());
+		
+		for(short i=0; i<nCambios; i++) {
+			byte pos1=(byte) r.nextInt(palabra.length);
+			byte pos2=(byte) r.nextInt(palabra.length);
+			Funciones.intercambiar(palabra, pos1, pos2);
+		}
+		System.out.println("Adivina la palabra original:\n"+Funciones.imprimeArray(palabra));
+		String intento = sc.nextLine();
+		
+		String solucion = "";
+		for(byte i = 0; i < original.length; i++) {
+			solucion += original[i];
+		}
+		
+		if(solucion.equals(intento)) {
+			System.out.println("¡Has adivinado la palabra!");
+		} else {
+			System.out.println("¡No es la palabra correcta!");
 		}
 		
 		
-		
-		
-		
-		
+		//System.out.println(Funciones.imprimeArrayAlReves(palabra));
 		
 		/*String[] nombres = new String[7];
 		
