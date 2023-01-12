@@ -13,6 +13,12 @@ public class Main {
 		
 		char [] palabra = {'p','e','l','o','t','a'};
 		char [] original = Funciones.copiarArray(palabra);
+		String frase = "A las tres de la tarde, es muy mala hora para empezar una clase, " 
+		+ " es la hora de estar tranquilo sentado, digiriendo la comida";
+		String [] resultado = frase.split(" ");
+		System.out.println("Numero de palabras: " + resultado.length);
+		System.out.println("Numero de espacios: " + (resultado.length-1));
+		System.out.println(Funciones.imprimeArray(resultado));
 		//char [] original = Arrays.copyOf(palabra, palabra.length);
 		
 		//Esta echo en una funcion
