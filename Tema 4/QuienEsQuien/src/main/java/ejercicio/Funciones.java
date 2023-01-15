@@ -10,5 +10,20 @@ public class Funciones {
 
 		return nuevo;
 	}
+
+	public static boolean comprobadorCaracteristica(String[] caracteristicas, String caracteristicasElegida) {
+
+		boolean comprobador = false;
+
+		for (byte i = 0; i < caracteristicas.length; i++) {
+			if (caracteristicas[i].contains(caracteristicasElegida)) {
+				comprobador = true;
+			} else {
+
+			}
+		}
+		return comprobador;
+	}
+	
 	
 }

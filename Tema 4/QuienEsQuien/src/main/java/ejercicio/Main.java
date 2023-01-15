@@ -19,88 +19,53 @@ public class Main {
 
 		String[] personas = { marta, andres, sofia, samuel, laura, anselmo, elvira };
 		String[] personasNombre = { "marta", "andres", "sofia", "samuel", "laura", "anselmo", "elvira" };
-		
+		String[] caracteristicas = { "Gafas", "Barba", "Collar", "Hombre", "Mujer", "Sombrero", "PeloMoreno",
+				"PeloRubio", "OjosMarrones", "OjosVerdes", "OjosAzules" };
+
+
 		while (!(personas.length == 1)) {
 
+			String caracteristicaElegida;
+
 			System.out.println("Te voy a monstrar las personas restantes.");
-			for (byte i = 0; i < personasNombre.length; i++) {
-				System.out.println(personasNombre[i]);
-			}
+			System.out.println(Funciones.imprimeArray(personasNombre));
 			System.out.println("Las caracteristicas que vas a pedir, ¿Estan o NO estan? (S o N)");
+			char opcion = sc.nextLine().toUpperCase().charAt(0);
+			// Si la caracteristica que quieres la tiene la persona
+			if (opcion == 'S') {
+				do {
+					System.out.println("Estas son las caracteristicas que puedes elegir: "
+							+ Funciones.imprimeArray(caracteristicas));
+					caracteristicaElegida = sc.nextLine();
+				} while (Funciones.comprobadorCaracteristica(caracteristicas, caracteristicaElegida) == false);
 
-			char opcionCaracteristica = sc.nextLine().toUpperCase().charAt(0);
-
-			if (opcionCaracteristica == 'S') {
-
-				System.out.println("\n\t 1 - Es Hombre" + "\n\t 2 - Es Mujer" + "\n\t 3 - Tiene Gafas"
-						+ "\n\t 4 - Tiene un Collar" + "\n\t 5 - Tiene Sombrero" + "\n\t 6 - Tiene Pelo Rubio"
-						+ "\n\t 7 - Tiene Pelo Moreno" + "\n\t 8 - Tiene Ojos Marrones" + "\n\t 9 - Tiene Ojos Verdes"
-						+ "\n\t 10 - Tiene Ojos Azules" + "\n\t 11 - Tiene Barba");
-
-				byte opcion = Byte.parseByte(sc.nextLine());
-				switch (opcion) {
-				case 1:
-					System.out.println("Has elegido que la persona es un hombre.");
-					for (byte i = 0; i < personas.length; i++) {
-						if (personas[i].contains("Mujer")) {
-							personasNombre[i] = personasNombre[i].replaceAll(personasNombre[i], "");
-						}
+				for (byte i = 0; i < personas.length; i++) {
+					if (!(personas[i].contains(caracteristicaElegida))) {
+						personas[i] = personas[i].replace(personas[i], "Null");
+						personasNombre[i] = personasNombre[i].replace(personasNombre[i], "");
 					}
-					break;
-				case 2:
-					System.out.println("Has elegido que la persona es una mujer.");
-
-					break;
-				case 3:
-					System.out.println("Has elegido que la persona tiene gafas.");
-
-					break;
-				case 4:
-					System.out.println("Has elegido que la persona tiene un collar.");
-
-					break;
-				case 5:
-					System.out.println("Has elegido que la persona tiene un sombrero.");
-					for (byte i = 0; i < personas.length; i++) {
-						if (!(personas[i].contains("Sombrero"))) {
-							personasNombre[i] = personasNombre[i].replaceAll(personasNombre[i], "");
-						}
-					}
-					break;
-				case 6:
-					System.out.println("Has elegido que la persona tiene pelo rubio.");
-
-					break;
-				case 7:
-					System.out.println("Has elegido que la persona tiene pelo moreno.");
-
-					break;
-				case 8:
-					System.out.println("Has elegido que la persona tiene ojos marrones.");
-
-					break;
-				case 9:
-					System.out.println("Has elegido que la persona tiene ojos verdes.");
-
-					break;
-				case 10:
-					System.out.println("Has elegido que la persona tiene ojos azules.");
-
-					break;
-				case 11:
-					System.out.println("Has elegido que la persona tiene barba.");
-
-					break;
 				}
 
 			} else {
-
+				// Si la caracteristica que quieres no la tiene la persona
+				do {
+					System.out.println("Estas son las caracteristicas que puedes elegir: "
+							+ Funciones.imprimeArray(caracteristicas));
+					caracteristicaElegida = sc.nextLine();
+				} while (Funciones.comprobadorCaracteristica(caracteristicas, caracteristicaElegida) == false);
+				
+				for (byte i = 0; i < personas.length; i++) {
+					if (personas[i].contains(caracteristicaElegida)) {
+						personas[i] = personas[i].replace(personas[i], "Null");
+						personasNombre[i] = personasNombre[i].replace(personasNombre[i], "");
+					}
+				}
 			}
+
+	
 
 		}
 
-		System.out.println("¡Has adivinado a la persona!");
-
+		System.out.println("¡Has adivinado a la persona! era " + Funciones.imprimeArray(personasNombre));
 	}
-
 }
