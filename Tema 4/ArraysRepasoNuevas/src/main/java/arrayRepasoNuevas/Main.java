@@ -12,6 +12,38 @@ public class Main {
 		Random r = new Random();
 		
 		char [] palabra = {'p','e','l','o','t','a'};
+		//char [] copia = Funciones.copiarArray(palabra);
+		char [] copia = {'p','e','l','o','r','a'};
+		
+		System.out.println("¿La cadena es igual?" + Funciones.sonIguales(palabra, copia));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*char [] palabra = {'p','e','l','o','t','a'};
 		char [] original = Funciones.copiarArray(palabra);
 		String frase = "A las tres de la tarde, es muy mala hora para empezar una clase, " 
 		+ " es la hora de estar tranquilo sentado, digiriendo la comida";
@@ -34,7 +66,7 @@ public class Main {
 		}	
 		
 		System.out.println();*/
-		System.out.println("¿Cuantos cambios aleatorios quieres que se hagan?");
+		/*System.out.println("¿Cuantos cambios aleatorios quieres que se hagan?");
 		short nCambios = Short.parseShort(sc.nextLine());
 		
 		for(short i=0; i<nCambios; i++) {

@@ -64,5 +64,18 @@ public class Funciones {
 		}
 		return copia;
 	}
+	
+	public static boolean sonIguales(char[] a1, char [] a2) {
+		
+		for (byte i = 0; i < a1.length; i++) {
+			if(a1[i]==a2[i]) {
+				
+			} else {
+				return false;
+			}
+		}
+		
+		return true;
+	}
 
 }
