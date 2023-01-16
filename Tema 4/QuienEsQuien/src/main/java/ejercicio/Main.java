@@ -22,15 +22,26 @@ public class Main {
 		String[] caracteristicas = { "Gafas", "Barba", "Collar", "Hombre", "Mujer", "Sombrero", "PeloMoreno",
 				"PeloRubio", "OjosMarrones", "OjosVerdes", "OjosAzules" };
 
+		byte parada = 0;
 
-		while (!(personas.length == 1)) {
+		while (!(parada == 6)) {
 
+			if(parada == 7) {
+				System.out.println("No he podido encontrar a la persona que buscabas, vamos a empezar de nuevo.");
+				personas = Funciones.comprobador(personas);
+				personasNombre = Funciones.comprobador2(personasNombre);
+			}
+			
 			String caracteristicaElegida;
 
 			System.out.println("Te voy a monstrar las personas restantes.");
 			System.out.println(Funciones.imprimeArray(personasNombre));
 			System.out.println("Las caracteristicas que vas a pedir, ¿Estan o NO estan? (S o N)");
 			char opcion = sc.nextLine().toUpperCase().charAt(0);
+			while(opcion != 'S' && opcion != 'N') {
+				System.out.println("Debe ser S o N");
+				opcion = sc.nextLine().toUpperCase().charAt(0);
+			}
 			// Si la caracteristica que quieres la tiene la persona
 			if (opcion == 'S') {
 				do {
@@ -45,6 +56,14 @@ public class Main {
 						personasNombre[i] = personasNombre[i].replace(personasNombre[i], "");
 					}
 				}
+				parada = 0;
+				for (byte i = 0; i < personas.length; i++) {
+					if (personas[i].contains("Null")) {
+						parada++;
+					}
+				}
+
+
 
 			} else {
 				// Si la caracteristica que quieres no la tiene la persona
@@ -53,16 +72,21 @@ public class Main {
 							+ Funciones.imprimeArray(caracteristicas));
 					caracteristicaElegida = sc.nextLine();
 				} while (Funciones.comprobadorCaracteristica(caracteristicas, caracteristicaElegida) == false);
-				
+
 				for (byte i = 0; i < personas.length; i++) {
 					if (personas[i].contains(caracteristicaElegida)) {
 						personas[i] = personas[i].replace(personas[i], "Null");
 						personasNombre[i] = personasNombre[i].replace(personasNombre[i], "");
 					}
 				}
-			}
+				parada = 0;
+				for (byte i = 0; i < personas.length; i++) {
+					if (personas[i].contains("Null")) {
+						parada++;
+					}
+				}
 
-	
+			}
 
 		}
 
