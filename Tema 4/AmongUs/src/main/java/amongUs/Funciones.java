@@ -36,12 +36,6 @@ public class Funciones {
 		return ret + (tablero.length - 1) + " |";
 	}
 
-	// Sortea una posicion aleatoria del array (entre 0 y tablero.lenght-1)
-	// Comprueba que en esa posicion hay un "_". Si no es asi, sortea otra vez
-	// la posicion las veces que haga falta hasta que el valor sorteado caiga en
-	// una posicion que contiene "_".
-	// Una vez obtenida una posicion valida, coloca el elemento en esa posicion
-	// sorteada del tablero.
 	public static void colocarElemento(String[] tablero, char elemento) {
 		Random r = new Random();
 
