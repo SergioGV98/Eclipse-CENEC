@@ -1,9 +1,19 @@
 package ejercicio;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Sergio García Vico
+ *
+ */
+
 public class Main {
+
+	/**
+	 * 
+	 * @param args
+	 */
 
 	public static void main(String[] args) {
 
@@ -26,19 +36,19 @@ public class Main {
 
 		while (!(parada == 6)) {
 
-			if(parada == 7) {
+			if (parada == 7) {
 				System.out.println("No he podido encontrar a la persona que buscabas, vamos a empezar de nuevo.");
-				personas = Funciones.comprobador(personas);
-				personasNombre = Funciones.comprobador2(personasNombre);
+				personas = Funciones.resetPersonas(personas);
+				personasNombre = Funciones.resetNombres(personasNombre);
 			}
-			
+
 			String caracteristicaElegida;
 
 			System.out.println("Te voy a monstrar las personas restantes.");
 			System.out.println(Funciones.imprimeArray(personasNombre));
 			System.out.println("Las caracteristicas que vas a pedir, ¿Estan o NO estan? (S o N)");
 			char opcion = sc.nextLine().toUpperCase().charAt(0);
-			while(opcion != 'S' && opcion != 'N') {
+			while (opcion != 'S' && opcion != 'N') {
 				System.out.println("Debe ser S o N");
 				opcion = sc.nextLine().toUpperCase().charAt(0);
 			}
@@ -62,8 +72,6 @@ public class Main {
 						parada++;
 					}
 				}
-
-
 
 			} else {
 				// Si la caracteristica que quieres no la tiene la persona

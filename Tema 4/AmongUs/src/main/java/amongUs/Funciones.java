@@ -24,19 +24,24 @@ public class Funciones {
 		}
 	}
 
-	public static String imprimeTablero(String[] tablero) {
+	public static String imprimeTablero(String[] tablero, String[] tumbas) {
 		String ret = "| ";
 		for (byte i = 0; i < tablero.length - 1; i++) {
-			ret += tablero[i] + "\t";
+			if (tablero[i].equals("_")) {
+				ret += tumbas[i] + "\t";
+			} else {
+				ret += tablero[i] + "\t";
+			}
 		}
-		ret += tablero[tablero.length - 1] + " |\n| ";
+		ret += (tablero[tablero.length - 1].equals("_") ? tumbas[tumbas.length - 1]
+				: tablero[tablero.length - 1]) + (tablero.length > 11 ? " " : "") + " |\n| ";
 		for (byte i = 0; i < tablero.length - 1; i++) {
 			ret += i + "\t";
 		}
-		return ret + (tablero.length - 1) + " |";
+		return ret + (tablero.length - 1) + (!tablero[tablero.length - 1].equals("_") ? " " : "") + " |";
 	}
 
-	public static void colocarElemento(String[] tablero, char elemento) {
+	public static byte colocarElemento(String[] tablero, char elemento) {
 		Random r = new Random();
 
 		byte posicionAleatoria = (byte) r.nextInt(tablero.length);
@@ -46,17 +51,20 @@ public class Funciones {
 		}
 
 		tablero[posicionAleatoria] = elemento + "";
+
+		return posicionAleatoria;
 	}
 
-	public static void colocarElementoRecursivo(String[] tablero, char elemento) {
+	public static byte colocarElementoRecursivo(String[] tablero, char elemento) {
 		Random r = new Random();
 
 		byte posicionAleatoria = (byte) r.nextInt(tablero.length);
 
 		if (!tablero[posicionAleatoria].equals("_")) {
-			colocarElementoRecursivo(tablero, elemento);
+			posicionAleatoria = colocarElementoRecursivo(tablero, elemento);
 		} else {
 			tablero[posicionAleatoria] = elemento + "";
 		}
+		return posicionAleatoria;
 	}
 }
