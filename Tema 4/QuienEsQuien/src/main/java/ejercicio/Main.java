@@ -3,7 +3,7 @@ package ejercicio;
 import java.util.Scanner;
 
 /**
- * 
+ * Clase main que contiene el juego de Quien es quien.
  * @author Sergio García Vico
  *
  */
@@ -11,8 +11,10 @@ import java.util.Scanner;
 public class Main {
 
 	/**
-	 * 
-	 * @param args
+	 * Clase main que contiene todo el juego de Quien es quien, el cual nos pedira caracteristicas
+	 * hasta que adivinemos la persona, en caso de que no encontremos la persona, se reiniciara todo
+	 * para empezar de nuevo.
+	 * @param args no se usa
 	 */
 
 	public static void main(String[] args) {

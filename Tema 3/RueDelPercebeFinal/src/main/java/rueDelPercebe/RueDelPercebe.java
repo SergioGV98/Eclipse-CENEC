@@ -16,7 +16,10 @@ public class RueDelPercebe {
 	 * maxima de un byte y nos imprime el edifico llamando a la funcion de
 	 * pintarAltura para dibujarlo tantas veces.
 	 * 
-	 * @param args sin uso
+	 * @param args si tiene al menos un argumento, el primer argumento contendra el
+	 * numero de casas que hay en el edificio. Debe estar entre 1 y 127.
+	 * El segundo argumento contendra el numero de pisos que hay en el edificio. Debe
+	 * estar entre 1 y 127.
 	 */
 
 	public static void main(String[] args) {
@@ -27,12 +30,24 @@ public class RueDelPercebe {
 		// Variables
 		byte np;
 		byte cp;
-
-		System.out.println("Dime el numero de plantas que tiene tu piso");
-		np = Byte.parseByte(sc.nextLine());
-
-		System.out.println("Dime el numero de casa que tiene tu piso");
-		cp = Byte.parseByte(sc.nextLine());
+		
+		if (args.length < 1) {
+			//En este caso no hay argumentos pido por teclado
+			System.out.println("Dime el numero de casa que tiene tu piso");
+			cp = Byte.parseByte(sc.nextLine());
+		} else {
+			//Como hay al menos un argumentos lo uso para el nVeces
+			cp = Byte.parseByte(args[0]);
+		}
+		
+		if (args.length < 2) {
+			//En este caso no hay argumentos pido por teclado
+			System.out.println("Dime el numero de plantas que tiene tu piso");
+			np = Byte.parseByte(sc.nextLine());
+		} else {
+			//Como hay al menos un argumentos lo uso para el nVeces
+			np = Byte.parseByte(args[1]);
+		}
 
 		System.out.print("|----------------------------|\r\n" + "| 13 Rue del Percebe |\r\n"
 				+ "|----------------------------|\r\n" + "");

@@ -3,14 +3,15 @@ package ejercicio;
 import java.util.Arrays;
 
 /**
- * 
+ * Funciones varias que contiene funciones de (imprimeArray, comprobadorCaracteristica,
+ * resetPersonas, resetNombres)
  * @author Sergio García Vico
  *
  */
 public class Funciones {
 
 	/**
-	 * Funcion que sirve para imprimir el Array
+	 * Funcion que sirve para imprimir un Array
 	 * @param arr el Array que queremos recorrer
 	 * @return Nos devolvera un String de todo el Array
 	 */
