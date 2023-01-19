@@ -23,13 +23,18 @@ public class RueDelPercebe {
 	 */
 
 	public static void main(String[] args) {
-
-		// Scanner
-		Scanner sc = new Scanner(System.in);
+		
+		//Argumentos para la segunda forma (La mas larga, pero la mejor)
+		
+		//Paso 1 - Las variables a las que afecten los argumentos
+		//las declaraos al principio y le damos un valor absurdo (imposible)
 
 		// Variables
-		byte np;
-		byte cp;
+		byte np = -1;
+		byte cp = -1;
+		
+		// Scanner
+		Scanner sc = new Scanner(System.in);
 		
 		if (args.length < 1) {
 			//En este caso no hay argumentos pido por teclado
