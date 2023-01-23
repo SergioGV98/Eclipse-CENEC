@@ -7,21 +7,16 @@ public class Principal {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		char teclaIzda;
-		char teclaDcha;
+		char teclaIzda = 'a';
+		char teclaDcha = 'd';
 		
-		if (args.length < 1) {
-			//En este caso no hay argumentos dejo la tecla default
-			teclaIzda = 'a';
-		} else {
-			teclaIzda = args[0].toLowerCase().charAt(0);
-		}
-		
-		if (args.length < 2) {
-			//En este caso no hay argumentos dejo la tecla default
-			teclaDcha = 'd';
-		} else {
-			teclaDcha = args[1].toLowerCase().charAt(0);
+		for (byte i = 0; i < args.length; i++) {
+			if(args[i].equals("-teclaIzda")) {
+				teclaIzda = args[i+1].toLowerCase().charAt(0);
+			}
+			if(args[i].equals("-teclaDcha")) {
+				teclaDcha = args[i+1].toLowerCase().charAt(0);
+			}
 		}
 		
 		System.out.println("AAAAA Que viene el Amongus AAAAA");
