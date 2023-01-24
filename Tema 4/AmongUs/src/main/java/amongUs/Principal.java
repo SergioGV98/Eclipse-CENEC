@@ -82,47 +82,68 @@ public class Principal {
 
 			if (muertesObjetivo / 2 >= contadorMuertes) {
 				// Movimiento aleatorio izquierda
-				if (numero == 0) {
-					// Caso extremo izquierda
-					if (posHumano == 0 && numero == 0) {
+				// Caso extremo izquierda
+				if (posHumano == 0 && numero == 0) {
+					tablero[posHumano] = "_";
+					posHumano = (byte) (tablero.length - 1);
+					tablero[posHumano] = "H";
+				} else if (numero == 0) {
+					// Movimiento aleatorio izquierda
+					// Saltamos a la Muerte en caso de que vayan a coincidir en la misma casilla
+					if (tablero[posHumano - 1] == "M") {
+						tablero[posHumano] = "_";
+						posHumano = (byte) (posHumano - 2);
+						tablero[posHumano] = "H";
+					} else {
+						tablero[posHumano] = "_";
+						posHumano = (byte) (posHumano - 1);
+						tablero[posHumano] = "H";
+					}
+				}
+				// Caso extremo derecha
+				if (posHumano == tablero.length - 1 && numero == 1) {
+					tablero[posHumano] = "_";
+					posHumano = (byte) (tablero.length - tablero.length);
+					tablero[posHumano] = "H";
+				} else if (numero == 1) {
+					// Movimiento aleatorio derecha
+					// Saltamos a la Muerte en caso de que vayan a coincidir en la misma casilla
+					if (tablero[posHumano + 1] == "M") {
+						tablero[posHumano] = "_";
+						posHumano = (byte) (posHumano + 2);
+						tablero[posHumano] = "H";
+					} else {
+						tablero[posHumano] = "_";
+						posHumano = (byte) (posHumano + 1);
+						tablero[posHumano] = "H";
+					}
+				}
+			} else {
+				// Caso en el qque el humano huye de nosotros
+				if (direccion == teclaIzda) {
+					if (posHumano == 0) {
+						// Caso extremo izquierda
 						tablero[posHumano] = "_";
 						posHumano = (byte) (tablero.length - 1);
 						tablero[posHumano] = "H";
 					} else {
-						// Movimiento aleatorio izquierda
-						// Saltamos a la Muerte en caso de que vayan a coincidir en la misma casilla
-						if (tablero[posHumano - 1] == "M") {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano - 2);
-							tablero[posHumano] = "H";
-						} else {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano - 1);
-							tablero[posHumano] = "H";
-						}
+						tablero[posHumano] = "_";
+						posHumano = (byte) (posHumano - 1);
+						tablero[posHumano] = "H";
 					}
 				}
-				if (numero == 1) {
-					// Caso extremo derecha
-					if (posHumano == tablero.length - 1 && numero == 1) {
+				if (direccion == teclaDcha) {
+					if (posHumano == tablero.length - 1) {
+						// Caso extremo derecha
 						tablero[posHumano] = "_";
 						posHumano = (byte) (tablero.length - tablero.length);
 						tablero[posHumano] = "H";
 					} else {
-						// Movimiento aleatorio derecha
-						// Saltamos a la Muerte en caso de que vayan a coincidir en la misma casilla
-						if (tablero[posHumano + 1] == "M") {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano + 2);
-							tablero[posHumano] = "H";
-						} else {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano + 1);
-							tablero[posHumano] = "H";
-						}
+						tablero[posHumano] = "_";
+						posHumano = (byte) (posHumano + 1);
+						tablero[posHumano] = "H";
 					}
 				}
-
 			}
 
 			// 3 - Imprimir la siguiente imagen
