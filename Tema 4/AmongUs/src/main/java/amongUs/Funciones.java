@@ -33,8 +33,8 @@ public class Funciones {
 				ret += tablero[i] + "\t";
 			}
 		}
-		ret += (tablero[tablero.length - 1].equals("_") ? tumbas[tumbas.length - 1]
-				: tablero[tablero.length - 1]) + (tablero.length > 11 ? " " : "") + " |\n| ";
+		ret += (tablero[tablero.length - 1].equals("_") ? tumbas[tumbas.length - 1] : tablero[tablero.length - 1])
+				+ (tablero.length > 11 ? " " : "") + " |\n| ";
 		for (byte i = 0; i < tablero.length - 1; i++) {
 			ret += i + "\t";
 		}
@@ -67,4 +67,5 @@ public class Funciones {
 		}
 		return posicionAleatoria;
 	}
+
 }
