@@ -119,7 +119,7 @@ public class Principal {
 					}
 				}
 			} else {
-				// Caso en el qque el humano huye de nosotros
+				// Caso en el que el humano huye de nosotros
 				if (direccion == teclaIzda) {
 					if (posHumano == 0) {
 						// Caso extremo izquierda
