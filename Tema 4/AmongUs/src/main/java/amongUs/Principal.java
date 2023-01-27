@@ -76,10 +76,10 @@ public class Principal {
 				tumbas[posCalavera] = "T";
 				if (contadorMuertes < muertesObjetivo) {
 					posHumano = Funciones.colocarElemento(tablero, 'H');
-				}
+				} 
 			}
-			// 2.3 - Movimiento aleatorio del humano
-			byte numero = (byte) r.nextInt(2);
+			// 2.3 - Movimiento aleatorio del humano y movimiento de huida
+			byte numero = (byte) r.nextInt(0,2);
 
 			if (turnoStun != contadorTurnos) {
 				if (muertesObjetivo / 2 >= contadorMuertes) {
@@ -91,12 +91,9 @@ public class Principal {
 						tablero[posHumano] = "H";
 					} else if (numero == 0) {
 						// Movimiento aleatorio izquierda
-						// El humano se queda quieto en caso de que vayan a coincidir en la misma
-						// casilla
+						// El humano se queda quieto en caso de que vayan a coincidir en la misma casilla
 						if (tablero[posHumano - 1] == "M") {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano);
-							tablero[posHumano] = "H";
+							// El humano se queda quieto este turno
 						} else {
 							tablero[posHumano] = "_";
 							posHumano = (byte) (posHumano - 1);
@@ -110,18 +107,16 @@ public class Principal {
 						tablero[posHumano] = "H";
 					} else if (numero == 1) {
 						// Movimiento aleatorio derecha
-						// El humano se queda quieto en caso de que vayan a coincidir en la misma
-						// casilla
+						// El humano se queda quieto en caso de que vayan a coincidir en la misma casilla
 						if (tablero[posHumano + 1] == "M") {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano);
-							tablero[posHumano] = "H";
+							// El humano se queda quieto este turno
 						} else {
 							tablero[posHumano] = "_";
 							posHumano = (byte) (posHumano + 1);
 							tablero[posHumano] = "H";
 						}
 					}
+					//Compruebo al final del turno si esta el humano en una tumba.
 					if (tumbas[posHumano].equals("T")) {
 						turnoStun = (short) (contadorTurnos + 1);
 					}
