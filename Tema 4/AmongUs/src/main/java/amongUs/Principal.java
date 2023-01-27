@@ -81,7 +81,7 @@ public class Principal {
 			// 2.3 - Movimiento aleatorio del humano
 			byte numero = (byte) r.nextInt(2);
 
-			if(turnoStun != contadorTurnos) {
+			if (turnoStun != contadorTurnos) {
 				if (muertesObjetivo / 2 >= contadorMuertes) {
 					// Movimiento aleatorio izquierda
 					// Caso extremo izquierda
@@ -91,7 +91,8 @@ public class Principal {
 						tablero[posHumano] = "H";
 					} else if (numero == 0) {
 						// Movimiento aleatorio izquierda
-						// El humano se queda quieto en caso de que vayan a coincidir en la misma casilla
+						// El humano se queda quieto en caso de que vayan a coincidir en la misma
+						// casilla
 						if (tablero[posHumano - 1] == "M") {
 							tablero[posHumano] = "_";
 							posHumano = (byte) (posHumano);
@@ -109,7 +110,8 @@ public class Principal {
 						tablero[posHumano] = "H";
 					} else if (numero == 1) {
 						// Movimiento aleatorio derecha
-						// El humano se queda quieto en caso de que vayan a coincidir en la misma casilla
+						// El humano se queda quieto en caso de que vayan a coincidir en la misma
+						// casilla
 						if (tablero[posHumano + 1] == "M") {
 							tablero[posHumano] = "_";
 							posHumano = (byte) (posHumano);
@@ -120,9 +122,9 @@ public class Principal {
 							tablero[posHumano] = "H";
 						}
 					}
-					if(tumbas[posHumano].equals("T")) {
-						turnoStun = (short) (contadorTurnos+1);
-					} 
+					if (tumbas[posHumano].equals("T")) {
+						turnoStun = (short) (contadorTurnos + 1);
+					}
 				} else {
 					// Caso en el que el humano huye de nosotros
 					if (direccion == teclaIzda) {
@@ -141,7 +143,7 @@ public class Principal {
 						if (posHumano == tablero.length - 1) {
 							// Caso extremo derecha
 							tablero[posHumano] = "_";
-							posHumano =  0;
+							posHumano = 0;
 							tablero[posHumano] = "H";
 						} else {
 							tablero[posHumano] = "_";
@@ -150,35 +152,14 @@ public class Principal {
 						}
 					}
 				}
-				if(tumbas[posHumano].equals("T")) {
-					turnoStun = (short) (contadorTurnos+1);
-				} 
-			}
-			
-			if(turnoStun == contadorTurnos) {
-				if (posHumano == tablero.length - 1) {
-					// Caso extremo derecha
-					tablero[posHumano] = "_";
-					posHumano =  0;
-					tablero[posHumano] = "H";
-				} else if (tablero[posHumano + 1] == "_") {
-					tablero[posHumano] = "_";
-					posHumano = (byte) (posHumano);
-					tablero[posHumano] = "H";
+				if (tumbas[posHumano].equals("T")) {
+					turnoStun = (short) (contadorTurnos + 1);
 				}
-				
-				if(posHumano == 0) {
-					tablero[posHumano] = "_";
-					posHumano = (byte) (tablero.length - 1);
-					tablero[posHumano] = "H";
-				} else if (tablero[posHumano - 1] == "_") {
-					tablero[posHumano] = "_";
-					posHumano = (byte) (posHumano);
-					tablero[posHumano] = "H";
-				}
-				
+				// Caso en el que el muñeco se quede stuneado en una tumba, ira a la izquierda o
+				// derecha.
+			} else if (turnoStun == contadorTurnos) {
+				// No hara nada
 			}
-			
 
 			// 3 - Imprimir la siguiente imagen
 			System.out.println("\n\nMuertes: " + contadorMuertes + "/" + muertesObjetivo);
