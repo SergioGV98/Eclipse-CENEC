@@ -27,6 +27,8 @@ public class Matrices {
 			System.out.println("Dime la columna donde quieres insertar la palabra");
 			byte columnaInsercion = Byte.parseByte(sc.nextLine());
 			
+			
+			
 			puedoSeguir = Funciones.insertaPalabra(sopa, palabra, filaInsercion, columnaInsercion);
 			
 			if(!puedoSeguir) {

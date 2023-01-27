@@ -28,6 +28,21 @@ public class Funciones {
 		return ret;
 	}
 	
+	public static String imprimeMenu() {
+		String ret = "";
+		
+		ret += "/n/t 0 - Insertar en horizontal hacia adelante" 
+			+  "/n/t 1 - Insertar en horizontal hacia atrás"
+			+  "/n/t 2 - Insertar en vertical hacia arriba"
+			+  "/n/t 3 - Insertar en vertical hacia abajo"
+			+  "/n/t 4 - Insertar en diagonal hacia arriba a la derecha"
+			+  "/n/t 5 - Insertar en diagonal hacia arriba a la izquierda"
+			+  "/n/t 6 - Insertar en diagonal hacia abajo a la derecha"
+			+  "/n/t 7 - Insertar en diagonal hacia abajo a la izda"; 
+		
+		return ret;
+	}
+	
 	public static boolean insertaPalabra(char [][] matriz, String palabra, byte fila, byte columna) {
 		if(columna+palabra.length()-1 < matriz[fila].length) {
 			for(byte i = 0; i<palabra.length(); i++) {
