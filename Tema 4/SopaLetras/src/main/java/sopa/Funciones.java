@@ -7,10 +7,8 @@ public class Funciones {
 	public static String imprimeMenu() {
 		String ret = "";
 
-		ret += "\n\t 0 - Insertar en horizontal hacia adelante" 
-				+ "\n\t 1 - Insertar en horizontal hacia atrás"
-				+ "\n\t 2 - Insertar en vertical hacia arriba" 
-				+ "\n\t 3 - Insertar en vertical hacia abajo"
+		ret += "\n\t 0 - Insertar en horizontal hacia adelante" + "\n\t 1 - Insertar en horizontal hacia atrás"
+				+ "\n\t 2 - Insertar en vertical hacia arriba" + "\n\t 3 - Insertar en vertical hacia abajo"
 				+ "\n\t 4 - Insertar en diagonal hacia arriba a la derecha"
 				+ "\n\t 5 - Insertar en diagonal hacia arriba a la izquierda"
 				+ "\n\t 6 - Insertar en diagonal hacia abajo a la derecha"
@@ -83,8 +81,8 @@ public class Funciones {
 				return false;
 			}
 		case 1:
-			// Insertar en horizontal hacia atrás 
-			if (columna - (palabra.length()-1) >= 0) {
+			// Insertar en horizontal hacia atrás
+			if (columna - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
 					matriz[fila][columna - i] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila][columna - i] = true;
@@ -97,7 +95,7 @@ public class Funciones {
 			// Insertar en vertical hacia arriba NO FUNCIONA COMPROBAR EN UN FUTURO
 			if (fila - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					matriz[fila-i][columna] = palabra.toUpperCase().charAt(i);
+					matriz[fila - i][columna] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila - i][columna] = true;
 				}
 				return true;
@@ -105,10 +103,10 @@ public class Funciones {
 				return false;
 			}
 		case 3:
-			// Insertar en vertical hacia abajo 
-			if (fila - palabra.length() - 1 < matriz[fila].length) {
+			// Insertar en vertical hacia abajo
+			if (fila - (palabra.length() - 1) < matriz[fila].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					matriz[fila+i][columna] = palabra.toUpperCase().charAt(i);
+					matriz[fila + i][columna] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila + i][columna] = true;
 				}
 				return true;

@@ -1,5 +1,6 @@
 package goblin;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Funciones1D {
@@ -23,7 +24,30 @@ public class Funciones1D {
 		return tablero;
 
 	}
-	
-	
+
+	public static String imprime(String[] array) {
+
+		Random r = new Random();
+
+		String ret = "";
+
+		for(byte i = 0; i < array.length+2; i++) {
+			ret += r.nextInt(1,5) + " ";
+		}
+		ret += "\n" + r.nextInt(1,5) + " " ;
+		
+		for(byte i = 0; i < array.length; i++) {
+			ret += "_" + " ";
+		}
+		
+		ret += r.nextInt(1,5) + "\n";
+		
+		for(byte i = 0; i < array.length+2; i++) {
+			ret += r.nextInt(1,5) + " ";
+		}
+		
+		return ret;
+		
+	}
 
 }
