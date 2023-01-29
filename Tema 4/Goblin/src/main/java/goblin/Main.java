@@ -2,8 +2,21 @@ package goblin;
 
 import java.util.Scanner;
 
+/**
+ * Clase main en la que contiene un buscador por argumentos de el genero del
+ * jugador y su nombre, si no lo pedira por teclado, ademas de la opcion de
+ * elegir para jugar en 3 modos (1D, 2D, 3D)
+ * 
+ * @author Sergio García Vico
+ *
+ */
 public class Main {
-
+	/**
+	 * Main encargado de coger por argumentos el genero y el nombre y en caso de no tenerlos
+	 * los pedira al usuario para que escriba, ademas de darle la opcion de jugar en
+	 * 3 modos distintos
+	 * @param args -g (m, f, n) cogera el genero automaticamente y -n (nombre jugador)
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
