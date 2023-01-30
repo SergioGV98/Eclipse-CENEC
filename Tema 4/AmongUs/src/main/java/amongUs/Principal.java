@@ -79,6 +79,10 @@ public class Principal {
 				if (contadorMuertes < muertesObjetivo) {
 					posHumano = Funciones.colocarElemento(tablero, 'H');
 				}
+				
+				if (tumbas[posHumano].equals("T")) {
+					turnoStun = (short) (contadorTurnos + 1);
+				}
 			}
 			// 2.3 - Movimiento aleatorio del humano y movimiento de huida
 			byte numero = (byte) r.nextInt(0, 2);
@@ -147,9 +151,9 @@ public class Principal {
 						turnoStun = (short) (contadorTurnos + 1);
 					}
 				}
-			} else {
-				estaMuerto = true;
 			}
+			estaMuerto = false;
+
 			// 3 - Imprimir la siguiente imagen
 			System.out.println("\n\nMuertes: " + contadorMuertes + "/" + muertesObjetivo);
 			System.out.println("Llevas " + contadorTurnos + " turnos.");
