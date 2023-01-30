@@ -11,6 +11,7 @@ public class Principal {
 		char teclaIzda = 'a';
 		char teclaDcha = 'd';
 		short turnoStun = 0;
+		boolean estaMuerto = false;
 
 		for (byte i = 0; i < args.length; i++) {
 			if (args[i].equals("-teclaIzda")) {
@@ -73,89 +74,82 @@ public class Principal {
 			// 2.2 - Si nuestro PJ pilla al humano, lo matamos
 			if (posCalavera == posHumano) {
 				contadorMuertes++;
+				estaMuerto = true;
 				tumbas[posCalavera] = "T";
 				if (contadorMuertes < muertesObjetivo) {
 					posHumano = Funciones.colocarElemento(tablero, 'H');
-				} 
+				}
 			}
 			// 2.3 - Movimiento aleatorio del humano y movimiento de huida
-			byte numero = (byte) r.nextInt(0,2);
+			byte numero = (byte) r.nextInt(0, 2);
+			if (estaMuerto == false) {
+				if (turnoStun != contadorTurnos) {
+					if (muertesObjetivo / 2 >= contadorMuertes) {
+						if (numero == 0) {
+							if (posHumano == 0) {
+								tablero[posHumano] = "_";
+								posHumano = (byte) (tablero.length - 1);
+								tablero[posHumano] = "H";
+							} else {
+								tablero[posHumano] = "_";
+								posHumano = (byte) (posHumano - 1);
+								tablero[posHumano] = "H";
+							}
+						} else {
+							if (posHumano == tablero.length - 1) {
+								tablero[posHumano] = "_";
+								posHumano = 0;
+								tablero[posHumano] = "H";
+							} else {
+								tablero[posHumano] = "_";
+								posHumano = (byte) (posHumano + 1);
+								tablero[posHumano] = "H";
+							}
+						}
 
-			if (turnoStun != contadorTurnos) {
-				if (muertesObjetivo / 2 >= contadorMuertes) {
-					// Movimiento aleatorio izquierda
-					// Caso extremo izquierda
-					if (posHumano == 0 && numero == 0) {
-						tablero[posHumano] = "_";
-						posHumano = (byte) (tablero.length - 1);
-						tablero[posHumano] = "H";
-					} else if (numero == 0) {
-						// Movimiento aleatorio izquierda
-						// El humano se queda quieto en caso de que vayan a coincidir en la misma casilla
-						if (tablero[posHumano - 1] == "M") {
-							// El humano se queda quieto este turno
-						} else {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano - 1);
-							tablero[posHumano] = "H";
+					} else {
+						// Caso en el que el humano huye de nosotros
+						if (direccion == teclaIzda) {
+							if (posHumano == 0) {
+								// Caso extremo izquierda
+								tablero[posHumano] = "_";
+								posHumano = (byte) (tablero.length - 1);
+								tablero[posHumano] = "H";
+							} else {
+								tablero[posHumano] = "_";
+								posHumano = (byte) (posHumano - 1);
+								tablero[posHumano] = "H";
+							}
+						}
+						if (direccion == teclaDcha) {
+							if (posHumano == tablero.length - 1) {
+								// Caso extremo derecha
+								tablero[posHumano] = "_";
+								posHumano = 0;
+								tablero[posHumano] = "H";
+							} else {
+								tablero[posHumano] = "_";
+								posHumano = (byte) (posHumano + 1);
+								tablero[posHumano] = "H";
+							}
+						}
+
+					}
+					if (posCalavera == posHumano) {
+						tablero[posHumano] = "M";
+						contadorMuertes++;
+						tumbas[posCalavera] = "T";
+						if (contadorMuertes < muertesObjetivo) {
+							posHumano = Funciones.colocarElemento(tablero, 'H');
 						}
 					}
-					// Caso extremo derecha
-					if (posHumano == tablero.length - 1 && numero == 1) {
-						tablero[posHumano] = "_";
-						posHumano = 0;
-						tablero[posHumano] = "H";
-					} else if (numero == 1) {
-						// Movimiento aleatorio derecha
-						// El humano se queda quieto en caso de que vayan a coincidir en la misma casilla
-						if (tablero[posHumano + 1] == "M") {
-							// El humano se queda quieto este turno
-						} else {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano + 1);
-							tablero[posHumano] = "H";
-						}
-					}
-					//Compruebo al final del turno si esta el humano en una tumba.
 					if (tumbas[posHumano].equals("T")) {
 						turnoStun = (short) (contadorTurnos + 1);
 					}
-				} else {
-					// Caso en el que el humano huye de nosotros
-					if (direccion == teclaIzda) {
-						if (posHumano == 0) {
-							// Caso extremo izquierda
-							tablero[posHumano] = "_";
-							posHumano = (byte) (tablero.length - 1);
-							tablero[posHumano] = "H";
-						} else {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano - 1);
-							tablero[posHumano] = "H";
-						}
-					}
-					if (direccion == teclaDcha) {
-						if (posHumano == tablero.length - 1) {
-							// Caso extremo derecha
-							tablero[posHumano] = "_";
-							posHumano = 0;
-							tablero[posHumano] = "H";
-						} else {
-							tablero[posHumano] = "_";
-							posHumano = (byte) (posHumano + 1);
-							tablero[posHumano] = "H";
-						}
-					}
 				}
-				if (tumbas[posHumano].equals("T")) {
-					turnoStun = (short) (contadorTurnos + 1);
-				}
-				// Caso en el que el muñeco se quede stuneado en una tumba, ira a la izquierda o
-				// derecha.
-			} else if (turnoStun == contadorTurnos) {
-				// No hara nada
+			} else {
+				estaMuerto = true;
 			}
-
 			// 3 - Imprimir la siguiente imagen
 			System.out.println("\n\nMuertes: " + contadorMuertes + "/" + muertesObjetivo);
 			System.out.println("Llevas " + contadorTurnos + " turnos.");
@@ -163,6 +157,7 @@ public class Principal {
 		}
 
 		// Imprime nuestras estadisticas
+		contadorTurnos = (short) (contadorTurnos - 1);
 		System.out.println("Has tardado " + contadorTurnos + " turnos.");
 
 	}

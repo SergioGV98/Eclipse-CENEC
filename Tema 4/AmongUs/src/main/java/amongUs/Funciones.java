@@ -55,18 +55,6 @@ public class Funciones {
 		return posicionAleatoria;
 	}
 
-	public static byte colocarElementoRecursivo(String[] tablero, char elemento) {
-		Random r = new Random();
-
-		byte posicionAleatoria = (byte) r.nextInt(tablero.length);
-
-		if (!tablero[posicionAleatoria].equals("_")) {
-			posicionAleatoria = colocarElementoRecursivo(tablero, elemento);
-		} else {
-			tablero[posicionAleatoria] = elemento + "";
-		}
-		return posicionAleatoria;
-	}
 	
 
 }
