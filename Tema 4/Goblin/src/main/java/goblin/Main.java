@@ -64,7 +64,6 @@ public class Main {
 		}
 
 		System.out.println(nombreJugador + " " + genero);
-		System.out.println(Funciones1D.imprime(Funciones1D.creaTablero((byte) 4)));
 
 	}
 

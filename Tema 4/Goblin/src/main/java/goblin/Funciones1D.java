@@ -11,6 +11,9 @@ public class Funciones1D {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime el tamaño que tendra el tablero");
 		byte tamaño = Byte.parseByte(sc.nextLine());
+		
+		String [] tablero = Funciones1D.creaTablero(tamaño);
+		System.out.println(Funciones1D.imprime(tablero));
 	}
 
 	public static String[] creaTablero(byte tamaño) {
@@ -36,7 +39,7 @@ public class Funciones1D {
 		ret += "\n" + icono[r.nextInt(icono.length)] + " ";
 
 		for (byte i = 0; i < array.length; i++) {
-			ret += "_" + " ";
+			ret += array[i] + " ";
 		}
 
 		ret += icono[r.nextInt(icono.length)] + "\n";
