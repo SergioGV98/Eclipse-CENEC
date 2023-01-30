@@ -28,26 +28,25 @@ public class Funciones1D {
 	public static String imprime(String[] array) {
 
 		Random r = new Random();
-
+		String[] icono = { "P", "T", "L", "M" };
 		String ret = "";
-
-		for(byte i = 0; i < array.length+2; i++) {
-			ret += r.nextInt(1,5) + " ";
+		for (byte i = 0; i < array.length + 2; i++) {
+			ret += icono[r.nextInt(icono.length)] + " ";
 		}
-		ret += "\n" + r.nextInt(1,5) + " " ;
-		
-		for(byte i = 0; i < array.length; i++) {
+		ret += "\n" + icono[r.nextInt(icono.length)] + " ";
+
+		for (byte i = 0; i < array.length; i++) {
 			ret += "_" + " ";
 		}
-		
-		ret += r.nextInt(1,5) + "\n";
-		
-		for(byte i = 0; i < array.length+2; i++) {
-			ret += r.nextInt(1,5) + " ";
+
+		ret += icono[r.nextInt(icono.length)] + "\n";
+
+		for (byte i = 0; i < array.length + 2; i++) {
+			ret += icono[r.nextInt(icono.length)] + " ";
 		}
-		
+
 		return ret;
-		
+
 	}
 
 }
