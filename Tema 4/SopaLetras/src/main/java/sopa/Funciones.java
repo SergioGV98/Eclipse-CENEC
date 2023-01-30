@@ -70,7 +70,7 @@ public class Funciones {
 
 		switch (opcion) {
 		case 0:
-			// Insertar en horizontal hacia adelante
+			// Insertar en horizontal hacia adelante FUNCIONA
 			if (columna + (palabra.length() - 1) < matriz[columna].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
 					matriz[fila][columna + i] = palabra.toUpperCase().charAt(i);
@@ -81,7 +81,7 @@ public class Funciones {
 				return false;
 			}
 		case 1:
-			// Insertar en horizontal hacia atrás
+			// Insertar en horizontal hacia atrás FUNCIONA
 			if (columna - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
 					matriz[fila][columna - i] = palabra.toUpperCase().charAt(i);
@@ -92,7 +92,7 @@ public class Funciones {
 				return false;
 			}
 		case 2:
-			// Insertar en vertical hacia arriba NO FUNCIONA COMPROBAR EN UN FUTURO
+			// Insertar en vertical hacia arriba FUNCIONA
 			if (fila - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
 					matriz[fila - i][columna] = palabra.toUpperCase().charAt(i);
@@ -103,8 +103,8 @@ public class Funciones {
 				return false;
 			}
 		case 3:
-			// Insertar en vertical hacia abajo
-			if (fila - (palabra.length() - 1) < matriz[fila].length) {
+			// Insertar en vertical hacia abajo FUNCIONA
+			if (fila + (palabra.length() - 1) < matriz[fila].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
 					matriz[fila + i][columna] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila + i][columna] = true;
@@ -114,17 +114,49 @@ public class Funciones {
 				return false;
 			}
 		case 4:
-			// Insertar en diagonal hacia arriba a la derecha
-			break;
+			// Insertar en diagonal hacia arriba a la derecha FUNCIONA
+			if ((fila - (palabra.length() - 1) >= 0) && (columna + (palabra.length() - 1)) < matriz[columna].length) {
+				for (byte i = 0; i < palabra.length(); i++) {
+					matriz[fila - i][columna + i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila - i][columna + i] = true;
+				}
+				return true;
+			} else {
+				return false;
+			}
 		case 5:
-			// Insertar en diagonal hacia arriba a la izquierda
-			break;
+			// Insertar en diagonal hacia arriba a la izquierda FUNCIONA
+			if ((fila - (palabra.length() - 1) >= 0) && (columna - (palabra.length() - 1)) < matriz[columna].length) {
+				for (byte i = 0; i < palabra.length(); i++) {
+					matriz[fila - i][columna - i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila - i][columna - i] = true;
+				}
+				return true;
+			} else {
+				return false;
+			}
 		case 6:
-			// Insertar en diagonal hacia abajo a la derecha
-			break;
+			// Insertar en diagonal hacia abajo a la derecha FUNCIONA
+			if ((fila + (palabra.length() - 1) < matriz[fila].length) && (columna + (palabra.length() - 1)) < matriz[columna].length) {
+				for (byte i = 0; i < palabra.length(); i++) {
+					matriz[fila + i][columna + i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila + i][columna + i] = true;
+				}
+				return true;
+			} else {
+				return false;
+			}
 		case 7:
-			// Insertar en diagonal hacia abajo a la izda
-			break;
+			// Insertar en diagonal hacia abajo a la izda FUNCIONA
+			if ((fila + (palabra.length() - 1) < matriz[fila].length) && (columna - (palabra.length() - 1)) >= 0) {
+				for (byte i = 0; i < palabra.length(); i++) {
+					matriz[fila + i][columna - i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila + i][columna - i] = true;
+				}
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		return false;

@@ -20,9 +20,13 @@ public class SopaLetras {
 		boolean [][] palabraAqui = Funciones.creaSopaComprobador(filas, columnas);
 				
 		boolean puedoSeguir = false;
-
+		
+		System.out.println("Dime cuantas palabras vas a insertar");
+		byte nPalabras = Byte.parseByte(sc.nextLine());
+		byte comprobador = 0;
+		
 		do {
-
+			comprobador++;
 			System.out.println("Dime una palabra que quieras insertar en la sopa");
 			String palabra = sc.nextLine();
 			
@@ -39,9 +43,10 @@ public class SopaLetras {
 
 			if(!puedoSeguir) {
 				System.out.println("La palabra no cabe ahi. Escribe otra cosa");
+				comprobador--;
 			}
 			
-		} while (!puedoSeguir);
+		} while (comprobador < nPalabras);
 
 		System.out.println(Funciones.imprimeMatriz(sopa));
 		System.out.println(Funciones.imprimeMatriz(palabraAqui));

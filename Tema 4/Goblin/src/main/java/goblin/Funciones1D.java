@@ -11,8 +11,25 @@ public class Funciones1D {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime el tamaño que tendra el tablero");
 		byte tamaño = Byte.parseByte(sc.nextLine());
+
+		String[] tablero = Funciones1D.creaTablero(tamaño);
+
+		String iconoJugador = (generoJugador == 'm' ? "H" : generoJugador == 'f' ? "M" : "N");
 		
-		String [] tablero = Funciones1D.creaTablero(tamaño);
+		byte posJugador = 0;
+		
+		tablero[posJugador] = iconoJugador;
+
+		for (byte i = (byte) ((tablero.length * 2) / 3); i < tablero.length; i++) {
+			tablero[i] = "G";
+		}
+		
+		for (short i = 0; i < 1000; i++) {
+			Random r = new Random();
+			
+			Funciones1D.intercambiaPosicion((byte)(r.nextInt(tablero.length)), (byte)(r.nextInt(tablero.length)), tablero);
+		}
+		
 		System.out.println(Funciones1D.imprime(tablero));
 	}
 
@@ -31,7 +48,7 @@ public class Funciones1D {
 	public static String imprime(String[] array) {
 
 		Random r = new Random();
-		String[] icono = { "P", "T", "L", "M" };
+		String[] icono = { "P", "T", "X", "Z" };
 		String ret = "";
 		for (byte i = 0; i < array.length + 2; i++) {
 			ret += icono[r.nextInt(icono.length)] + " ";
@@ -50,6 +67,14 @@ public class Funciones1D {
 
 		return ret;
 
+	}
+	
+	public static void intercambiaPosicion(byte p1, byte p2, String []tablero) {
+		byte aux = 0;
+		tablero[aux] = tablero[p2];
+		tablero[p2] = tablero[p1];
+		tablero[p1] = tablero[aux];
+		
 	}
 
 }
