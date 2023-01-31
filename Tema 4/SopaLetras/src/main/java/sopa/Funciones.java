@@ -73,10 +73,8 @@ public class Funciones {
 			// Insertar en horizontal hacia adelante
 			if (columna + (palabra.length() - 1) < matriz[columna].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila][columna+palabra.length()] == false) {
-						matriz[fila][columna + i] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila][columna + i] = true;
-					} 
+					matriz[fila][columna + i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila][columna + i] = true;
 				}
 				return true;
 			} else {
@@ -84,14 +82,10 @@ public class Funciones {
 			}
 		case 1:
 			// Insertar en horizontal hacia atrás
-			if (columna - (palabra.length()-1) >= 0) {
+			if (columna - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila][columna-palabra.length()] == false) {
-						matriz[fila][columna - i] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila][columna - i] = true;
-					} else {
-						return false;
-					}
+					matriz[fila][columna - i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila][columna - i] = true;
 				}
 				return true;
 			} else {
@@ -101,12 +95,8 @@ public class Funciones {
 			// Insertar en vertical hacia arriba
 			if (fila - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila-palabra.length()][columna] == false) {
-						matriz[fila - i][columna] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila - i][columna] = true;
-					} else {
-						return false;
-					}
+					matriz[fila - i][columna] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila - i][columna] = true;
 				}
 				return true;
 			} else {
@@ -116,12 +106,8 @@ public class Funciones {
 			// Insertar en vertical hacia abajo
 			if (fila + (palabra.length() - 1) < matriz[fila].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila+palabra.length()][columna] == false) {
-						matriz[fila + i][columna] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila + i][columna] = true;
-					} else {
-						return false;
-					}
+					matriz[fila + i][columna] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila + i][columna] = true;
 				}
 				return true;
 			} else {
@@ -131,12 +117,8 @@ public class Funciones {
 			// Insertar en diagonal hacia arriba a la derecha
 			if ((fila - (palabra.length() - 1) >= 0) && (columna + (palabra.length() - 1)) < matriz[columna].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila-palabra.length()][columna+palabra.length()] == false) {
-						matriz[fila - i][columna + i] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila - i][columna + i] = true;
-					} else {
-						return false;
-					}
+					matriz[fila - i][columna + i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila - i][columna + i] = true;
 				}
 				return true;
 			} else {
@@ -146,12 +128,8 @@ public class Funciones {
 			// Insertar en diagonal hacia arriba a la izquierda
 			if ((fila - (palabra.length() - 1) >= 0) && (columna - (palabra.length() - 1)) < matriz[columna].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila-palabra.length()][columna-palabra.length()] == false) {
-						matriz[fila - i][columna - i] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila - i][columna - i] = true;
-					} else {
-						return false;
-					}
+					matriz[fila - i][columna - i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila - i][columna - i] = true;
 				}
 				return true;
 			} else {
@@ -159,14 +137,11 @@ public class Funciones {
 			}
 		case 6:
 			// Insertar en diagonal hacia abajo a la derecha
-			if ((fila + (palabra.length() - 1) < matriz[fila].length) && (columna + (palabra.length() - 1)) < matriz[columna].length) {
+			if ((fila + (palabra.length() - 1) < matriz[fila].length)
+					&& (columna + (palabra.length() - 1)) < matriz[columna].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila+palabra.length()][columna+palabra.length()] == false) {
-						matriz[fila + i][columna + i] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila + i][columna + i] = true;
-					} else {
-						return false;
-					}
+					matriz[fila + i][columna + i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila + i][columna + i] = true;
 				}
 				return true;
 			} else {
@@ -175,13 +150,9 @@ public class Funciones {
 		case 7:
 			// Insertar en diagonal hacia abajo a la izda
 			if ((fila + (palabra.length() - 1) < matriz[fila].length) && (columna - (palabra.length() - 1)) >= 0) {
-				for (byte i = 0; i < palabra.length(); i++) {;
-					if(fila != palabra.toUpperCase().charAt(i) && matrizComprobador[fila+palabra.length()][columna-palabra.length()] == false) {
-						matriz[fila + i][columna - i] = palabra.toUpperCase().charAt(i);
-						matrizComprobador[fila + i][columna - i] = true;
-					} else {
-						return false;
-					}
+				for (byte i = 0; i < palabra.length(); i++) {
+					matriz[fila + i][columna - i] = palabra.toUpperCase().charAt(i);
+					matrizComprobador[fila + i][columna - i] = true;
 				}
 				return true;
 			} else {
