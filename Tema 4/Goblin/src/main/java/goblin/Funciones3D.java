@@ -19,7 +19,7 @@ public class Funciones3D {
 		for (byte i = 0; i < tamaño; i++) {
 			for(byte j = 0; j < tablero[i].length; j++) {
 				for(byte k = 0; k < tablero[i][j].length; k++) {
-					tablero[i][j][k] = "_";
+					tablero[i][j][k] = "♒";
 				}
 			}
 		}
@@ -27,4 +27,5 @@ public class Funciones3D {
 		return tablero;
 
 	}
+	
 }
