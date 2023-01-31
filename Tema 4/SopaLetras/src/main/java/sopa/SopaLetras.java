@@ -46,6 +46,8 @@ public class SopaLetras {
 				comprobador--;
 			}
 			
+			System.out.println(Funciones.imprimeMatriz(sopa));
+			
 		} while (comprobador < nPalabras);
 
 		System.out.println(Funciones.imprimeMatriz(sopa));

@@ -126,7 +126,7 @@ public class Funciones {
 			}
 		case 5:
 			// Insertar en diagonal hacia arriba a la izquierda
-			if ((fila - (palabra.length() - 1) >= 0) && (columna - (palabra.length() - 1)) < matriz[columna].length) {
+			if ((fila - (palabra.length() - 1) >= 0) && (columna - (palabra.length() - 1)) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
 					matriz[fila - i][columna - i] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila - i][columna - i] = true;
