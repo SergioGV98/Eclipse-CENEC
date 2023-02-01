@@ -15,7 +15,7 @@ public class Funciones2D {
 
 		String[][] tablero = Funciones2D.creaTablero(tamaño);
 
-		String iconoJugador = (generoJugador == 'm' ? "👨" : generoJugador == 'f' ? "👩" : "웃"); 
+		String iconoJugador = (generoJugador == 'm' ? "H" : generoJugador == 'f' ? "M" : "웃");
 
 		// En posJugador[0] fila y en posJugador[1] la columna
 		byte[] posJugador = { 0, 0 };
@@ -24,7 +24,7 @@ public class Funciones2D {
 
 		for (byte i = (byte) ((tablero.length * 2) / 3); i < tablero.length; i++) {
 			for (byte j = (byte) ((tablero.length * 2) / 3); j < tablero[i].length; j++) {
-				tablero[i][j] = "👺";
+				tablero[i][j] = "G";
 			}
 		}
 
@@ -37,6 +37,7 @@ public class Funciones2D {
 		}
 
 		System.out.println(Funciones2D.imprime(tablero));
+		System.out.println(Funciones2D.goblinsAlrededor(tablero, posJugador));
 	}
 
 	public static String[][] creaTablero(byte tamaño) {
@@ -45,7 +46,7 @@ public class Funciones2D {
 
 		for (byte i = 0; i < tamaño; i++) {
 			for (byte j = 0; j < tablero[i].length; j++) {
-				tablero[i][j] = "♒";
+				tablero[i][j] = "_";
 			}
 		}
 
@@ -56,24 +57,24 @@ public class Funciones2D {
 	public static String imprime(String[][] matriz) {
 
 		Random r = new Random();
-		String[] icono = { "♨", "🏞", "🌀", "🍙" };
+		String[] icono = { "Z", "X", "C", "V" };
 		String ret = "";
 
-		for (byte i = 0; i < matriz.length+2; i++) {
-			ret += icono[r.nextInt(icono.length)];
+		for (byte i = 0; i < matriz.length + 2; i++) {
+			ret += icono[r.nextInt(icono.length)] + " ";
 		}
 		ret += "\n";
 
 		for (byte i = 0; i < matriz.length; i++) {
 			ret += icono[r.nextInt(icono.length)];
 			for (byte j = 0; j < matriz[i].length; j++) {
-				ret += matriz[i][j];
+				ret += matriz[i][j] + " ";
 			}
-			ret += icono[r.nextInt(icono.length)];
+			ret += icono[r.nextInt(icono.length)] + " ";
 			ret += "\n";
 		}
-		for (byte i = 0; i < matriz.length+2; i++) {
-			ret += icono[r.nextInt(icono.length)];
+		for (byte i = 0; i < matriz.length + 2; i++) {
+			ret += icono[r.nextInt(icono.length)] + " ";
 		}
 
 		return ret;
@@ -86,20 +87,46 @@ public class Funciones2D {
 		tablero[f1][c1] = g;
 
 	}
-	
-	/**
-	 * Funcion compruebe en los alrededores de posJugador cuantas casillas hay 
-	 * que tengan u goblin, y devuelva en un byte el nº de goblins que tiene alrededor
-	 * @param matriz matriz tablero (usa la de la funcion jugar)
-	 * @param posJugador array siempre dedos posiciones. En la posicion 0 esta el nº
-	 * de fila donde esta el jugador, y en la posicion 1, el nºde columna donde esta
-	 * el jugador
-	 * @return que cuenta cuantos goblins ahi alrededor del jugador
-	 */
-	
-	public static byte goblinsAlrededor(String[][] matriz, byte[] posJugador) {
-		
-		return 1;
-	}
 
+	public static byte goblinsAlrededor(String[][] matriz, byte[] posJugador) {
+
+		byte contador = 0;
+		byte fila = posJugador[0];
+		byte columna = posJugador[1];
+
+		  // Verificar arriba
+	    if (fila - 1 >= 0 && !matriz[fila - 1][columna].equals("")) {
+	        contador++;
+	    }
+	    // Verificar abajo
+	    if (fila + 1 < matriz.length && !matriz[fila + 1][columna].equals("")) {
+	        contador++;
+	    }
+	    // Verificar a la izquierda
+	    if (columna - 1 >= 0 && !matriz[fila][columna - 1].equals("")) {
+	        contador++;
+	    }
+	    // Verificar a la derecha
+	    if (columna + 1 < matriz[0].length && !matriz[fila][columna + 1].equals("")) {
+	        contador++;
+	    }
+	    // Verificar arriba a la izquierda
+	    if (fila - 1 >= 0 && columna - 1 >= 0 && !matriz[fila - 1][columna - 1].equals("")) {
+	        contador++;
+	    }
+	    // Verificar arriba a la derecha
+	    if (fila - 1 >= 0 && columna + 1 < matriz[0].length && !matriz[fila - 1][columna + 1].equals("")) {
+	        contador++;
+	    }
+	    // Verificar abajo a la izquierda
+	    if (fila + 1 < matriz.length && columna - 1 >= 0 && !matriz[fila + 1][columna - 1].equals("")) {
+	        contador++;
+	    }
+	    // Verificar abajo a la derecha
+	    if (fila + 1 < matriz.length && columna + 1 < matriz[0].length && !matriz[fila + 1][columna + 1].equals("")) {
+	        contador++;
+	    }
+
+	    return contador;
+	}
 }
