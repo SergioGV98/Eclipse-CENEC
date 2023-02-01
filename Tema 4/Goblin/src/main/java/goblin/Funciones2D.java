@@ -37,7 +37,7 @@ public class Funciones2D {
 		}
 
 		System.out.println(Funciones2D.imprime(tablero));
-		System.out.println(Funciones2D.goblinsAlrededor(tablero, posJugador));
+		System.out.println(Funciones2D.goblinsAlrededor(tablero, posJugador, iconoJugador));
 	}
 
 	public static String[][] creaTablero(byte tamaño) {
@@ -88,45 +88,53 @@ public class Funciones2D {
 
 	}
 
-	public static byte goblinsAlrededor(String[][] matriz, byte[] posJugador) {
+	public static byte goblinsAlrededor(String[][] matriz, byte[] posJugador, String iconoJugador) {
 
 		byte contador = 0;
+		for (byte i = 0; i < matriz.length; i++) {
+			for (byte j = 0; j < matriz[i].length; j++) {
+				if (matriz[i][j] == iconoJugador) {
+					posJugador[0] = i;
+					posJugador[1] = j;
+				}
+			}
+		}
 		byte fila = posJugador[0];
-		byte columna = posJugador[1];
+		byte col = posJugador[1];
 
-		  // Verificar arriba
-	    if (fila - 1 >= 0 && !matriz[fila - 1][columna].equals("")) {
-	        contador++;
-	    }
-	    // Verificar abajo
-	    if (fila + 1 < matriz.length && !matriz[fila + 1][columna].equals("")) {
-	        contador++;
-	    }
-	    // Verificar a la izquierda
-	    if (columna - 1 >= 0 && !matriz[fila][columna - 1].equals("")) {
-	        contador++;
-	    }
-	    // Verificar a la derecha
-	    if (columna + 1 < matriz[0].length && !matriz[fila][columna + 1].equals("")) {
-	        contador++;
-	    }
-	    // Verificar arriba a la izquierda
-	    if (fila - 1 >= 0 && columna - 1 >= 0 && !matriz[fila - 1][columna - 1].equals("")) {
-	        contador++;
-	    }
-	    // Verificar arriba a la derecha
-	    if (fila - 1 >= 0 && columna + 1 < matriz[0].length && !matriz[fila - 1][columna + 1].equals("")) {
-	        contador++;
-	    }
-	    // Verificar abajo a la izquierda
-	    if (fila + 1 < matriz.length && columna - 1 >= 0 && !matriz[fila + 1][columna - 1].equals("")) {
-	        contador++;
-	    }
-	    // Verificar abajo a la derecha
-	    if (fila + 1 < matriz.length && columna + 1 < matriz[0].length && !matriz[fila + 1][columna + 1].equals("")) {
-	        contador++;
-	    }
+		// Vertical hacia arriba
+		if (fila - 1 >= 0 && (matriz[fila - 1][col] == "G")) {
+			contador++;
+		}
+		// Vertical hacia abaja
+		if (fila + 1 < matriz.length && (matriz[fila + 1][col] == "G")) {
+			contador++;
+		}
+		// Horizontal hacia atras
+		if (col - 1 >= 0 && (matriz[fila][col - 1] == "G")) {
+			contador++;
+		}
+		// Horizontal hacia adelante
+		if (col + 1 < matriz.length && (matriz[fila][col + 1] == "G")) {
+			contador++;
+		}
+		// Diagonal hacia arriba a la izquierda
+		if (fila - 1 >= 0 && col - 1 >= 0 && (matriz[fila - 1][col - 1] == "G")) {
+			contador++;
+		}
+		// Diagonal hacia arriba a la derecha
+		if (fila - 1 >= 0 && col + 1 < matriz.length && (matriz[fila - 1][col + 1] == "G")) {
+			contador++;
+		}
+		// Diagonal hacia abajo a la izda
+		if (fila + 1 < matriz.length && col - 1 >= 0 && (matriz[fila + 1][col - 1] == "G")) {
+			contador++;
+		}
+		// Diagonal hacia abajo a la derecha
+		if (fila + 1 < matriz.length && col + 1 < matriz.length && (matriz[fila + 1][col + 1] == "G")) {
+			contador++;
+		}
 
-	    return contador;
+		return contador;
 	}
 }
