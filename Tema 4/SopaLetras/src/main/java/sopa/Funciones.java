@@ -73,6 +73,13 @@ public class Funciones {
 			// Insertar en horizontal hacia adelante
 			if (columna + (palabra.length() - 1) < matriz[columna].length) {
 				for (byte i = 0; i < palabra.length(); i++) {
+					if (matrizComprobador[fila][columna + i] == true) {
+						if (matriz[fila][columna + i] == palabra.toUpperCase().charAt(i)) {
+							matriz[fila][columna + i] = palabra.toUpperCase().charAt(i);
+						} else {
+							return false;
+						}
+					}
 					matriz[fila][columna + i] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila][columna + i] = true;
 				}
@@ -84,6 +91,13 @@ public class Funciones {
 			// Insertar en horizontal hacia atrás
 			if (columna - (palabra.length() - 1) >= 0) {
 				for (byte i = 0; i < palabra.length(); i++) {
+					for (byte j = 0; j < palabra.length(); j++) {
+						if (matrizComprobador[fila][columna - j] == true) {
+							if (matriz[fila][columna - j] != palabra.toUpperCase().charAt(j)) {
+								return false;
+							}
+						}
+					}
 					matriz[fila][columna - i] = palabra.toUpperCase().charAt(i);
 					matrizComprobador[fila][columna - i] = true;
 				}
