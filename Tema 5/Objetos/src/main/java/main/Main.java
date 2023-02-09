@@ -26,7 +26,7 @@ public class Main {
 		Sim mariPepis = new Sim();
 		mariPepis.nombre = "mariPepis";
 		mariPepis.apellido = "Garcia";
-		mariPepis.genero = 'h';
+		mariPepis.genero = 'm';
 		mariPepis.hambre = 0;
 		mariPepis.aburrimiento = 0;
 		mariPepis.sueño = 0;

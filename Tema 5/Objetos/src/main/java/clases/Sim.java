@@ -44,7 +44,7 @@ public class Sim {
 	public String toString() {
 		return this.nombre + " " + this.apellido + " ("+(genero == 'h'?"Hombre":"Mujer")+")"+
 				"\n\t Hambre: " + this.hambre + "\n\t Sueño: " + this.sueño + "\n\t Aburrimiento: " +
-				this.aburrimiento + "\n\t Suciedad: " + this.suciedad + "\n";
+				this.aburrimiento + "\n\t Suciedad: " + this.suciedad + "\n\t Animales: " + this.gatos[0].nombre + ", " + this.gatos[1].nombre + "\n";
 	}
 	
 	
