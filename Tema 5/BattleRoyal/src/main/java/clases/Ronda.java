@@ -10,4 +10,15 @@ public class Ronda extends ElementoConNombre{
 		this.combate = combate;
 	}
 	
+	/** Getter & Setter **/
+	public Combate[] getCombate() {
+		return combate;
+	}
+
+	public void setCombate(Combate[] combate) {
+		this.combate = combate;
+	}
+	
+	
+	
 }

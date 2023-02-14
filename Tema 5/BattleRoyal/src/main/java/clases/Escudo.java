@@ -9,6 +9,15 @@ public class Escudo extends ElementoConNombre{
 		super(nombre);
 		this.proteccion = proteccion;
 	}
+	
+	/** Getter & Setter **/
+	public byte getProteccion() {
+		return proteccion;
+	}
 
+	public void setProteccion(byte proteccion) {
+		this.proteccion = proteccion;
+	}
+	
 	
 }

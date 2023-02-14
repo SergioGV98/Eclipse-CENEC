@@ -9,6 +9,16 @@ public class Guerrero extends Luchador{
 		super(nombre, vida, arma);
 		this.escudo = escudo;
 	}
+
+	/** Getter & Setter **/
+	public Escudo getEscudo() {
+		return escudo;
+	}
+
+	public void setEscudo(Escudo escudo) {
+		this.escudo = escudo;
+	}
+	
 	
 	
 }

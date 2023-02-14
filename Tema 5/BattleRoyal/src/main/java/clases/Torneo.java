@@ -9,6 +9,15 @@ public class Torneo extends ElementoConNombre {
 		super(nombre);
 		this.ronda = ronda;
 	}
+
+	/** Getter & Setter **/
+	public Ronda[] getRonda() {
+		return ronda;
+	}
+
+	public void setRonda(Ronda[] ronda) {
+		this.ronda = ronda;
+	}
 	
 	
 }

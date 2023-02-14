@@ -13,11 +13,35 @@ public class Combate extends ElementoConNombre{
 		this.luchador2 = luchador2;
 	}
 	
+	/** Getter & Setter **/
 	public Combate(String nombre, int turno) {
 		super(nombre);
 		this.turno = 0;
 	}
-	
+
+	public String getLuchador1() {
+		return luchador1;
+	}
+
+	public void setLuchador1(String luchador1) {
+		this.luchador1 = luchador1;
+	}
+
+	public String getLuchador2() {
+		return luchador2;
+	}
+
+	public void setLuchador2(String luchador2) {
+		this.luchador2 = luchador2;
+	}
+
+	public int getTurno() {
+		return turno;
+	}
+
+	public void setTurno(int turno) {
+		this.turno = turno;
+	}
 	
 	
 }

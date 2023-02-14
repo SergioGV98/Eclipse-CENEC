@@ -10,6 +10,15 @@ public class Berserk extends Luchador {
 		super(nombre, vida, arma);
 		this.segundaArma = segundaArma;
 	}
+
+	/** Getter & Setter **/
+	public Arma getSegundaArma() {
+		return segundaArma;
+	}
+
+	public void setSegundaArma(Arma segundaArma) {
+		this.segundaArma = segundaArma;
+	}
 	
 	
 

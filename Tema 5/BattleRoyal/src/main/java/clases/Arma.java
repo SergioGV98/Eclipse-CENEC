@@ -9,6 +9,17 @@ public class Arma extends ElementoConNombre{
 		super(nombre);
 		this.daño = daño;
 	}
+	
+	/** Getter & Setter **/
+
+	public byte getDaño() {
+		return daño;
+	}
+
+	public void setDaño(byte daño) {
+		this.daño = daño;
+	}
+
 
 	/** Methods **/
 	public String toString() {
