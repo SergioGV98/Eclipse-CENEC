@@ -28,7 +28,9 @@ public class Main {
 		System.out.println(mariPepis);
 		System.out.println(sputnik);
 		rodoberto.setHambre((byte) -120);
+		rodoberto.comer();
 		System.out.println(rodoberto.getHambre());
+		System.out.println(rodoberto);
 		
 	}
 

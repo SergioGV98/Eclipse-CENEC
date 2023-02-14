@@ -43,7 +43,7 @@ public class Sim {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.genero = genero;
-		this.hambre = hambre;
+		this.setHambre(hambre); // Para evitar que en el main pongan menos de 0 o mas 100 de hambre.
 		this.sueño = sueño;
 		this.aburrimiento = aburrimiento;
 		this.suciedad = suciedad;
@@ -57,7 +57,7 @@ public class Sim {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.genero = genero;
-		this.hambre = 0;
+		this.setHambre(hambre);
 		this.sueño = 0;
 		this.aburrimiento = 0;
 		this.suciedad = 0;
@@ -191,7 +191,9 @@ public class Sim {
 	
 	/** Meotodo que le resta hambre a un Sim **/
 	public void comer() {
-		this.hambre -= 20; 
+		//this.hambre -= 20; 
+		//this.setHambre((byte) (this.getHambre()-20)); tambien vale
+		this.setHambre((byte) (hambre+20));
 	}
 
 }
