@@ -1,38 +1,29 @@
 package clases;
 
-public class Combate extends ElementoConNombre{
+public class Combate{
 
-	private String luchador1;
-	private String luchador2;
+	private Luchador luchador1;
+	private Luchador luchador2;
 	private int turno;
 	
 	/** Constructor **/
-	public Combate(String nombre, String luchador1, String luchador2) {
-		super(nombre);
+	public Combate(Luchador luchador1, Luchador luchador2) {
 		this.luchador1 = luchador1;
 		this.luchador2 = luchador2;
+		this.turno = 0;
 	}
 	
 	/** Getter & Setter **/
-	public Combate(String nombre, int turno) {
-		super(nombre);
-		this.turno = 0;
+	public Combate(int turno) {
+		this.turno = turno;
 	}
 
-	public String getLuchador1() {
+	public Luchador getLuchador1() {
 		return luchador1;
 	}
 
-	public void setLuchador1(String luchador1) {
-		this.luchador1 = luchador1;
-	}
-
-	public String getLuchador2() {
+	public Luchador getLuchador2() {
 		return luchador2;
-	}
-
-	public void setLuchador2(String luchador2) {
-		this.luchador2 = luchador2;
 	}
 
 	public int getTurno() {
@@ -43,5 +34,9 @@ public class Combate extends ElementoConNombre{
 		this.turno = turno;
 	}
 	
+	/** Methods **/
+	public String toString() {
+		return "BERSERKER\n";
+	}
 	
 }

@@ -19,5 +19,9 @@ public class Escudo extends ElementoConNombre{
 		this.proteccion = proteccion;
 	}
 	
-	
+	/** Methods **/
+	public String toString() {
+		return this.getNombre() + " [Escudo=" + this.getProteccion() + "]";
+	}
+
 }

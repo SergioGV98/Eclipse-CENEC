@@ -1,6 +1,6 @@
 package clases;
 
-public class Guerrero extends Luchador{
+public class Guerrero extends Luchador {
 
 	private Escudo escudo;
 
@@ -18,7 +18,10 @@ public class Guerrero extends Luchador{
 	public void setEscudo(Escudo escudo) {
 		this.escudo = escudo;
 	}
-	
-	
-	
+
+	/** Methods **/
+	public String toString() {
+		return "GUERRERO\n" + super.toString() + "\nEscudo: " + this.escudo;
+	}
+
 }

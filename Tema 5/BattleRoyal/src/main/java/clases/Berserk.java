@@ -20,6 +20,10 @@ public class Berserk extends Luchador {
 		this.segundaArma = segundaArma;
 	}
 	
+	/** Methods **/
+	public String toString() {
+		return "BERSERKER\n" + super.toString() + "\nArma mano derecha: " + this.segundaArma;
+	}
 	
 
 }

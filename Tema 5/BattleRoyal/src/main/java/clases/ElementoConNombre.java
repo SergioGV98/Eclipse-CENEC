@@ -1,12 +1,16 @@
 package clases;
 
-public class ElementoConNombre {
+public abstract class ElementoConNombre {
 
 	private String nombre;
 	
 	/** Constructor **/
 	public ElementoConNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	public ElementoConNombre() {
+		
 	}
 
 	/** Getter & Setter **/
