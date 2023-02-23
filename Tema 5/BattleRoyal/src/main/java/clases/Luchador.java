@@ -29,7 +29,7 @@ public abstract class Luchador extends ElementoConNombre {
 		if (vida > 100) {
 			System.out.println("No se puede poner una vida mayor a 100");
 		} else if (vida < 0) {
-			vida = 0;
+			this.vida = 0;
 		} else {
 			this.vida = vida;
 		}
@@ -69,23 +69,33 @@ public abstract class Luchador extends ElementoConNombre {
 		do {
 			byte ataque = this.atacar();
 			byte defensa = 0;
-			if(rival.getClass() == Guerrero.class) {
-				defensa = ((Guerrero)rival).defender();
+			if (rival.getClass() == Guerrero.class) {
+				defensa = ((Guerrero) rival).defender();
 			}
-			if(ataque>defensa) {
-				rival.setVida((byte) (rival.vida-(ataque-defensa)));
+			if (ataque > defensa) {
+				rival.setVida((byte) (rival.vida - (ataque - defensa)));
 			}
-			
-			System.out.println("A " + rival.getNombre() + " le quedan " + rival.vida + " puntos de vida.");
+
+			System.out.println("A " + rival.getNombre() + " le quedan " + rival.vida + " puntos de vida." + "\n");
 			Luchador.esperaCorta();
-			
-			if(rival.vida>0) { //Solo ataca si el rival no ha muerto
-				
+
+			if (rival.vida > 0) { // Solo ataca si el rival no ha muerto
+				ataque = rival.atacar();
+				defensa = 0;
+				if (this.getClass() == Guerrero.class) {
+					defensa = ((Guerrero) this).defender();
+				}
+				if (ataque > defensa) {
+					this.setVida((byte) (this.vida - (ataque - defensa)));
+				}
 			}
-			
-		}while(this.vida> 0 && rival.vida > 0);
-		
-		return this.vida>0;
+			System.out.println("A " + this.getNombre() + " le quedan " + this.vida + " puntos de vida." + "\n");
+			Luchador.esperaCorta();
+
+
+		} while (this.vida > 0 && rival.vida > 0);
+
+		return this.vida > 0;
 	}
 
 	protected byte atacar() {
@@ -99,7 +109,7 @@ public abstract class Luchador extends ElementoConNombre {
 
 	protected static void esperaCorta() {
 		try {
-			Thread.sleep(100);
+			Thread.sleep(600);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -107,7 +117,7 @@ public abstract class Luchador extends ElementoConNombre {
 
 	private static void esperaLarga() {
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(3500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

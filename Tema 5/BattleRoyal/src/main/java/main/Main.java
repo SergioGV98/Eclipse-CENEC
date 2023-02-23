@@ -3,6 +3,7 @@ package main;
 import clases.Berserk;
 import clases.Guerrero;
 import clases.Luchador;
+import clases.Torneo;
 
 public class Main {
 
@@ -18,7 +19,10 @@ public class Main {
 				new Guerrero("Miguel"), new Berserk("Carlos Boni"), new Guerrero("Cintia"), new Berserk("Natalia"),
 				new Berserk("Rodolfo"), new Berserk("Silvia"), new Guerrero("Manoli"), new Berserk("Alejandra se piró")};
 		
+		Torneo torneo = new Torneo("Combate a muerte CENEC", participantes);
+		Luchador ganador = torneo.jugar();
 		
+		System.out.println("\n\n\n\nCAMPEON 1DAW OFICIAL 22/23: " + ganador);
 	
 	}
 	
