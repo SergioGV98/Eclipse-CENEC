@@ -5,6 +5,8 @@ import java.util.Scanner;
 import clases.Animal;
 import clases.Gato;
 import clases.Sim;
+import enums.Especie;
+import enums.Genero;
 
 public class Main {
 
@@ -15,8 +17,23 @@ public class Main {
 	String nombre = sc.nextLine();
 	System.out.println("Dime los apellidos");
 	String apellidos = sc.nextLine();
-	System.out.println("Dime su genero (h/m)");
-	char genero = sc.nextLine().charAt(0);
+	byte opcionGenero;
+	do {
+		System.out.println("Dime su genero 1 - MASCULINO | 2 - FEMENINO | 3 - NEUTRO");
+		opcionGenero = Byte.parseByte(sc.nextLine());
+	}while(opcionGenero < 1 || opcionGenero > 3);
+	Genero genero;
+	
+	switch(opcionGenero) {
+	case 1:
+		genero = Genero.MASCULINO;
+		break;
+	case 2:
+		genero = Genero.FEMENINO;
+		break;
+	default:
+		genero = Genero.NEUTRO;
+	}
 	
 	Sim miSim = new Sim(nombre, apellidos, genero);
 		
@@ -49,8 +66,21 @@ public class Main {
 			miSim.setApellido(sc.nextLine());
 			break;
 		case 4:
-			System.out.println("Dime su nuevo genero");
-			miSim.setGenero(sc.nextLine().charAt(0));
+			do {
+				System.out.println("Dime su genero 1 - MASCULINO | 2 - FEMENINO | 3 - NEUTRO");
+				opcionGenero = Byte.parseByte(sc.nextLine());
+			}while(opcionGenero < 1 || opcionGenero > 3);
+			switch(opcionGenero) {
+			case 1:
+				genero = Genero.MASCULINO;
+				break;
+			case 2:
+				genero = Genero.FEMENINO;
+				break;
+			default:
+				genero = Genero.NEUTRO;
+			}
+			miSim.setGenero(genero);
 			break;
 		case 5:
 			break;
@@ -62,15 +92,46 @@ public class Main {
 			break;
 		case 9:
 			miSim.setMascotas(new Animal[1]);
-			System.out.println("Dime la especie");
-			String especie = sc.nextLine();
+			byte opcionEspecie;
+			do {
+				System.out.println("Dime la especie 1 - Gato 2 - Perro 3 - Pavo Real");
+				opcionEspecie = Byte.parseByte(sc.nextLine());
+			}while(opcionEspecie < 1 || opcionEspecie > 3);
+			System.out.println("Dime la especie 1 - Gato 2 - Perro 3 - Pavo Real");
+			Especie especie;
+			switch(opcionEspecie) {
+			case 1:
+				especie = Especie.GATO;
+				break;
+			case 2:
+				especie = Especie.PERRO;
+				break;
+			default:
+				especie = Especie.PAVO_REAL;
+			}
 			System.out.println("Dime la raza");
 			String raza = sc.nextLine();
 			System.out.println("Dime el nombre");
 			String nombreMascota = sc.nextLine();
-			System.out.println("Dime el genero");
-			char generoMascota = sc.nextLine().charAt(0);
-			if(especie.equals("Gato")) {
+			byte opcionGeneroAnimal;
+			do {
+				System.out.println("Dime el genero del animal 1 - MASCULINO | 2 - FEMENINO | 3 - NEUTRO");
+				opcionGeneroAnimal = Byte.parseByte(sc.nextLine());
+			}while(opcionGeneroAnimal < 1 || opcionGeneroAnimal > 3);
+			Genero generoMascota;
+			
+			switch(opcionGenero) {
+			case 1:
+				generoMascota = Genero.MASCULINO;
+				break;
+			case 2:
+				generoMascota = Genero.FEMENINO;
+				break;
+			default:
+				generoMascota = Genero.NEUTRO;
+			}
+			
+			if(especie == Especie.GATO) {
 				miSim.getMascotas()[0] = new Gato(nombreMascota, generoMascota, raza, miSim);
 			} else {
 				miSim.getMascotas()[0] = new Animal(nombreMascota, generoMascota, especie, raza, miSim);
@@ -79,6 +140,10 @@ public class Main {
 		}
 	}while(opcion != 0);
 	
+	
+	
+	
+	
+	
 	}
-
 }

@@ -1,14 +1,17 @@
 package clases;
 
+import enums.Especie;
+import enums.Genero;
+
 public class Animal extends SerVivo{
 
 	/** Variables internas **/
-	private String especie;
+	private Especie especie;
 	private String raza;
 	private Sim dueño;
 	
 	/** Constructors **/
-	public Animal(String nombre, char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, String especie,
+	public Animal(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, Especie especie,
 			String raza, Sim dueño) {
 		super(nombre, genero, hambre, sueño, aburrimiento, suciedad);
 		this.especie = especie;
@@ -16,7 +19,7 @@ public class Animal extends SerVivo{
 		this.dueño = dueño;
 	}
 	
-	public Animal(String nombre, char genero, String especie, String raza, Sim dueño) {
+	public Animal(String nombre, Genero genero, Especie especie, String raza, Sim dueño) {
 		super(nombre, genero);
 		this.especie = especie;
 		this.raza = raza;
@@ -24,11 +27,11 @@ public class Animal extends SerVivo{
 	}
 
 	/** Getter & Setter **/
-	public String getEspecie() {
+	public Especie getEspecie() {
 		return especie;
 	}
 
-	public void setEspecie(String especie) {
+	public void setEspecie(Especie especie) {
 		this.especie = especie;
 	}
 

@@ -2,6 +2,8 @@ package clases;
 
 import java.util.Arrays;
 
+import enums.Genero;
+
 /**
  * Clase que modela un sim, con todas sus caracteristicas para poder jugar al
  * juego los sims.
@@ -19,7 +21,7 @@ public class Sim extends SerVivo{
 	private Animal[] mascotas;
 	
 	/** Constructors **/
-	public Sim(String nombre, char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, String apellido,
+	public Sim(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, String apellido,
 			Sim madre, Sim padre, Animal[] mascotas) {
 		super(nombre, genero, hambre, sueño, aburrimiento, suciedad);
 		this.apellido = apellido;
@@ -28,7 +30,7 @@ public class Sim extends SerVivo{
 		this.mascotas = mascotas;
 	}
 	
-	public Sim(String nombre, String apellido, char genero) {
+	public Sim(String nombre, String apellido, Genero genero) {
 		super(nombre, genero);
 		this.apellido = apellido;
 	}

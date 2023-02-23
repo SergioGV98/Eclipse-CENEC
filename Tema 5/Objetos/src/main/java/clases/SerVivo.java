@@ -1,17 +1,19 @@
 package clases;
 
+import enums.Genero;
+
 public class SerVivo {
 	
 	/** Variables internas **/
 	private String nombre;
-	private char genero;
+	Genero genero;
 	private byte hambre;
 	private byte sueño;
 	private byte aburrimiento;
 	private byte suciedad;
 	
 	/** Constructors **/
-	public SerVivo(String nombre, char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad) {
+	public SerVivo(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad) {
 		super();
 		this.nombre = nombre;
 		this.genero = genero;
@@ -21,7 +23,7 @@ public class SerVivo {
 		this.suciedad = suciedad;
 	}
 	
-	public SerVivo(String nombre, char genero) {
+	public SerVivo(String nombre, Genero genero) {
 		this.nombre = nombre;
 		this.genero = genero;
 		this.hambre = 0;
@@ -39,11 +41,11 @@ public class SerVivo {
 		this.nombre = nombre;
 	}
 
-	public char getGenero() {
+	public Genero getGenero() {
 		return genero;
 	}
 
-	public void setGenero(char genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 
