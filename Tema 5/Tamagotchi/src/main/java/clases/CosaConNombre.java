@@ -19,6 +19,12 @@ public class CosaConNombre {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	/** Methods **/
+	@Override
+	public String toString() {
+		return "CosaConNombre [nombre=" + nombre + "]";
+	}
 	
 	
 }

@@ -6,7 +6,7 @@ public class Gato extends Tamagotchi{
 	private byte causarCaos;
 
 	/** Constructors **/
-	public Gato(String nombre, float edad, byte hambre, byte sueño, byte diversion, byte estres, byte causarCaos) {
+	public Gato(String nombre, byte edad, byte hambre, byte sueño, byte diversion, byte estres, byte causarCaos) {
 		super(nombre, edad, hambre, sueño, diversion, estres);
 		this.causarCaos = causarCaos;
 	}

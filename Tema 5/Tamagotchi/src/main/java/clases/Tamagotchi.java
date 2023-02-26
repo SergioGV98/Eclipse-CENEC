@@ -3,24 +3,25 @@ package clases;
 public class Tamagotchi extends CosaConNombre{
 
 	/** Variables internas **/
-	private float edad;
+	private byte edad;
 	private byte hambre;
 	private byte sueño;
 	private byte diversion;
 	private byte estres;
 	
 	/** Constructors **/
-	public Tamagotchi(String nombre, float edad, byte hambre, byte sueño, byte diversion, byte estres) {
+	public Tamagotchi(String nombre, byte edad, byte hambre, byte sueño, byte diversion, byte estres) {
 		super(nombre);
 		this.edad = edad;
-		this.hambre = hambre;
-		this.sueño = sueño;
-		this.diversion = diversion;
-		this.estres = estres;
+		this.hambre = 50;
+		this.sueño = 50;
+		this.diversion = 50;
+		this.estres = 50;
 	}
 	
-	public Tamagotchi(String nombre, byte hambre, byte sueño, byte diversion, byte estres) {
+	public Tamagotchi(String nombre, byte edad) {
 		super(nombre);
+		this.edad = edad;
 		this.hambre = 50;
 		this.sueño = 50;
 		this.diversion = 50;
@@ -32,7 +33,7 @@ public class Tamagotchi extends CosaConNombre{
 		return edad;
 	}
 
-	public void setEdad(float edad) {
+	public void setEdad(byte edad) {
 		this.edad = edad;
 	}
 
@@ -66,6 +67,12 @@ public class Tamagotchi extends CosaConNombre{
 
 	public void setEstres(byte estres) {
 		this.estres = estres;
+	}
+
+	/** Methods **/
+	@Override
+	public String toString() {
+		return "Tamagotchi " + super.getNombre() + "\nEdad = " + edad + "\nHambre = " + hambre + "\nSueño = " + sueño + "\nDiversion = " + diversion + "\nEstres = " + estres;
 	}
 	
 	

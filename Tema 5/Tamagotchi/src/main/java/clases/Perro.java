@@ -6,7 +6,7 @@ public class Perro extends Tamagotchi{
 	private byte paseo;
 
 	/** Constructor **/
-	public Perro(String nombre, float edad, byte hambre, byte sueño, byte diversion, byte estres, byte paseo) {
+	public Perro(String nombre, byte edad, byte hambre, byte sueño, byte diversion, byte estres, byte paseo) {
 		super(nombre, edad, hambre, sueño, diversion, estres);
 		this.paseo = paseo;
 	}
