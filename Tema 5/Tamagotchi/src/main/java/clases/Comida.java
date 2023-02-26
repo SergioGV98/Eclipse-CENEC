@@ -12,6 +12,11 @@ public class Comida extends CosaConNombre{
 		this.valorEnergetico = valorEnergetico;
 		this.morriña = morriña;
 	}
+	
+	public Comida(String nombre, byte valorEnergetico) {
+		super(nombre);
+		this.valorEnergetico = valorEnergetico;
+	}
 
 	/** Getter & Setter **/
 	public byte getValorEnergetico() {
@@ -28,6 +33,12 @@ public class Comida extends CosaConNombre{
 
 	public void setMorriña(byte morriña) {
 		this.morriña = morriña;
+	}
+
+	/** Methods **/
+	@Override
+	public String toString() {
+		return "Comida [valorEnergetico=" + valorEnergetico + ", morriña=" + morriña + "]";
 	}
 	
 	

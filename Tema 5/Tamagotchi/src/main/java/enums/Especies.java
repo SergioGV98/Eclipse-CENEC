@@ -1,6 +1,6 @@
 package enums;
 
-public enum Enumeration1 {
+public enum Especies {
 
 	PERRO,
 	GATO,
