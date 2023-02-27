@@ -59,7 +59,6 @@ public class Tamagotchi extends CosaConNombre{
 
 	public void setHambre(byte hambre) {
 		if (hambre > 100) {
-			System.out.println("No puede comer mas");
 			this.hambre = 100;
 		} else if (hambre < 0) {
 			this.hambre = 0;
@@ -74,7 +73,6 @@ public class Tamagotchi extends CosaConNombre{
 
 	public void setSueño(byte sueño) {
 		if (sueño > 100) {
-			System.out.println("No puede dormir mas");
 			this.sueño = 100;
 		} else if (sueño < 0) {
 			this.sueño = 0;
@@ -88,7 +86,13 @@ public class Tamagotchi extends CosaConNombre{
 	}
 
 	public void setDiversion(byte diversion) {
-		this.diversion = diversion;
+		if (diversion > 100) {
+			this.diversion = 100;
+		} else if (diversion < 0) {
+			this.diversion = 0;
+		} else {
+			this.diversion = diversion;
+		}
 	}
 
 	public byte getEstres() {
@@ -96,13 +100,19 @@ public class Tamagotchi extends CosaConNombre{
 	}
 
 	public void setEstres(byte estres) {
-		this.estres = estres;
+		if (estres > 100) {
+			this.estres = 100;
+		} else if (estres < 0) {
+			this.estres = 0;
+		} else {
+			this.estres = estres;
+		}
 	}
 
 	/** Methods **/
 	@Override
 	public String toString() {
-		return "Tamagotchi " + super.getNombre() + "\nEdad = " + edad + "\nHambre = " + hambre + "\nSueño = " + sueño + "\nDiversion = " + diversion + "\nEstres = " + estres;
+		return "\tNombre " + super.getNombre() + "\n\tEdad = " + edad + "\n\tHambre = " + hambre + "\n\tSueño = " + sueño + "\n\tDiversion = " + diversion + "\n\tEstres = " + estres;
 	}
 	
 	public void comer(Comida comida) {
@@ -123,6 +133,7 @@ public class Tamagotchi extends CosaConNombre{
 	}
 	
 	public boolean estarVivo() {
+		//Tamagotchi
 		if(hambre <= 0 || sueño <= 0 || diversion <= 0 || estres >= 100 || edad >= 70) {
 			return false;
 		}
