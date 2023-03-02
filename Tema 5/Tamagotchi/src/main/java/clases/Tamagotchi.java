@@ -58,9 +58,9 @@ public class Tamagotchi extends CosaConNombre{
 	}
 
 	public void setHambre(byte hambre) {
-		if (hambre > 100) {
+		if (hambre >= 100) {
 			this.hambre = 100;
-		} else if (hambre < 0) {
+		} else if (hambre <= 0) {
 			this.hambre = 0;
 		} else {
 			this.hambre = hambre;
@@ -72,9 +72,9 @@ public class Tamagotchi extends CosaConNombre{
 	}
 
 	public void setSueño(byte sueño) {
-		if (sueño > 100) {
+		if (sueño >= 100) {
 			this.sueño = 100;
-		} else if (sueño < 0) {
+		} else if (sueño <= 0) {
 			this.sueño = 0;
 		} else {
 			this.sueño = sueño;
@@ -86,9 +86,9 @@ public class Tamagotchi extends CosaConNombre{
 	}
 
 	public void setDiversion(byte diversion) {
-		if (diversion > 100) {
+		if (diversion >= 100) {
 			this.diversion = 100;
-		} else if (diversion < 0) {
+		} else if (diversion <= 0) {
 			this.diversion = 0;
 		} else {
 			this.diversion = diversion;
@@ -100,9 +100,9 @@ public class Tamagotchi extends CosaConNombre{
 	}
 
 	public void setEstres(byte estres) {
-		if (estres > 100) {
+		if (estres >= 100) {
 			this.estres = 100;
-		} else if (estres < 0) {
+		} else if (estres <= 0) {
 			this.estres = 0;
 		} else {
 			this.estres = estres;
@@ -117,6 +117,7 @@ public class Tamagotchi extends CosaConNombre{
 	
 	public void comer(Comida comida) {
 		this.hambre += comida.getValorEnergetico();
+		
 	}
 	
 	public void dormir() {

@@ -165,7 +165,6 @@ public class Main {
 				case 5:
 					if(especie == Especies.PERRO && animalVivo == true) {
 						perro.pasear();
-						System.out.println("Nombre: " + perro.getNombre() + "\nPaseo: " + perro.getPaseo() + "\n");
 					} else {
 						System.out.println("No tienes un perro.");
 					}

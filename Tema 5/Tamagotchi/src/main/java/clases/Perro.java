@@ -29,9 +29,9 @@ public class Perro extends Tamagotchi{
 	}
 
 	public void setPaseo(byte paseo) {
-		if (paseo > 100) {
+		if (paseo >= 100) {
 			this.paseo = 100;
-		} else if (paseo < 0) {
+		} else if (paseo <= 0) {
 			this.paseo = 0;
 		} else {
 			this.paseo = paseo;

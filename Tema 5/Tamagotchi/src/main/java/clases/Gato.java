@@ -28,9 +28,9 @@ public class Gato extends Tamagotchi{
 	}
 
 	public void setCausarCaos(byte causarCaos) {
-		if (causarCaos > 100) {
+		if (causarCaos >= 100) {
 			this.causarCaos = 100;
-		} else if (causarCaos < 0) {
+		} else if (causarCaos <= 0) {
 			this.causarCaos = 0;
 		} else {
 			this.causarCaos = causarCaos;
