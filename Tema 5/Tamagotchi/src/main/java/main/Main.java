@@ -205,7 +205,6 @@ public class Main {
 			perro.crecer();
 		}
 		
-		
 		System.out.println("-------------TAMAGOTCHI-------------\n"+tamagotchi+"\n");
 		if(animalVivo == true && especie == Especies.GATO) {
 			System.out.println("-------------ANIMAL-------------\n"+gato+"\n");
