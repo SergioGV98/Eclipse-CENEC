@@ -28,7 +28,7 @@ public class Perro extends Tamagotchi{
 
 	@Override
 	public boolean estaVivo() {
-		return super.estaVivo() && this.paseo < 0;
+		return super.estaVivo() && this.paseo > 0;
 	}
 
 	@Override
