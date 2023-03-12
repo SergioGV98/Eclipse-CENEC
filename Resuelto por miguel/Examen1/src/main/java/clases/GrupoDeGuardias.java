@@ -1,6 +1,11 @@
 package clases;
 
-public class GrupoDeGuardias extends Grupo{
-	
+import enums.Peligrosidad;
 
+public class GrupoDeGuardias extends Grupo{
+
+	public GrupoDeGuardias(String nombreClave, Peligrosidad nivelAmenaza) {
+		super(nombreClave, nivelAmenaza);
+	}
+	
 }
