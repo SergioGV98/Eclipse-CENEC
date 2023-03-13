@@ -31,7 +31,7 @@ public class PuestoComida extends CosaConNombre{
 
 	@Override
 	public String toString() {
-		return super.toString() + "PuestoComida [puedeVenderAlcohol=" + puedeVenderAlcohol + ", comidasEnVenta=" + comidasEnVenta + "]";
+		return "\n" + super.toString() + "\n\tVende alchol= " + puedeVenderAlcohol + "\n\tComidas en venta= " + comidasEnVenta;
 	}
 	
 	

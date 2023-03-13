@@ -31,7 +31,7 @@ public class Vehiculo extends CosaMontable{
 
 	@Override
 	public String toString() {
-		return super.toString() + "Vehiculo [tieneBocinas=" + tieneBocinas + ", tematica=" + tematica + "]";
+		return super.toString() + " | Tiene Bocinas=" + tieneBocinas + " | Tematica=" + tematica;
 	}
 	
 	

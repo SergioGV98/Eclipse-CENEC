@@ -27,8 +27,8 @@ public class Main {
 		
 		ArrayList<Comida> puestoPerritos = new ArrayList<>(Arrays.asList(perritoKetchup, perritoMixto));
 		
-		PuestoComida palomitas = new PuestoComida("Palomitas", false, puestoPalomitas);
-		PuestoComida perritos = new PuestoComida("Perritos Calientes", true, puestoPerritos);
+		PuestoComida palomitas = new PuestoComida("Puesto de Palomitas", false, puestoPalomitas);
+		PuestoComida perritos = new PuestoComida("Puesto de Perritos Calientes", true, puestoPerritos);
 		
 		Noria noriaInfantil = new Noria("Noria infantil",(float) 1.5,(short) 250,(byte) 4,(byte) 4);
 		Noria noriaAdulta = new Noria("Noria adulta",(float) 5.5,(short) 1250,(byte) 12,(byte) 4);
@@ -54,10 +54,10 @@ public class Main {
 		ArrayList<CosaConNombre> feriaPuestos = new ArrayList<>(Arrays.asList(palomitas, perritos, noriaInfantil, noriaAdulta, tioVivoInfantil,tioVivoAdulto));
 		Feria sanPedro = new Feria(feriaPuestos);
 		
-		Atraccion ventaTicketsInfantil = new TioVivo("Ticket Tio Vivo infantil",(float) 1.5);
-		Atraccion ventaTicketsAdulta = new Noria("Ticket Noria adulta",(float) 5.5);
-		ventaTicketsInfantil.VenderFicha();
-		ventaTicketsAdulta.VenderFicha();
+		tioVivoInfantil.VenderFicha();;
+		noriaAdulta.VenderFicha();
+		noriaAdulta.VenderFicha();
+		
 		System.out.println(sanPedro);
 	}
 

@@ -26,7 +26,7 @@ public class Atraccion extends CosaConNombre implements VenderFicha{
 
 	@Override
 	public String toString() {
-		return super.toString() + "Atraccion [precioFicha=" + precioFicha + "]" + " Beneficio= " + beneficio;
+		return super.toString() + "\n\tPrecioFicha=" + precioFicha + " Beneficio= " + beneficio;
 	}
 
 	@Override

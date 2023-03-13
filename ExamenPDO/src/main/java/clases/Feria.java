@@ -21,7 +21,7 @@ public class Feria {
 
 	@Override
 	public String toString() {
-		return "Feria [puestos=" + puestos + "]";
+		return "Feria " + puestos;
 	}
 	
 }

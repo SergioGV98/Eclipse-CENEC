@@ -1,6 +1,6 @@
 package clases;
 
-public class CosaMontable {
+public abstract class CosaMontable {
 
 	private byte edadMinima;
 	private byte numeroPlazas;
@@ -29,7 +29,7 @@ public class CosaMontable {
 
 	@Override
 	public String toString() {
-		return super.toString() + "CosaMontable [edadMinima=" + edadMinima + ", numeroPlazas=" + numeroPlazas + "]";
+		return super.toString() + "\n\tEdadMinima= " + edadMinima + " | Numero plazas= " + numeroPlazas;
 	}
 	
 	

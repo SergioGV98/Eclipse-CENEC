@@ -1,6 +1,6 @@
 package clases;
 
-public class CosaConNombre {
+public abstract class CosaConNombre {
 
 	private String nombre;
 
@@ -23,7 +23,7 @@ public class CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "CosaConNombre [nombre=" + nombre + "]";
+		return "Nombre= " + nombre;
 	}
 	
 }

@@ -45,8 +45,8 @@ public class Noria extends Atraccion implements ContarNumeroPlazas{
 
 	@Override
 	public String toString() {
-		return super.toString() + "Noria [alturaMetros=" + alturaMetros + ", numeroCabina=" + numeroCabina + ", asientosPorCabina="
-				+ asientosPorCabina + "]" + " Total de asientos disponibles= " + numeroTotalPlazas();
+		return super.toString() + "Altura metros= " + alturaMetros + " | numeroCabina=" + numeroCabina + " | asientosPorCabina="
+				+ asientosPorCabina + " Total de asientos disponibles= " + numeroTotalPlazas();
 	}
 
 	@Override

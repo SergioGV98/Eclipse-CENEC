@@ -27,7 +27,7 @@ public class TioVivo extends Atraccion implements ContarNumeroPlazas{
 
 	@Override
 	public String toString() {
-		return super.toString() + "TioVivo [sillas=" + sillas + "]" + "Plazas totales= " + numeroTotalPlazas();
+		return super.toString() + "Sillas= " + sillas + " | Plazas totales= " + numeroTotalPlazas();
 	}
 
 	@Override

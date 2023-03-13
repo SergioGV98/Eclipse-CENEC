@@ -29,7 +29,7 @@ public class Comida extends CosaConNombre{
 
 	@Override
 	public String toString() {
-		return super.toString() + "Comida [precio=" + precio + ", necesitaCalentarse=" + necesitaCalentarse + "]";
+		return super.toString() + "\n\tPrecio=" + precio + "\n\tNecesita Calentarse=" + necesitaCalentarse + "\n\t";
 	}
 	
 }
