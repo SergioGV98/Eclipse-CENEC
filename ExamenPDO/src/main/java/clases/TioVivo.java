@@ -12,6 +12,10 @@ public class TioVivo extends Atraccion implements ContarNumeroPlazas{
 		super(nombre, precioFicha);
 		this.sillas = sillas;
 	}
+	
+	public TioVivo(String nombre, float precioFicha) {
+		super(nombre, precioFicha);
+	}
 
 	public ArrayList<CosaMontable> getSillas() {
 		return sillas;

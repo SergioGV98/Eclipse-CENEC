@@ -14,6 +14,10 @@ public class Noria extends Atraccion implements ContarNumeroPlazas{
 		this.numeroCabina = numeroCabina;
 		this.asientosPorCabina = asientosPorCabina;
 	}
+	
+	public Noria(String nombre, float precioFicha) {
+		super(nombre, precioFicha);
+	}
 
 	public short getAlturaMetros() {
 		return alturaMetros;

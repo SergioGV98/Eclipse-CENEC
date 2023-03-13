@@ -8,6 +8,10 @@ public class CosaConNombre {
 		super();
 		this.nombre = nombre;
 	}
+	
+	public CosaConNombre() {
+		
+	}
 
 	public String getNombre() {
 		return nombre;

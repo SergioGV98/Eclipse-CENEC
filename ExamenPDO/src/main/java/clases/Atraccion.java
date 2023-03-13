@@ -1,12 +1,19 @@
 package clases;
 
-public class Atraccion extends CosaConNombre {
+import interf.VenderFicha;
+
+public class Atraccion extends CosaConNombre implements VenderFicha{
 	
 	private float precioFicha;
+	private float beneficio;
 
 	public Atraccion(String nombre, float precioFicha) {
 		super(nombre);
 		this.precioFicha = precioFicha;
+	}
+	
+	public Atraccion() {
+		
 	}
 
 	public float getPrecioFicha() {
@@ -19,7 +26,13 @@ public class Atraccion extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Atraccion [precioFicha=" + precioFicha + "]";
+		return super.toString() + "Atraccion [precioFicha=" + precioFicha + "]" + " Beneficio= " + beneficio;
+	}
+
+	@Override
+	public void VenderFicha() {
+		this.beneficio += this.precioFicha;
+		
 	}
 	
 }
