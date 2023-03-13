@@ -35,7 +35,11 @@ public class TioVivo extends Atraccion implements ContarNumeroPlazas{
 		byte plazasTotales = 0;
 		
 		for(byte i = 0; i < sillas.size(); i++) {
-			plazasTotales += sillas.get(i).getEdadMinima();
+			if(this.sillas.get(i).getClass() == Caballo.class) {
+				plazasTotales += (byte) (((Caballo)this.sillas.get(i)).getNumeroPlazas());
+			} else if(this.sillas.get(i).getClass() == Vehiculo.class) {
+				plazasTotales += (byte) (((Vehiculo)this.sillas.get(i)).getNumeroPlazas());
+			}
 		}
 		
 		return plazasTotales;
