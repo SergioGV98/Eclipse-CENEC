@@ -1,0 +1,8 @@
+admin@cenec#malaga.es
+
+-Dsun.stdout.encoding=UTF-8
+
+rhIpfFyShRztCLp&3(U6
+
+
+System.exit(0); el programa acaba
