@@ -1,6 +1,7 @@
 package clases;
 
 import enums.Genero;
+import excepciones.NombreConNumerosException;
 
 public class SerVivo {
 	
@@ -12,10 +13,11 @@ public class SerVivo {
 	private byte aburrimiento;
 	private byte suciedad;
 	
-	/** Constructors **/
-	public SerVivo(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad) {
+	/** Constructors 
+	 * @throws NombreConNumerosException **/
+	public SerVivo(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad) throws NombreConNumerosException {
 		super();
-		this.nombre = nombre;
+		this.setNombre(nombre);
 		this.genero = genero;
 		this.hambre = hambre;
 		this.sueño = sueño;
@@ -23,8 +25,8 @@ public class SerVivo {
 		this.suciedad = suciedad;
 	}
 	
-	public SerVivo(String nombre, Genero genero) {
-		this.nombre = nombre;
+	public SerVivo(String nombre, Genero genero) throws NombreConNumerosException {
+		this.setNombre(nombre);
 		this.genero = genero;
 		this.hambre = 0;
 		this.sueño = 0;
@@ -37,7 +39,13 @@ public class SerVivo {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws NombreConNumerosException {
+		String numeros="0987654321";
+		for(short i = 0; i < nombre.length(); i++) {
+			if(numeros.contains(""+nombre.charAt(i))) {
+				throw new NombreConNumerosException("El nombre " + nombre + " no es valido porque tiene numeros");
+			}
+		}
 		this.nombre = nombre;
 	}
 

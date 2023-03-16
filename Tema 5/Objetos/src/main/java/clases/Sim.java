@@ -3,6 +3,7 @@ package clases;
 import java.util.Arrays;
 
 import enums.Genero;
+import excepciones.NombreConNumerosException;
 
 /**
  * Clase que modela un sim, con todas sus caracteristicas para poder jugar al
@@ -20,9 +21,10 @@ public class Sim extends SerVivo{
 	private Sim padre;
 	private Animal[] mascotas;
 	
-	/** Constructors **/
+	/** Constructors 
+	 * @throws NombreConNumerosException **/
 	public Sim(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, String apellido,
-			Sim madre, Sim padre, Animal[] mascotas) {
+			Sim madre, Sim padre, Animal[] mascotas) throws NombreConNumerosException {
 		super(nombre, genero, hambre, sueño, aburrimiento, suciedad);
 		this.apellido = apellido;
 		this.madre = madre;
@@ -30,7 +32,7 @@ public class Sim extends SerVivo{
 		this.mascotas = mascotas;
 	}
 	
-	public Sim(String nombre, String apellido, Genero genero) {
+	public Sim(String nombre, String apellido, Genero genero) throws NombreConNumerosException {
 		super(nombre, genero);
 		this.apellido = apellido;
 	}

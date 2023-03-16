@@ -7,14 +7,14 @@ import clases.Gato;
 import clases.Sim;
 import enums.Especie;
 import enums.Genero;
+import excepciones.NombreConNumerosException;
 
 public class Main {
 
+	
 	public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 	
-	System.out.println("Dime el nombre del SIM");
-	String nombre = sc.nextLine();
 	System.out.println("Dime los apellidos");
 	String apellidos = sc.nextLine();
 	byte opcionGenero;
@@ -34,8 +34,19 @@ public class Main {
 	default:
 		genero = Genero.NEUTRO;
 	}
+	Sim miSim = null;
+	boolean nombreOk = false;
+	do {
+		try {
+			System.out.println("Dime el nombre del SIM");
+			String nombre = sc.nextLine();
+			miSim = new Sim(nombre, apellidos, genero);
+			nombreOk = true;
+		} catch(NombreConNumerosException e) {
+			System.err.println(e.getMessage());
+		}
+	}while(!nombreOk);
 	
-	Sim miSim = new Sim(nombre, apellidos, genero);
 		
 	byte opcion;
 	
@@ -58,8 +69,16 @@ public class Main {
 			System.out.println(miSim);
 			break;
 		case 2:
-			System.out.println("Dime su nuevo nombre");
-			miSim.setNombre(sc.nextLine());
+			nombreOk = false;
+			do {
+				try {
+					System.out.println("Dime su nuevo nombre");
+					miSim.setNombre(sc.nextLine());
+					nombreOk = true;
+				} catch (NombreConNumerosException e) {
+					System.err.println(e.getMessage());
+				}
+			}while (!nombreOk);
 			break;
 		case 3:
 			System.out.println("Dime su nuevo apellido");

@@ -2,6 +2,7 @@ package clases;
 
 import enums.Especie;
 import enums.Genero;
+import excepciones.NombreConNumerosException;
 
 public class Animal extends SerVivo{
 
@@ -10,16 +11,17 @@ public class Animal extends SerVivo{
 	private String raza;
 	private Sim dueño;
 	
-	/** Constructors **/
+	/** Constructors 
+	 * @throws NombreConNumerosException **/
 	public Animal(String nombre, Genero genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, Especie especie,
-			String raza, Sim dueño) {
+			String raza, Sim dueño) throws NombreConNumerosException {
 		super(nombre, genero, hambre, sueño, aburrimiento, suciedad);
 		this.especie = especie;
 		this.raza = raza;
 		this.dueño = dueño;
 	}
 	
-	public Animal(String nombre, Genero genero, Especie especie, String raza, Sim dueño) {
+	public Animal(String nombre, Genero genero, Especie especie, String raza, Sim dueño) throws NombreConNumerosException {
 		super(nombre, genero);
 		this.especie = especie;
 		this.raza = raza;
