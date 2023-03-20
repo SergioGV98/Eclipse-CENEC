@@ -7,6 +7,7 @@ import clases.Gato;
 import clases.Sim;
 import enums.Especie;
 import enums.Genero;
+import excepciones.ApellidosConNumerosException;
 import excepciones.NombreConNumerosException;
 
 public class Main {
@@ -15,8 +16,6 @@ public class Main {
 	public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 	
-	System.out.println("Dime los apellidos");
-	String apellidos = sc.nextLine();
 	byte opcionGenero;
 	do {
 		System.out.println("Dime su genero 1 - MASCULINO | 2 - FEMENINO | 3 - NEUTRO");
@@ -40,13 +39,16 @@ public class Main {
 		try {
 			System.out.println("Dime el nombre del SIM");
 			String nombre = sc.nextLine();
+			System.out.println("Dime los apellidos");
+			String apellidos = sc.nextLine();
 			miSim = new Sim(nombre, apellidos, genero);
 			nombreOk = true;
 		} catch(NombreConNumerosException e) {
 			System.err.println(e.getMessage());
+		} catch(ApellidosConNumerosException e) {
+			System.err.println(e.getMessage());
 		}
 	}while(!nombreOk);
-	
 		
 	byte opcion;
 	
@@ -81,8 +83,16 @@ public class Main {
 			}while (!nombreOk);
 			break;
 		case 3:
-			System.out.println("Dime su nuevo apellido");
-			miSim.setApellido(sc.nextLine());
+			nombreOk = false;
+			do {
+				try {
+					System.out.println("Dime su nuevo apellido");
+					miSim.setApellido(sc.nextLine());
+					nombreOk = true;
+				} catch (ApellidosConNumerosException e) {
+					e.printStackTrace();
+				}
+			}while(!nombreOk);
 			break;
 		case 4:
 			do {
@@ -151,9 +161,17 @@ public class Main {
 			}
 			
 			if(especie == Especie.GATO) {
-				miSim.getMascotas()[0] = new Gato(nombreMascota, generoMascota, raza, miSim);
+				try {
+					miSim.getMascotas()[0] = new Gato(nombreMascota, generoMascota, raza, miSim);
+				} catch (NombreConNumerosException e) {
+					e.printStackTrace();
+				}
 			} else {
-				miSim.getMascotas()[0] = new Animal(nombreMascota, generoMascota, especie, raza, miSim);
+				try {
+					miSim.getMascotas()[0] = new Animal(nombreMascota, generoMascota, especie, raza, miSim);
+				} catch (NombreConNumerosException e) {
+					e.printStackTrace();
+				}
 			}
 			break;
 		}
