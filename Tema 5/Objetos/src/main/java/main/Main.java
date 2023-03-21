@@ -43,11 +43,10 @@ public class Main {
 			String apellidos = sc.nextLine();
 			miSim = new Sim(nombre, apellidos, genero);
 			nombreOk = true;
-		} catch(NombreConNumerosException e) {
-			System.err.println(e.getMessage());
-		} catch(ApellidosConNumerosException e) {
+		} catch(NombreConNumerosException | ApellidosConNumerosException e) {
 			System.err.println(e.getMessage());
 		}
+		
 	}while(!nombreOk);
 		
 	byte opcion;
@@ -140,8 +139,6 @@ public class Main {
 			}
 			System.out.println("Dime la raza");
 			String raza = sc.nextLine();
-			System.out.println("Dime el nombre");
-			String nombreMascota = sc.nextLine();
 			byte opcionGeneroAnimal;
 			do {
 				System.out.println("Dime el genero del animal 1 - MASCULINO | 2 - FEMENINO | 3 - NEUTRO");
@@ -161,17 +158,26 @@ public class Main {
 			}
 			
 			if(especie == Especie.GATO) {
-				try {
-					miSim.getMascotas()[0] = new Gato(nombreMascota, generoMascota, raza, miSim);
-				} catch (NombreConNumerosException e) {
-					e.printStackTrace();
-				}
+				do {
+					try {
+						System.out.println("Dime el nombre");
+						String nombreMascota = sc.nextLine();
+						miSim.getMascotas()[0] = new Gato(nombreMascota, generoMascota, raza, miSim);
+						nombreOk = true;
+					} catch (NombreConNumerosException e) {
+						e.printStackTrace();
+					}
+				}while(!nombreOk);
 			} else {
-				try {
-					miSim.getMascotas()[0] = new Animal(nombreMascota, generoMascota, especie, raza, miSim);
-				} catch (NombreConNumerosException e) {
-					e.printStackTrace();
-				}
+				do {
+					try {
+						System.out.println("Dime el nombre");
+						String nombreMascota = sc.nextLine();
+						miSim.getMascotas()[0] = new Animal(nombreMascota, generoMascota, especie, raza, miSim);
+					} catch (NombreConNumerosException e) {
+						e.printStackTrace();
+					}
+				}while(!nombreOk);
 			}
 			break;
 		}
