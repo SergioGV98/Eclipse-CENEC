@@ -14,7 +14,7 @@ public class Tamagotchi extends CosaConNombre{
 	public Tamagotchi(String nombre,Especie especie) throws NombreSinNumeroExcepcion {
 		super(nombre);
 		this.especie=especie;
-		this.hambre=50;
+		this.setHambre(hambre);
 		this.sueño=50;
 		this.edad=0;
 		this.estres=50;
