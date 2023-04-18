@@ -1,12 +1,12 @@
 package clases;
 
-public class Bicicleta {
+public class Bicicleta implements Comparable<Bicicleta> {
 
 	private String marca;
 	private String modelo;
 	private String problema;
 	private Cliente cliente;
-	
+
 	public Bicicleta(String marca, String modelo, String problema, Cliente cliente) {
 		super();
 		this.marca = marca;
@@ -14,7 +14,7 @@ public class Bicicleta {
 		this.problema = problema;
 		this.cliente = cliente;
 	}
-	
+
 	public Bicicleta(String marca, String modelo, Cliente cliente) {
 		super();
 		this.marca = marca;
@@ -57,9 +57,17 @@ public class Bicicleta {
 
 	@Override
 	public String toString() {
-		return "Bicicleta [marca=" + marca + ", modelo=" + modelo + ", problema=" + problema + "]";
+		return "\n\t\tMarca=" + marca + "\n\t\tModelo=" + modelo + "\n\t\tProblema=" + problema;
 	}
-	
-	
-	
+
+	public int compareTo(Bicicleta o) {
+		if (!this.marca.equals(o.marca)) {
+			return this.marca.compareTo(o.marca);
+		} else if (!this.modelo.equals(o.modelo)) {
+			return this.modelo.compareTo(o.modelo);
+		} else {
+			return this.cliente.getEmail().compareTo(o.cliente.getEmail());
+		}
+	}
+
 }

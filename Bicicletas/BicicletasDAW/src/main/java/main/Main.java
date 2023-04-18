@@ -3,6 +3,8 @@ package main;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
 import clases.Bicicleta;
 import clases.Cliente;
@@ -16,7 +18,7 @@ public class Main {
 	
 		Bicicleta bicicleta1 = new Bicicleta("GTX 1", "R1-2", cliente1);
 		Bicicleta bicicleta2 = new Bicicleta("RTA", "LA4-2", cliente1);
-		Bicicleta bicicleta3 = new Bicicleta("ROLEXP", "PA24-2", cliente2);
+		Bicicleta bicicleta3 = new Bicicleta("RTA", "PA24-2", cliente2);
 		
 		cliente1.getBicicletas().add(bicicleta1);
 		cliente1.getBicicletas().add(bicicleta2);
@@ -25,7 +27,9 @@ public class Main {
 		System.out.println(cliente1);
 		System.out.println(cliente2);
 		
-		HashSet<Bicicleta> bicicletas = new HashSet<Bicicleta>();
+		System.out.println("---------------------------------------------------------------");
+		
+		TreeSet<Bicicleta> bicicletas = new TreeSet<Bicicleta>();
 		bicicletas.addAll(Arrays.asList(bicicleta1, bicicleta2, bicicleta3));
 		Iterator<Bicicleta> it = bicicletas.iterator();
 		

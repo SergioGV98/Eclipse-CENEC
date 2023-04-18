@@ -2,6 +2,8 @@ package clases;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
 public class Cliente {
 	
@@ -9,7 +11,7 @@ public class Cliente {
 	private String email;
 	private String password;
 	private int telefono;
-	private HashSet<Bicicleta> bicicletas;
+	private TreeSet<Bicicleta> bicicletas;
 	
 	public Cliente(String nombre, String email, String password, int telefono) {
 		super();
@@ -17,7 +19,7 @@ public class Cliente {
 		this.email = email;
 		this.password = password;
 		this.telefono = telefono;
-		this.bicicletas = new HashSet<Bicicleta>();
+		this.bicicletas = new TreeSet<Bicicleta>();
 	}
 
 	public String getNombre() {
@@ -52,23 +54,23 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
-	public HashSet<Bicicleta> getBicicletas() {
+	public TreeSet<Bicicleta> getBicicletas() {
 		return bicicletas;
 	}
 
-	public void setBicicletas(HashSet<Bicicleta> bicicletas) {
+	public void setBicicletas(TreeSet<Bicicleta> bicicletas) {
 		this.bicicletas = bicicletas;
 	}
 
 	@Override
 	public String toString() {
-		String ret = "Cliente [nombre=" + nombre + ", email=" + email + ", password=" + password + ", telefono=" + telefono
-		+ ", bicicletas=" ;
+		String ret = "Cliente " + nombre + "\n\tEmail=" + email + "\n\tPassword=" + password + "\n\tTelefono=" + telefono
+		+ "\n\tBicicletas=";
 		Iterator<Bicicleta> it = bicicletas.iterator();
 		Bicicleta bicicletas = null;
 		while(it.hasNext()) {
 			bicicletas = (Bicicleta) it.next();
-			ret += " " + bicicletas;
+			ret += " " + bicicletas + "\n";
 		} 
 		return ret;
 	}
