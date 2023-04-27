@@ -17,8 +17,7 @@ public abstract class DAO {
 
 	private static Statement conectar() {
 		try {
-			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bicicletasdaw", // Conexion a la base de
-																								// datos
+			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bicicletasdaw", // Conexion a la base de datos
 					"root", // Usuario
 					"admin" // Contraseña
 			);

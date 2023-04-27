@@ -18,7 +18,7 @@ public class Main {
 		System.out.println("Dime la contraseña");
 		String password = sc.nextLine();
 		
-		ArrayList<Object> cliente = null;
+		ArrayList<Object> informacion = null;
 		LinkedHashSet<String> consulta = new LinkedHashSet<String>();
 		consulta.add("nombre");
 		consulta.add("email");
@@ -28,20 +28,21 @@ public class Main {
 		restricciones.put("email", email);
 		restricciones.put("password", password);
 		try {
-			cliente = DAO.consultar("cliente", restricciones, consulta);
-			while(cliente.isEmpty()) {
+			informacion = DAO.consultar("cliente", restricciones, consulta);
+			while(informacion.isEmpty()) {
 				System.out.println("Dime un email");
 				email = sc.nextLine();
 				restricciones.put("email", email);
 				System.out.println("Dime la contraseña");
 				password = sc.nextLine();
 				restricciones.put("password", password);
-				cliente = DAO.consultar("cliente", restricciones, consulta);
+				informacion = DAO.consultar("cliente", restricciones, consulta);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("¡Login correcto!");
-		System.out.println(cliente);
+		Cliente cliente = new Cliente(informacion.get(0).toString(), informacion.get(1).toString(), informacion.get(2).toString());
+        System.out.println("¡Login correcto!");
+        System.out.println(cliente.toString());
 	}
 }
