@@ -61,7 +61,15 @@ public class Cliente {
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		HashMap<String, Object> actualizar = new HashMap<String, Object>();
+		HashMap<String, Object> restricciones = new HashMap<String, Object>();
+		try {
+			actualizar.put("nombre", nombre);
+			restricciones.put("email", this.email);
+			DAO.actualizar("cliente", actualizar, restricciones);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getEmail() {
@@ -69,7 +77,15 @@ public class Cliente {
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		HashMap<String, Object> actualizar = new HashMap<String, Object>();
+		HashMap<String, Object> restricciones = new HashMap<String, Object>();
+		try {
+			actualizar.put("email", email);
+			restricciones.put("email", this.email);
+			DAO.actualizar("cliente", actualizar, restricciones);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int getTelefono() {
@@ -77,7 +93,15 @@ public class Cliente {
 	}
 
 	public void setTelefono(int telefono) {
-		this.telefono = telefono;
+		HashMap<String, Object> actualizar = new HashMap<String, Object>();
+		HashMap<String, Object> restricciones = new HashMap<String, Object>();
+		try {
+			actualizar.put("telefono", telefono);
+			restricciones.put("telefono", this.telefono);
+			DAO.actualizar("cliente", actualizar, restricciones);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getPassword() {
