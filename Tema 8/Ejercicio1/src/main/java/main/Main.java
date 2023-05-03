@@ -43,6 +43,7 @@ public class Main {
 				int telefono = Integer.parseInt(sc.nextLine());
 				
 				cliente = new Cliente(nombre, email, contraseña, telefono);
+
 				if(cliente != null) {
 					System.out.println("Cliente registrado con exito");
 					try(BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))){
@@ -90,7 +91,6 @@ public class Main {
 			    }
 				break;
 			}
-			System.out.println("¿Que vas hacer ahora?");
 		
 		}while(opcion!=0);
 	}
