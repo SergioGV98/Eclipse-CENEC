@@ -11,7 +11,11 @@ import java.util.Scanner;
 
 import excepciones.ClienteNoExisteException;
 import excepciones.ContraseñaInvalidaExcepcion;
-
+/**
+ * 
+ * @author Sergio García Vico
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {
