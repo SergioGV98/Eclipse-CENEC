@@ -15,7 +15,7 @@ public class Cliente {
 	private String email;
 	private int telefono;
 	private String password;
-	
+
 	public Cliente(String nombre, String email, String contraseña, int telefono) {
 		super();
 		HashMap<String, Object> insertar = new HashMap<String, Object>();
@@ -29,7 +29,7 @@ public class Cliente {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Cliente(String email, String contraseña) throws ClienteNoExisteException, ContraseñaInvalidaExcepcion {
 		LinkedHashSet<String> consulta = new LinkedHashSet<String>();
 		consulta.add("nombre");
@@ -41,10 +41,10 @@ public class Cliente {
 		try {
 			ArrayList<Object> informacion = DAO.consultar("cliente", restricciones, consulta);
 			System.out.println(informacion);
-			if(informacion.isEmpty()) {
-				throw new ClienteNoExisteException ("El cliente proporcionado no existe.");
-			} else if(!informacion.get(2).equals(contraseña)) {
-				throw new ContraseñaInvalidaExcepcion ("La contraseña proporcionada no es valida.");
+			if (informacion.isEmpty()) {
+				throw new ClienteNoExisteException("El cliente proporcionado no existe.");
+			} else if (!informacion.get(2).equals(contraseña)) {
+				throw new ContraseñaInvalidaExcepcion("La contraseña proporcionada no es valida.");
 			} else {
 				this.email = email;
 				this.password = contraseña;
@@ -60,48 +60,37 @@ public class Cliente {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws SQLException {
 		HashMap<String, Object> actualizar = new HashMap<String, Object>();
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		try {
-			actualizar.put("nombre", nombre);
-			restricciones.put("email", this.email);
-			DAO.actualizar("cliente", actualizar, restricciones);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		actualizar.put("nombre", nombre);
+		restricciones.put("email", this.email);
+		DAO.actualizar("cliente", actualizar, restricciones);
+
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws SQLException {
 		HashMap<String, Object> actualizar = new HashMap<String, Object>();
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		try {
-			actualizar.put("email", email);
-			restricciones.put("email", this.email);
-			DAO.actualizar("cliente", actualizar, restricciones);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		actualizar.put("email", email);
+		restricciones.put("email", this.email);
+		DAO.actualizar("cliente", actualizar, restricciones);
 	}
 
 	public int getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(int telefono) throws SQLException {
 		HashMap<String, Object> actualizar = new HashMap<String, Object>();
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		try {
-			actualizar.put("telefono", telefono);
-			restricciones.put("telefono", this.telefono);
-			DAO.actualizar("cliente", actualizar, restricciones);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		actualizar.put("telefono", telefono);
+		restricciones.put("telefono", this.telefono);
+		DAO.actualizar("cliente", actualizar, restricciones);
 	}
 
 	public String getPassword() {
@@ -116,6 +105,5 @@ public class Cliente {
 	public String toString() {
 		return "Cliente\n" + "Nombre= " + nombre + "\nEmail= " + email + "\nTelefono= " + telefono;
 	}
-	
-	
+
 }

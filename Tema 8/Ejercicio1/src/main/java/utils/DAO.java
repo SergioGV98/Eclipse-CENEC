@@ -140,10 +140,11 @@ public abstract class DAO {
 			Iterator hsCols = columnasSelect.iterator();
 			while (hsCols.hasNext()) {
 				String nombreCol = (String) hsCols.next();
-				try {
-					fila.add(cursor.getInt(cursor.findColumn(nombreCol)));
-				} catch (NumberFormatException | SQLException e) {
-					fila.add(cursor.getString(cursor.findColumn(nombreCol)));
+				Object valor = cursor.getObject(cursor.findColumn(nombreCol));
+				if(valor.getClass() != String.class && valor.getClass() != Character.class) {
+					fila.add(valor);
+				} else  {
+					fila.add(valor);
 				}
 			}
 		}
