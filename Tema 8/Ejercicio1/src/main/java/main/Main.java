@@ -80,7 +80,7 @@ public class Main {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-					} catch (ClienteNoExisteException | ContraseñaInvalidaExcepcion e) {
+					} catch (ClienteNoExisteException | ContraseñaInvalidaExcepcion | SQLException e) {
 						e.printStackTrace();
 					}
 				}while(!clienteLogueado);

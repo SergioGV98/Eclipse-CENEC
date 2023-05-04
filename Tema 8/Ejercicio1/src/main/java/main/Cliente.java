@@ -25,7 +25,8 @@ public class Cliente {
 		DAO.insertar("cliente", insertar);
 	}
 
-	public Cliente(String email, String contraseña) throws ClienteNoExisteException, ContraseñaInvalidaExcepcion {
+	public Cliente(String email, String contraseña)
+			throws ClienteNoExisteException, ContraseñaInvalidaExcepcion, SQLException {
 		LinkedHashSet<String> consulta = new LinkedHashSet<String>();
 		consulta.add("nombre");
 		consulta.add("email");
@@ -33,21 +34,18 @@ public class Cliente {
 		consulta.add("telefono");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		restricciones.put("email", email);
-		try {
-			ArrayList<Object> informacion = DAO.consultar("cliente", restricciones, consulta);
-			System.out.println(informacion);
-			if (informacion.isEmpty()) {
-				throw new ClienteNoExisteException("El cliente proporcionado no existe.");
-			} else if (!informacion.get(2).equals(contraseña)) {
-				throw new ContraseñaInvalidaExcepcion("La contraseña proporcionada no es valida.");
-			} else {
-				this.email = email;
-				this.telefono = (int) informacion.get(3);
-				this.nombre = (String) informacion.get(0);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		ArrayList<Object> informacion = DAO.consultar("cliente", restricciones, consulta);
+		System.out.println(informacion);
+		if (informacion.isEmpty()) {
+			throw new ClienteNoExisteException("El cliente proporcionado no existe.");
+		} else if (!informacion.get(2).equals(contraseña)) {
+			throw new ContraseñaInvalidaExcepcion("La contraseña proporcionada no es valida.");
+		} else {
+			this.email = email;
+			this.telefono = (int) informacion.get(3);
+			this.nombre = (String) informacion.get(0);
 		}
+
 	}
 
 	public String getNombre() {
