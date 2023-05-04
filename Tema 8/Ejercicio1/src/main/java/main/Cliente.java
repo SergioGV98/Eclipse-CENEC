@@ -16,18 +16,14 @@ public class Cliente {
 	private int telefono;
 	private String password;
 
-	public Cliente(String nombre, String email, String contraseña, int telefono) {
+	public Cliente(String nombre, String email, String contraseña, int telefono) throws SQLException {
 		super();
 		HashMap<String, Object> insertar = new HashMap<String, Object>();
 		insertar.put("nombre", this.nombre = nombre);
 		insertar.put("email", this.email = email);
 		insertar.put("password", this.password = contraseña);
 		insertar.put("telefono", this.telefono = telefono);
-		try {
-			DAO.insertar("cliente", insertar);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		DAO.insertar("cliente", insertar);
 	}
 
 	public Cliente(String email, String contraseña) throws ClienteNoExisteException, ContraseñaInvalidaExcepcion {

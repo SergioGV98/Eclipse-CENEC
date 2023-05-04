@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -42,17 +43,20 @@ public class Main {
 				System.out.println("Dime tu telefono.");
 				int telefono = Integer.parseInt(sc.nextLine());
 				
-				cliente = new Cliente(nombre, email, contraseña, telefono);
-
-				if(cliente != null) {
-					System.out.println("Cliente registrado con exito");
-					try(BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))){
-						String informacion = "Cliente " + cliente.getEmail() + " registrado con exito en: " +
-								LocalDateTime.now().toString() + "\n";
-						writer.write(informacion);
-					} catch (IOException e) {
-						e.printStackTrace();
+				try {
+					cliente = new Cliente(nombre, email, contraseña, telefono);
+					if(cliente != null) {
+						System.out.println("Cliente registrado con exito");
+						try(BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))){
+							String informacion = "Cliente " + cliente.getEmail() + " registrado con exito en: " +
+									LocalDateTime.now().toString() + "\n";
+							writer.write(informacion);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
+				} catch (SQLException e1) {
+					e1.printStackTrace();
 				}
 				break;
 			case 2:
