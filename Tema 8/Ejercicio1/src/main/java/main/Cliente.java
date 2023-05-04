@@ -57,8 +57,9 @@ public class Cliente {
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("nombre", nombre);
 		restricciones.put("email", this.email);
-		DAO.actualizar("cliente", actualizar, restricciones);
-
+		if(DAO.actualizar("cliente", actualizar, restricciones)==1) {
+			this.nombre = nombre;
+		}
 	}
 
 	public String getEmail() {
@@ -70,7 +71,9 @@ public class Cliente {
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("email", email);
 		restricciones.put("email", this.email);
-		DAO.actualizar("cliente", actualizar, restricciones);
+		if(DAO.actualizar("cliente", actualizar, restricciones)==1) {
+			this.email = email;
+		}
 	}
 
 	public int getTelefono() {
@@ -82,7 +85,9 @@ public class Cliente {
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("telefono", telefono);
 		restricciones.put("email", this.email);
-		DAO.actualizar("cliente", actualizar, restricciones);
+		if(DAO.actualizar("cliente", actualizar, restricciones)==1) {
+			this.telefono = telefono;
+		}
 	}
 
 	@Override
