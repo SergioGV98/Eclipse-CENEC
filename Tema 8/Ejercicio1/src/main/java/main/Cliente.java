@@ -14,14 +14,13 @@ public class Cliente {
 	private String nombre;
 	private String email;
 	private int telefono;
-	private String password;
 
 	public Cliente(String nombre, String email, String contraseña, int telefono) throws SQLException {
 		super();
 		HashMap<String, Object> insertar = new HashMap<String, Object>();
 		insertar.put("nombre", this.nombre = nombre);
 		insertar.put("email", this.email = email);
-		insertar.put("password", this.password = contraseña);
+		insertar.put("password", contraseña);
 		insertar.put("telefono", this.telefono = telefono);
 		DAO.insertar("cliente", insertar);
 	}
@@ -43,7 +42,6 @@ public class Cliente {
 				throw new ContraseñaInvalidaExcepcion("La contraseña proporcionada no es valida.");
 			} else {
 				this.email = email;
-				this.password = contraseña;
 				this.telefono = (int) informacion.get(3);
 				this.nombre = (String) informacion.get(0);
 			}
@@ -85,16 +83,8 @@ public class Cliente {
 		HashMap<String, Object> actualizar = new HashMap<String, Object>();
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("telefono", telefono);
-		restricciones.put("telefono", this.telefono);
+		restricciones.put("email", this.email);
 		DAO.actualizar("cliente", actualizar, restricciones);
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override
