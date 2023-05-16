@@ -14,8 +14,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+
+import clases.Cliente;
+import excepciones.ClienteNoExisteException;
+import excepciones.ContraseñaInvalidaExcepcion;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 public class PantallaLogin extends JPanel {
 	private JTextField textField;
@@ -33,6 +39,11 @@ public class PantallaLogin extends JPanel {
 				String usuario=textField.getText();
 				String contraseña=new String (passwordField.getPassword());
 				System.out.println(usuario+" : "+contraseña);
+				try {
+					ventana.clienteLogado = new Cliente(usuario,contraseña);
+				} catch (ClienteNoExisteException | ContraseñaInvalidaExcepcion | SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		botonLogin.addActionListener(new ActionListener() {

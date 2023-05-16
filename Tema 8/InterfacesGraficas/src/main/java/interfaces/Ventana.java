@@ -2,7 +2,12 @@ package interfaces;
 
 import javax.swing.JFrame;
 
+import clases.Cliente;
+
 public class Ventana extends JFrame {
+	
+	protected Cliente clienteLogado;
+	
 	public Ventana() {
 		this.setSize(600,500);
 		this.setTitle("Programa de prueba de clase");

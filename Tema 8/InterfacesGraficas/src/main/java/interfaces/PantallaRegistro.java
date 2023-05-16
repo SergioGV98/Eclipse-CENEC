@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -164,18 +165,21 @@ public class PantallaRegistro extends JPanel {
 		registrarse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				char[] passwordChars = passwordField.getPassword();
-				String passwordString = new String(passwordChars);
-				String usuarioTexto = textNombre.getText();
-				int telefono = Integer.parseInt(campoTlf.getText());
-				String emailTexto = campoEmail.getText();
-				
 				try {
+					String passwordString = new String(passwordField.getPassword());
+					String usuarioTexto = textNombre.getText();
+					int telefono = Integer.parseInt(campoTlf.getText());
+					String emailTexto = campoEmail.getText();
 					new Cliente(usuarioTexto,emailTexto,passwordString,telefono);
-					JOptionPane.showMessageDialog(ventana, "Usuario valido");
+					JOptionPane.showMessageDialog(ventana, "Registrado correctamente","Exito",JOptionPane.INFORMATION_MESSAGE);
+					ventana.cambiarPantalla(PantallaLogin.class);
+				} catch(SQLIntegrityConstraintViolationException e3) {
+					e3.printStackTrace();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-				}
+				} catch(NumberFormatException e2) {
+					e2.printStackTrace();
+				} 
 			}
 		});
 		registrarse.setBackground(new Color(0, 0, 255));
