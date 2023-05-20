@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
+import clases.Cliente;
 import utils.DAO;
 
 public class Main {
