@@ -23,6 +23,14 @@ public class Cliente {
 		insertar.put("password", contraseña);
 		insertar.put("telefono", this.telefono = telefono);
 		DAO.insertar("cliente", insertar);
+
+	}
+
+	public Cliente(String nombre, String email, int telefono) throws SQLException {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.telefono = telefono;
 	}
 
 	public Cliente(String email, String contraseña)
@@ -57,7 +65,7 @@ public class Cliente {
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("nombre", nombre);
 		restricciones.put("email", this.email);
-		if(DAO.actualizar("cliente", actualizar, restricciones)==1) {
+		if (DAO.actualizar("cliente", actualizar, restricciones) == 1) {
 			this.nombre = nombre;
 		}
 	}
@@ -71,7 +79,7 @@ public class Cliente {
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("email", email);
 		restricciones.put("email", this.email);
-		if(DAO.actualizar("cliente", actualizar, restricciones)==1) {
+		if (DAO.actualizar("cliente", actualizar, restricciones) == 1) {
 			this.email = email;
 		}
 	}
@@ -85,14 +93,38 @@ public class Cliente {
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		actualizar.put("telefono", telefono);
 		restricciones.put("email", this.email);
-		if(DAO.actualizar("cliente", actualizar, restricciones)==1) {
+		if (DAO.actualizar("cliente", actualizar, restricciones) == 1) {
 			this.telefono = telefono;
 		}
 	}
 
+
+	public static ArrayList<Cliente> getTodos() throws SQLException {
+		ArrayList<Cliente> clientes = new ArrayList<>();
+		LinkedHashSet<String> consulta = new LinkedHashSet<String>();
+		Cliente cliente = null;
+
+		consulta.add("nombre");
+		consulta.add("email");
+		consulta.add("telefono");
+		HashMap<String, Object> restricciones = new HashMap<>();
+
+		ArrayList<Object> resultados = DAO.consultar("cliente", restricciones, consulta);
+
+		for (int i = 0; i < resultados.size(); i += 3) {
+			String email = (String) resultados.get(i);
+			String nombre = (String) resultados.get(i + 1);
+			int telefono = (Integer) resultados.get(i + 2);
+			cliente = new Cliente(email, nombre, telefono);
+			clientes.add(cliente);
+		}
+
+		return clientes;
+	}
+	
 	@Override
 	public String toString() {
-		return "Cliente\n" + "Nombre= " + nombre + "\nEmail= " + email + "\nTelefono= " + telefono;
+		return "\nCliente = "  + nombre + " | Email= " + email + " | Telefono= " + telefono; 
 	}
 
 }

@@ -7,10 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import excepciones.ClienteNoExisteException;
 import excepciones.ContraseñaInvalidaExcepcion;
+
 /**
  * 
  * @author Sergio García Vico
@@ -22,20 +24,15 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		Cliente cliente;
+		boolean clienteLogueado = false;
 
 		byte opcion;
 		do {
-			System.out.println("|              MENU              |"
-					 + "\n" 
-					 + "|       0 - Salir                |"
-					 + "\n" 
-					 + "|       1 - Registro             |"
-					 + "\n" 
-					 + "|       2 - Login                |"
-					 + "\n" 
-					 + "|       3 - Ver Log              |");
+			System.out.println("|              MENU              |" + "\n" + "|       0 - Salir                |" + "\n"
+					+ "|       1 - Registro             |" + "\n" + "|       2 - Login                |" + "\n"
+					+ "|       3 - Ver Log              |" + "\n" + "|   4 - Ver Todos los usuarios   |");
 			opcion = Byte.parseByte(sc.nextLine());
-			switch(opcion) {
+			switch (opcion) {
 			case 1:
 				System.out.println("¡Vamos a registrarte en la base de datos de clientes!");
 				System.out.println("Dime tu nombre.");
@@ -46,14 +43,14 @@ public class Main {
 				String contraseña = sc.nextLine();
 				System.out.println("Dime tu telefono.");
 				int telefono = Integer.parseInt(sc.nextLine());
-				
+
 				try {
 					cliente = new Cliente(nombre, email, contraseña, telefono);
-					if(cliente != null) {
+					if (cliente != null) {
 						System.out.println("Cliente registrado con exito");
-						try(BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))){
-							String informacion = "Cliente " + cliente.getEmail() + " registrado con exito en: " +
-									LocalDateTime.now().toString() + "\n";
+						try (BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))) {
+							String informacion = "Cliente " + cliente.getEmail() + " registrado con exito en: "
+									+ LocalDateTime.now().toString() + "\n";
 							writer.write(informacion);
 						} catch (IOException e) {
 							e.printStackTrace();
@@ -64,7 +61,7 @@ public class Main {
 				}
 				break;
 			case 2:
-				boolean clienteLogueado = false;
+				clienteLogueado = false;
 				do {
 					System.out.println("¡Vamos a logearte en la base de datos de clientes!");
 					System.out.println("Dime tu email.");
@@ -74,8 +71,9 @@ public class Main {
 					try {
 						cliente = new Cliente(email, contraseña);
 						clienteLogueado = true;
-						try(BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))){
-							String informacion = "Cliente " + cliente.getEmail() + " logueado con éxito en: " + LocalDateTime.now().toString() + "\n";
+						try (BufferedWriter writer = new BufferedWriter(new FileWriter("./clientes.log", true))) {
+							String informacion = "Cliente " + cliente.getEmail() + " logueado con éxito en: "
+									+ LocalDateTime.now().toString() + "\n";
 							writer.write(informacion);
 						} catch (IOException e) {
 							e.printStackTrace();
@@ -83,23 +81,36 @@ public class Main {
 					} catch (ClienteNoExisteException | ContraseñaInvalidaExcepcion | SQLException e) {
 						e.printStackTrace();
 					}
-				}while(!clienteLogueado);
+				} while (!clienteLogueado);
 				System.out.println("Cliente logado con éxito.");
 				break;
 			case 3:
 				System.out.println("Mostrando el contenido del archivo de log...");
-			    try {
-			        Scanner scanner = new Scanner(new File("./clientes.log"));
-			        while (scanner.hasNextLine()) {
-			            System.out.println(scanner.nextLine());
-			        }
-			        scanner.close();
-			    } catch (FileNotFoundException e) {
-			        e.printStackTrace();
-			    }
+				try {
+					Scanner scanner = new Scanner(new File("./clientes.log"));
+					while (scanner.hasNextLine()) {
+						System.out.println(scanner.nextLine());
+					}
+					scanner.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 4:
+				ArrayList<Cliente> clientes = new ArrayList<>();
+				if(clienteLogueado == true) {
+					try {
+						clientes = Cliente.getTodos();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					System.out.println(clientes);
+				} else {
+					System.out.println("No estas logeado");
+				}
 				break;
 			}
-		
-		}while(opcion!=0);
+
+		} while (opcion != 0);
 	}
 }
