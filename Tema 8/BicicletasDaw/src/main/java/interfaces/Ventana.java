@@ -1,5 +1,6 @@
 package interfaces;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Ventana extends JFrame{
@@ -11,6 +12,7 @@ public class Ventana extends JFrame{
 		this.setTitle("BicicletasDAW");
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setIconImage(new ImageIcon("./fotoclase.jpg").getImage());
 		this.setVisible(true);
 	}
 	
