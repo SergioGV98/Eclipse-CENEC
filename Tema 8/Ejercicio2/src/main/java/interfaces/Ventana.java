@@ -27,16 +27,4 @@ public class Ventana extends JFrame{
 		this.getContentPane().setVisible(true);
 	}
 	
-	public void cambiarPantalla(Class<?> clase, Capitulo capitulo) {
-		this.getContentPane().setVisible(false);
-		if (clase.equals(Ventana.class)) {
-			this.setContentPane(new VentanaPrincipal(this));
-		} else if (clase.equals(AnimeInformacion.class)) {
-			this.setContentPane(new AnimeInformacion(this));
-		}  else if (clase.equals(VentanaDetalle.class)) {
-			this.setContentPane(new VentanaDetalle(this, capitulo));
-		}
-		this.getContentPane().setVisible(true);
-	}
-	
 }

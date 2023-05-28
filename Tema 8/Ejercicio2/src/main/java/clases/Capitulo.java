@@ -1,11 +1,11 @@
 package clases;
 
 public class Capitulo {
-	
+
 	private String titulo;
 	private String descripcion;
 	private String rutaImagen;
-	
+
 	public Capitulo(String titulo, String descripcion, String rutaImagen) {
 		this.titulo = titulo;
 		this.descripcion = descripcion;
