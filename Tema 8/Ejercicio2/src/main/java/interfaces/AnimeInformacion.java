@@ -71,7 +71,7 @@ public class AnimeInformacion extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 
 					JOptionPane.showMessageDialog(null, new JLabel(capitulo.getDescripcion(), iconoGrises, JLabel.LEFT),
-							capitulo.getTitulo(), JOptionPane.INFORMATION_MESSAGE);
+							capitulo.getTitulo(), JOptionPane.PLAIN_MESSAGE);
 
 				}
 			});
