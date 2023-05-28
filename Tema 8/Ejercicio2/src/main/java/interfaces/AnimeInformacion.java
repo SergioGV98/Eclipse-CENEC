@@ -68,13 +68,15 @@ public class AnimeInformacion extends JPanel {
 			ImageIcon iconoGrises = convertirImagenGrises(capitulo.getRutaImagen());
 
 			descripcion.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			    public void actionPerformed(ActionEvent e) {
+			        JPanel panel = new JPanel(new BorderLayout());
+			        panel.add(new JLabel(iconoGrises), BorderLayout.CENTER);
+			        panel.add(new JLabel(capitulo.getDescripcion()), BorderLayout.SOUTH);
 
-					JOptionPane.showMessageDialog(null, new JLabel(capitulo.getDescripcion(), iconoGrises, JLabel.LEFT),
-							capitulo.getTitulo(), JOptionPane.PLAIN_MESSAGE);
-
-				}
+			        JOptionPane.showMessageDialog(null, panel, capitulo.getTitulo(), JOptionPane.PLAIN_MESSAGE);
+			    }
 			});
+
 		}
 
 	}
