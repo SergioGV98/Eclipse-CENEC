@@ -23,21 +23,12 @@ public class RecorridoTroll implements InterfazTroll{
 	}
 	
 	public void recorridoTroll(File rutaInicial) {
-		if(rutaInicial.isDirectory()) {
-			File[] archivos = rutaInicial.listFiles();
-			if(archivos != null) {
-				for(File archivo : archivos) {
-					if(archivo.isDirectory()) {
-						recorridoTroll(archivo);
-					} else if (archivo.isFile() && esArchivoTxt(archivo)) {
-						String contenidoOriginal = "";
-						ContenidoTxtOriginal a = new ContenidoTxtOriginal();
-						a.setNombre(archivo.getName());
-						contenidoOriginal = archivo.getName();
-					}
-				} 
-			}
-		}
+			 
+		 if(esArchivoTxt(rutaInicial)) {
+			 ContenidoTxtOriginal contenido = new ContenidoTxtOriginal();
+			 
+		 }
+		 
 	}
 	
 	public String obtenerExtensionArchivo(File archivo) {
