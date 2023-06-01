@@ -1,11 +1,8 @@
 package interfaces;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Ventana extends JFrame {
-	
-	ImageIcon imagen;
 	
 	public Ventana() {
 		this.setTitle("Examen de programacion DAW");
