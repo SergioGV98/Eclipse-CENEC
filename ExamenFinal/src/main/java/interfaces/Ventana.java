@@ -16,12 +16,12 @@ public class Ventana extends JFrame {
 		this.setVisible(true);
 	}
 	
-	public void cambiarPantalla(Class<?> clase) {
+	public void cambiarPantalla(Class<?> clase, String ruta) {
 		this.getContentPane().setVisible(false);
 		if (clase.equals(VentanaPrincipal.class)) {
 			this.setContentPane(new VentanaPrincipal(this));
 		} else if (clase.equals(VentanaImagen.class)) {
-			this.setContentPane(new VentanaImagen(this),imagen);
+			this.setContentPane(new VentanaImagen(this, ruta));
 		}
 		this.getContentPane().setVisible(true);
 	}

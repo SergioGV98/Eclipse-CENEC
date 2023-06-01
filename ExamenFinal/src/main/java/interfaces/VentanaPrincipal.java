@@ -89,17 +89,17 @@ public class VentanaPrincipal extends JPanel {
 					JOptionPane.showMessageDialog(ventana, "Error: Debes elegir una imagen", "No imagen seleccionada",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
-					ImageIcon imagen = null;
+					String ruta = null;
 					if (radioButton1.isSelected()) {
-						imagen = new ImageIcon("./imagenes/imagen 1.jpg");
+						ruta = "./imagenes/imagen 1.jpg";
 					} else if (radioButton2.isSelected()) {
-						imagen = new ImageIcon("./imagenes/imagen 2.jpg");
+						ruta = "./imagenes/imagen 2.jpg";
 					} else if (radioButton3.isSelected()) {
-						imagen = new ImageIcon("./imagenes/imagen 3.jpg");
+						ruta = "./imagenes/imagen 3.jpg";
 					} else if (radioButton4.isSelected()) {
-						imagen = new ImageIcon("./imagenes/imagen 4.jpg");
+						ruta = "./imagenes/imagen 4.jpg";
 					}
-					ventana.cambiarPantalla(VentanaImagen.class,imagen);
+					ventana.cambiarPantalla(VentanaImagen.class,ruta);
 				}
 			}
 		});
