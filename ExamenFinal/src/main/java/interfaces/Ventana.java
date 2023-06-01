@@ -1,8 +1,11 @@
 package interfaces;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Ventana extends JFrame {
+	
+	ImageIcon imagen;
 	
 	public Ventana() {
 		this.setTitle("Examen de programacion DAW");
@@ -18,7 +21,7 @@ public class Ventana extends JFrame {
 		if (clase.equals(VentanaPrincipal.class)) {
 			this.setContentPane(new VentanaPrincipal(this));
 		} else if (clase.equals(VentanaImagen.class)) {
-			this.setContentPane(new VentanaImagen(this));
+			this.setContentPane(new VentanaImagen(this),imagen);
 		}
 		this.getContentPane().setVisible(true);
 	}
