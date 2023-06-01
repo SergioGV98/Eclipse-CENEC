@@ -1,14 +1,23 @@
 package interfaces;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class VentanaImagen extends JPanel {
 
@@ -54,19 +63,15 @@ public class VentanaImagen extends JPanel {
     public ImageIcon aplicarFiltroNegativo(String rutaImagen) {
         try {
             BufferedImage imgOriginal = ImageIO.read(new File(rutaImagen));
-
-            // Convertir la imagen en escala de grises
             BufferedImage imgGrayscale = new BufferedImage(imgOriginal.getWidth(), imgOriginal.getHeight(),
                     BufferedImage.TYPE_BYTE_GRAY);
             Graphics2D g2d = imgGrayscale.createGraphics();
             g2d.drawImage(imgOriginal, 0, 0, null);
             g2d.dispose();
 
-            // Invertir los colores de la imagen en escala de grises para obtener el negativo
             RescaleOp op = new RescaleOp(-1.0f, 255f, null);
             BufferedImage imgNegativa = op.filter(imgGrayscale, null);
 
-            // Escalar la imagen negativa
             Image scaledImg = imgNegativa.getScaledInstance(200, 150, Image.SCALE_SMOOTH);
             return new ImageIcon(scaledImg);
         } catch (IOException e) {

@@ -57,7 +57,7 @@ public class VentanaPrincipal extends JPanel {
 		gbc_radioButton1.gridy = 3;
 		add(radioButton1, gbc_radioButton1);
 
-		JRadioButton radioButton2 = new JRadioButton("Blue Lock");
+		JRadioButton radioButton2 = new JRadioButton("Resident Evil");
 		buttonGroup.add(radioButton2);
 		GridBagConstraints gbc_radioButton2 = new GridBagConstraints();
 		gbc_radioButton2.insets = new Insets(0, 0, 5, 5);
@@ -73,7 +73,7 @@ public class VentanaPrincipal extends JPanel {
 		gbc_radioButton3.gridy = 5;
 		add(radioButton3, gbc_radioButton3);
 
-		JRadioButton radioButton4 = new JRadioButton("Dangaronpa");
+		JRadioButton radioButton4 = new JRadioButton("Dark Souls 3");
 		buttonGroup.add(radioButton4);
 		GridBagConstraints gbc_radioButton4 = new GridBagConstraints();
 		gbc_radioButton4.insets = new Insets(0, 0, 5, 5);
