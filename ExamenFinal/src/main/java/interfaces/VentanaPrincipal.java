@@ -5,12 +5,16 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaPrincipal extends JPanel{
 	
@@ -21,7 +25,7 @@ public class VentanaPrincipal extends JPanel{
 		setPreferredSize(new Dimension(800, 600));
 		this.ventana = v;
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 205, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 205, 119, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
@@ -74,6 +78,18 @@ public class VentanaPrincipal extends JPanel{
 		gbc_radioButton4.gridx = 1;
 		gbc_radioButton4.gridy = 6;
 		add(radioButton4, gbc_radioButton4);
+		
+		buttonVerImagen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!radioButton1.isSelected() && !radioButton2.isSelected() && !radioButton3.isSelected() && !radioButton4.isSelected()) {
+					JOptionPane.showMessageDialog(ventana, "Error: Debes elegir una imagen","No imagen seleccionada",JOptionPane.ERROR_MESSAGE);
+				} else {
+					
+				}
+			}
+		});
+		
 	}
 
 }

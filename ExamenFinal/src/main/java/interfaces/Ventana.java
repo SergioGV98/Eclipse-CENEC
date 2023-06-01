@@ -17,6 +17,8 @@ public class Ventana extends JFrame {
 		this.getContentPane().setVisible(false);
 		if (clase.equals(VentanaPrincipal.class)) {
 			this.setContentPane(new VentanaPrincipal(this));
+		} else if (clase.equals(VentanaImagen.class)) {
+			this.setContentPane(new VentanaImagen(this));
 		}
 		this.getContentPane().setVisible(true);
 	}
